@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import './LocationSelection.css';
 
-import React from 'react';
-
 export const LocationSelection = () => {
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
   return <div></div>;
 };
