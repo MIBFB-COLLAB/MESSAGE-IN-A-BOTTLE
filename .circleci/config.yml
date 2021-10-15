@@ -5,7 +5,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   cypress: cypress-io/cypress@1.29.0
-  # heroku: circleci/heroku@1.2.6
+  heroku: circleci/heroku@1.2.6
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -20,4 +20,4 @@ workflows:
           # version: '16.10'
           # If you are using yarn, change the line below from "npm" to "yarn"
           # pkg-manager: npm
-      # - heroku/deploy-via-git
+      - heroku/deploy-via-git
