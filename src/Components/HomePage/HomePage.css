@@ -1,0 +1,11 @@
+.Home-page {
+    display: grid;
+    height: 100vh;
+    background: purple;
+    grid-template-areas:
+        'Nav-bar Header'
+        'Nav-bar Instructions'
+        'Nav-bar Instructions';
+    grid-template-rows: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 6fr;
+}
