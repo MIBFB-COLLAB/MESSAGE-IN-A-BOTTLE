@@ -2,4 +2,10 @@
 .Nav-bar {
     grid-area: Nav-bar;
     background: olive;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }

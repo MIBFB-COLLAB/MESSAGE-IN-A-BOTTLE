@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import './NavBar.css'
+
 const NavBar = () => {
     const [newStory, setNewStory] = useState(false)
     return (
