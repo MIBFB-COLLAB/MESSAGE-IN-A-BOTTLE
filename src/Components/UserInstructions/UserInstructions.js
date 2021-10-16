@@ -1,7 +1,6 @@
 import './UserInstructions.css'
 import React from "react"
 
-
 const UserIntructions = () => {
     return (
         <article className='Instructions'>

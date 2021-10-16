@@ -3,9 +3,14 @@
     grid-area: Nav-bar;
     background: olive;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.story-submit {
+    height: 40px;
+    margin: 30px 0 0 0;
+    width: 130px;
+    border-radius: 20px;
+    border: transparent;
 }
