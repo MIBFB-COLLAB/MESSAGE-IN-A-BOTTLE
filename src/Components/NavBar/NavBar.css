@@ -1,18 +1,21 @@
 
 .Nav-bar {
     grid-area: Nav-bar;
-    background:#ADB2C5;
+    background:#6355D5;
     width: 300px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-radius: 10px 40px 10px;
 }
 
 .story-submit {
-    height: 40px;
+    height: 60px;
     margin: 30px 0 0 0;
-    width: 140px;
-    border-radius: 20px;
+    width: 200px;
+    border-radius: 26px;
     border: transparent;
-    font-size: large;
+    font-size: x-large;
+    background: #DCE9F7;
+    color:#092052
 }

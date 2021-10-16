@@ -1,7 +1,7 @@
 .Home-page {
     display: grid;
     height: 100vh;
-    background:#D9E4E6;
+    background:#CFD9E4;
     grid-template-areas:
         'Nav-bar Header'
         'Nav-bar Instructions'
