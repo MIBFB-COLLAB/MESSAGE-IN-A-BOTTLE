@@ -1,3 +1,9 @@
 .Header {
     grid-area: Header;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
