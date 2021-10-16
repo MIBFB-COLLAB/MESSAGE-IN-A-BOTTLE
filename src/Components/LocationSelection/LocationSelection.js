@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
@@ -20,6 +20,8 @@ export const LocationSelection = () => {
   const handleClick = () => {
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
+
+  useEffect(() => {});
 
   return (
     <>
