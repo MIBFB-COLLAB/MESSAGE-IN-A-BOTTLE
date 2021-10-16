@@ -1,6 +1,7 @@
 import './StoriesContainer.css';
 import React, { useEffect, useState } from "react";
 import StoryCard from "../StoryCard/StoryCard";
+const { v4: uuidv4 } = require('uuid');
 
 const StoriesContainer = ({ longitude, latitude }) => {
   const [currentStories, setCurrentStories] = useState([
@@ -36,7 +37,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
   const storyCards = currentStories.map((story) => {
     return (
       <StoryCard
-        // key={uuid}
+        key={uuidv4()}
         title={story.attributes.title}
         distance={story.attributes.distance_in_miles}
       />
@@ -44,12 +45,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
   })
 
   return (
-    <section className="stories-container">
-      <h2>These are the Story Cards</h2>
-      <div>
-        { storyCards }
-      </div>
-    </section>
+    <section className="stories-container">{ storyCards }</section>
   )
 }
 
