@@ -1,11 +1,10 @@
-import React from 'react'
+import {useState} from 'react'
 import './NavBar.css'
-
-
 const NavBar = () => {
+    const [newStory, setNewStory] = useState(false)
     return (
         <nav className='Nav-bar'> 
-        <button className='story-submit'>Submit a story</button>
+        <button className='story-submit' onClick = {(e) => setNewStory(true)}>Submit a story</button>
         </nav>
     )
     
