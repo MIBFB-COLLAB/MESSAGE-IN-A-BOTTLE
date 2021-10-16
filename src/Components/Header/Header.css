@@ -1,4 +1,4 @@
-/* .Header {
+.Header {
     font-family: 'Noto Serif', serif;
     grid-area: Header;
     height: 100px;
@@ -9,9 +9,9 @@
     align-items: center;
     font-size: xx-large;
     color: #0B1F51;
-} */
+}
 
-.Header{  
+/* .Header{  
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -34,4 +34,4 @@
     from { transform: translate(0,  0px); }
     65%  { transform: translate(0, 15px); }
     to   { transform: translate(0, -0px); }    
-}
+} */
