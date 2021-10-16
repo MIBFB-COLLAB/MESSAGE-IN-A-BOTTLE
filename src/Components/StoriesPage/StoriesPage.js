@@ -4,11 +4,11 @@ import StoriesContainer from "../StoriesContainer/StoriesContainer";
 
 const StoriesPage = () => {
   return(
-    <div>
+    <main className="stories-page">
       <h1>Stories Page Header component goes here</h1>
       <h2>User Instructions component goes here</h2>
       <StoriesContainer/>
-    </div>
+    </main>
   )
 }
 
