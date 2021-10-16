@@ -3,10 +3,9 @@ import './NavBar.css'
 
 
 const NavBar = () => {
-
     return (
-        <nav className='Nav-bar'>   
-            <button className='story-submit'>Submit a story</button>
+        <nav className='Nav-bar'> 
+        <button className='story-submit'>Submit a story</button>
         </nav>
     )
     
