@@ -6,8 +6,8 @@ import HomePage from "../HomePage/HomePage"
 const  App = () =>  {
   return (
     <div className="App">
-      <StoriesPage/>
       <HomePage/>
+      <StoriesPage/>
     </div>
   );
 }
