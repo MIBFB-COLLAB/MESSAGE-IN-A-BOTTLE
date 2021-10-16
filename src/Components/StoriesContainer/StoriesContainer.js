@@ -37,7 +37,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
     return (
       <StoryCard
         // key={uuid}
-        title={story.atrributes.title}
+        title={story.attributes.title}
         distance={story.attributes.distance_in_miles}
       />
     )
