@@ -1,4 +1,5 @@
-.Header {
+/* .Header {
+    font-family: 'Noto Serif', serif;
     grid-area: Header;
     height: 100px;
     display: flex;
@@ -8,4 +9,29 @@
     align-items: center;
     font-size: xx-large;
     color: #0B1F51;
+} */
+
+.Header{  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+    font-family: 'Noto Serif', serif;
+    grid-area: Header;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    color: #0B1F51;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
 }
