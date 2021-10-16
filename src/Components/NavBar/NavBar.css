@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-radius: 10px 40px 10px;
+    border-radius: 5px 90px 5px;
 }
 
 .story-submit {
@@ -17,5 +17,5 @@
     border: transparent;
     font-size: x-large;
     background: #DCE9F7;
-    color:#092052
+    color:#0B1F51
 }
