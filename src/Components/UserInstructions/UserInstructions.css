@@ -1,0 +1,47 @@
+/* .Instructions {
+    font-family: 'Noto Serif', serif;
+    grid-area: Instructions;
+    background: #22BCF4;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    border-radius: 4px 90px 4px;
+    height: 300px;
+} */
+
+
+.Instructions {
+    font-family: 'Noto Serif', serif;
+    grid-area: Instructions;
+    background: #22BCF4;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    border-radius: 4px 90px 4px;
+    height: 300px;
+    width: 500px;
+    box-sizing: border-box;
+    border: 1px white solid;
+    /* border-radius: 50%; */
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+    }
+    50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+    }
+    100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+    }
+}
