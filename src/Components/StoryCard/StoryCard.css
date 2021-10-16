@@ -1,6 +1,7 @@
 .story-card {
-  border: 2px solid black;
+  border: 2px solid #000000;
   text-align: center;
+  padding: 10%
 }
 
 h3{
