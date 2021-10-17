@@ -12,6 +12,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
   const getStories = () => {
     getData()
       .then((data) => setCurrentStories(data.data))
+      // .then((data) => console.log(data))
       .catch((error) => setError(error));
   };
 
@@ -23,8 +24,9 @@ const StoriesContainer = ({ longitude, latitude }) => {
     return (
       <StoryCard
         key={uuidv4()}
-        title={story.attributes.title}
-        distance={story.attributes.distance_in_miles}
+        title={story.title}
+        distance={story.distance_in_miles}
+        message={story.message}
       />
     );
   });
@@ -59,3 +61,11 @@ export default StoriesContainer;
 //     },
 //   },
 // ]
+
+// id: 1
+// latitude: 123.456892
+// location: ""
+// longitude: -19.982791
+// message: "I once saw a really pretty flower."
+// name: "Anonymous"
+// title: "My Cool Story!"
