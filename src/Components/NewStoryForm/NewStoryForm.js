@@ -1,6 +1,5 @@
 import './NewStoryForm.css';
 import React, { useState, useEffect } from 'react';
-import { uuid } from 'uuidv4';
 
 export const NewStoryForm = () => {
   const [title, setTitle] = useState('');
@@ -10,21 +9,18 @@ export const NewStoryForm = () => {
   const [error, setError] = useState('');
 
   const getLocation = (position) => {
-    console.log(position);
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
 
   const catchError = () => {
     setError('Sorry, no position available.');
-    console.log(error);
   };
 
   const submitMessage = (e) => {
     e.preventDefault();
 
     const newStory = {
-      id: uuid(),
       title,
       message,
       longitude,
