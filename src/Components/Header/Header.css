@@ -35,3 +35,21 @@
     65%  { transform: translate(0, 15px); }
     to   { transform: translate(0, -0px); }    
 } */
+
+
+.story-submit {
+    font-family: 'Noto Serif', serif;
+    height: 60px;
+    margin: 30px 0 0 0;
+    width: 200px;
+    border-radius: 26px;
+    border: transparent;
+    font-size: x-large;
+    background: #75B7E0;
+    color:#0B1F51;
+    cursor:pointer
+}
+
+.story-submit:hover {
+    background: #4F9CEB
+}
