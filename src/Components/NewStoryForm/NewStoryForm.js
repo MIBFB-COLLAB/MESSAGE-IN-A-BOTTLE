@@ -1,9 +1,42 @@
 import './NewStoryForm.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { uuid } from 'uuidv4';
 
 export const NewStoryForm = () => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [error, setError] = useState('');
+
+  const getLocation = (position) => {
+    console.log(position);
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+  };
+
+  const catchError = () => {
+    setError('Sorry, no position available.');
+    console.log(error);
+  };
+
+  const submitMessage = (e) => {
+    e.preventDefault();
+
+    const newStory = {
+      id: uuid(),
+      title,
+      message,
+      longitude,
+      latitude,
+    };
+    console.log(newStory);
+  };
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(getLocation, catchError);
+  }, []);
+
   return (
     <form type="submit" className="new-story-form">
       <input
@@ -22,7 +55,11 @@ export const NewStoryForm = () => {
         required
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button type="submit" className="story-submit-button">
+      <button
+        type="submit"
+        className="story-submit-button"
+        onClick={(e) => submitMessage(e)}
+      >
         Submit Story
       </button>
     </form>
