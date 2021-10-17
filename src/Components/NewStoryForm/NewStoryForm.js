@@ -1,5 +1,6 @@
 import './NewStoryForm.css';
 import React, { useState, useEffect } from 'react';
+import { sendNewStory } from '../../apiCalls';
 
 export const NewStoryForm = () => {
   const [title, setTitle] = useState('');
@@ -26,7 +27,7 @@ export const NewStoryForm = () => {
       longitude,
       latitude,
     };
-    console.log(newStory);
+    sendNewStory(newStory);
   };
 
   useEffect(() => {
