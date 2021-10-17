@@ -7,12 +7,12 @@ const { v4: uuidv4 } = require('uuid');
 
 const StoriesContainer = ({ longitude, latitude }) => {
   const [currentStories, setCurrentStories] = useState([]);
+  const [error, setError] = useState('');
 
-  
   const getStories = () => {
     getData()
       .then((data) => setCurrentStories(data.data))
-      .catch((error) => );
+      .catch((error) => setError(error));
   };
 
   useEffect(() => {
@@ -33,8 +33,6 @@ const StoriesContainer = ({ longitude, latitude }) => {
 };
 
 export default StoriesContainer;
-
-
 
 // Test Data
 // [
