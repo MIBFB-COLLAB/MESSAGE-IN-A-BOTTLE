@@ -13,7 +13,24 @@ const StoryEdit = () => {
                 required
                 
             />
-            
+            <button
+                type="submit"
+                className="take-home"
+            >
+                All done! Take me Home
+            </button>
+            <button
+                type="submit"
+                className="story-submit-button"
+            >
+                Submit my Edits
+            </button>
+            <button
+                type="submit"
+                className="story-delete-button"
+            >
+                Delete Story
+            </button>
         </form>
     )
 }
