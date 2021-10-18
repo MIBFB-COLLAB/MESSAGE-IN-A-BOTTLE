@@ -6,10 +6,12 @@ import { getDirections } from '../../apiCalls';
 
 const StoryCard = ({id, title, distance, latitude, longitude}) => {
   const [directions, setDirections] = useState('')
+  const [error, setError] = useState('')
 
   const handleClick = () => {
     getDirections(id, latitude, longitude)
     .then((data) => setDirections)
+    .catch((error) => setError)
   }
 
   return(
