@@ -1,5 +1,5 @@
 import './StoryCard.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MicroModal from 'react-micro-modal';
 import Directions from '../Directions/Directions';
 import { getDirections } from '../../apiCalls';
@@ -11,8 +11,14 @@ const StoryCard = ({id, title, distance, latitude, longitude}) => {
   const handleClick = () => {
     getDirections(id, latitude, longitude)
     .then((data) => setDirections)
-    .catch((error) => setError)
+    .catch((error) => setError(error.message))
   }
+
+  useEffect(() => {
+    return (
+      <ErrorHandlingCard errorMessage={error}/>
+    )
+  }, [error])
 
   return(
     <article className="story-card">

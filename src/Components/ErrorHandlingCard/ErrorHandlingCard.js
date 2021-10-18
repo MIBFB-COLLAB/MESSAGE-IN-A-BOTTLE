@@ -1,10 +1,10 @@
 import './ErrorHandlingCard.css';
 import React from "react"
 
-const ErrorHandlingCard = () => {
+const ErrorHandlingCard = ({ errorMessage }) => {
   return (
     <article className="error-card">
-      <p>OOPS! You're not within range of this story right now</p>
+      <p>{errorMessage}</p>
       <button className="directions-button">BACK TO DIRECTIONS</button>
     </article>
   )
