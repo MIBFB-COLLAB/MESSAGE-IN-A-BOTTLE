@@ -11,6 +11,7 @@ const Header = () => {
     <header className="Header">
       <h1> Welcome to Message in a Bottle </h1>
       {!newStory && <MicroModal
+        backdrop='static'
         trigger={(open) => (
           <div onClick={open}>
             <button className="story-submit">Submit a story</button>
@@ -27,7 +28,7 @@ const Header = () => {
         }}
       </MicroModal>
       }
-      {/* {newStory && 
+      {newStory && 
       <MicroModal
         trigger={(open) => (
           <StoryEdit newstory={newStory}/>
@@ -39,7 +40,7 @@ const Header = () => {
             )
           }}
       </MicroModal>
-      } */}
+      }
         
     </header>
   );

@@ -8,6 +8,7 @@ export const NewStoryForm = ({setNewStory}) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
+  const [left, setLeft] = useState(1000);
 
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
@@ -20,7 +21,6 @@ export const NewStoryForm = ({setNewStory}) => {
 
   const submitMessage = (e) => {
     e.preventDefault();
-
     const newStory = {
       title,
       message,
@@ -29,6 +29,12 @@ export const NewStoryForm = ({setNewStory}) => {
     };
     sendNewStory(newStory).then((data) => setNewStory(data));
   };
+
+  const setCharacterLimit = (e) => {
+    let input = e.target.value;
+    setMessage(e.target.value)
+    setLeft(1000 - input.length);
+  }
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
@@ -45,13 +51,15 @@ export const NewStoryForm = ({setNewStory}) => {
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
-        type="text"
+        // onChange={setCharacterLimit}
         className="message"
         placeholder="type your story here"
+        maxLength={left}
         value={message}
         required
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) => setCharacterLimit(e)}
       />
+      <h2>{left} characters left</h2>
       <button
         type="submit"
         className="story-submit-button"
