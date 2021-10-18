@@ -27,7 +27,7 @@ const StoryCard = ({id, title, distance, latitude, longitude}) => {
         {(close) => {
           return (
             <article className="directions-modal">
-              <Directions />
+              <Directions title={title} directions={directions}/>
             </article>
           )
         }}
