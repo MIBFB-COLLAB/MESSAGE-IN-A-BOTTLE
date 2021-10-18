@@ -2,6 +2,7 @@ import './StoryCard.css';
 import React, { useState, useEffect } from "react";
 import MicroModal from 'react-micro-modal';
 import Directions from '../Directions/Directions';
+import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import { getDirections } from '../../apiCalls';
 
 const StoryCard = ({id, title, distance, latitude, longitude}) => {
@@ -9,8 +10,11 @@ const StoryCard = ({id, title, distance, latitude, longitude}) => {
   const [error, setError] = useState('')
 
   const handleClick = () => {
+    console.log('handlin the click')
     getDirections(id, latitude, longitude)
+    // We may need to change how we access the data here depending on data structure
     .then((data) => setDirections)
+    // We may need to change how we access the error message here depending on data structure
     .catch((error) => setError(error.message))
   }
 

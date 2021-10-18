@@ -11,8 +11,8 @@ const StoriesContainer = ({ longitude, latitude }) => {
 
   const getStories = () => {
     getData()
-      .then((data) => setCurrentStories(data.data))
-      // .then((data) => console.log(data))
+      // .then((data) => setCurrentStories(data.data))
+      .then((data) => console.log(data))
       .catch((error) => setError(error));
   };
 
