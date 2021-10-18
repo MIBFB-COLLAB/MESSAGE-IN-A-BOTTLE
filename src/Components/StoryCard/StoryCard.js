@@ -1,9 +1,17 @@
 import './StoryCard.css';
-import React from "react";
+import React, { useState } from "react";
 import MicroModal from 'react-micro-modal';
 import Directions from '../Directions/Directions';
+import { getDirections } from '../../apiCalls';
 
-const StoryCard = ({title, distance}) => {
+const StoryCard = ({id, title, distance, latitude, longitude}) => {
+  const [directions, setDirections] = useState('')
+
+  const handleClick = () => {
+    getDirections(id, latitude, longitude)
+    .then((data) => setDirections)
+  }
+
   return(
     <article className="story-card">
       <h3 className="story-title">{title}</h3>
@@ -11,7 +19,7 @@ const StoryCard = ({title, distance}) => {
       <MicroModal 
         trigger={(open) => (
           <div onClick={open}>
-            <button className="get-directions-btn">GET DIRECTIONS</button>
+            <button className="get-directions-btn" onClick={() => handleClick()}>GET DIRECTIONS</button>
           </div>
       )}>
         {(close) => {
