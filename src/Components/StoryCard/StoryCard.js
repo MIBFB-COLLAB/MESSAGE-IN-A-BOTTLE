@@ -9,7 +9,7 @@ const StoryCard = ({id, title, distance, latitude, longitude}) => {
   const [directions, setDirections] = useState('')
   const [error, setError] = useState('')
 
-  const handleClick = () => {
+  const handleDirectionsClick = () => {
     console.log('handlin the click')
     getDirections(id, latitude, longitude)
     // We may need to change how we access the data here depending on data structure
@@ -31,13 +31,20 @@ const StoryCard = ({id, title, distance, latitude, longitude}) => {
       <MicroModal 
         trigger={(open) => (
           <div onClick={open}>
-            <button className="get-directions-btn" onClick={() => handleClick()}>GET DIRECTIONS</button>
+            <button 
+              className="get-directions-btn" 
+              onClick={() => handleDirectionsClick()}>
+              GET DIRECTIONS
+            </button>
           </div>
       )}>
         {(close) => {
           return (
             <article className="directions-modal">
-              <Directions title={title} directions={directions}/>
+              <Directions 
+                title={title} 
+                directions={directions}
+              />
             </article>
           )
         }}
