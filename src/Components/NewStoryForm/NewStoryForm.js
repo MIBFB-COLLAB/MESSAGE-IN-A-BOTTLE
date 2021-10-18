@@ -44,8 +44,8 @@ export const NewStoryForm = () => {
         required
         onChange={(e) => setTitle(e.target.value)}
       />
-      <input
-        type="message"
+      <textarea
+        type="text"
         className="message"
         placeholder="type your story here"
         value={message}
