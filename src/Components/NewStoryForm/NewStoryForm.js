@@ -27,7 +27,7 @@ export const NewStoryForm = () => {
       longitude,
       latitude,
     };
-    sendNewStory(newStory);
+    sendNewStory(newStory).then((data) => console.log(data));
   };
 
   useEffect(() => {
