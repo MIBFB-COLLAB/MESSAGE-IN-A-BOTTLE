@@ -18,7 +18,7 @@ const StoryEdit = ({newStory}) => {
         type="text"
         className="title"
         placeholder="title"
-        value=''
+        value={title}
         required
         // onChange={(e) => setTitle(e.target.value)}
       />
@@ -26,7 +26,7 @@ const StoryEdit = ({newStory}) => {
                 type="text"
                 className="message"
                 placeholder="type your story here"
-                value=''
+                value="message"
                 required
                 
             />
