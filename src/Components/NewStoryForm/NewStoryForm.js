@@ -13,6 +13,7 @@ export const NewStoryForm = () => {
   const [newStory, setNewStory] = useState(null)
   const [left, setLeft] = useState(1000);
   console.log(newStory)
+  
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);

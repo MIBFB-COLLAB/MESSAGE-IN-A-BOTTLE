@@ -1,10 +1,31 @@
 import './StoryEdit.css';
 import {useState} from "react"
+import { sendNewStory } from '../../apiCalls';
 
 const StoryEdit = ({newStory}) => {
-    const [title, setTitle] = useState('');
-    const [message, setMessage] = useState('');
+    const [title, setTitle] = useState(newStory.data.title);
+    console.log(title)
+    const [message, setMessage] = useState(newStory.data.message);
     console.log(newStory)
+    const [left, setLeft] = useState(1000);
+
+    const setCharacterLimit = (e) => {
+        let input = e.target.value;
+        setMessage(e.target.value)
+        setLeft(1000 - input.length);
+    }
+
+    const submitMessage = (e) => {
+        e.preventDefault();
+        const newStory = {
+            title,
+            message,
+            longitude: newStory.data.longitude,
+            latitude:newStory.data.latitude
+        };
+        sendNewStory(newStory).then((data) => console.log(data));
+    };
+    
     return (
         <form className='edit-story-form'>
             <p>
@@ -20,15 +41,15 @@ const StoryEdit = ({newStory}) => {
         placeholder="title"
         value={title}
         required
-        // onChange={(e) => setTitle(e.target.value)}
-      />
+        onChange={(e) => setTitle(e.target.value)}
+            />
             <textarea
                 type="text"
                 className="message"
                 placeholder="type your story here"
-                value="message"
+                value={message}
                 required
-                
+                onChange={(e) => setCharacterLimit(e)}
             />
             <button
                 type="submit"
@@ -39,6 +60,7 @@ const StoryEdit = ({newStory}) => {
             <button
                 type="submit"
                 className="story-submit-button"
+                onClick={(e) => submitMessage(e)}
             >
                 Submit my Edits
             </button>
