@@ -1,12 +1,17 @@
 import './StoryEdit.css';
 import {useState} from "react"
-import { sendNewStory } from '../../apiCalls';
+import { editNewStory } from '../../apiCalls';
 
 const StoryEdit = ({newStory}) => {
     const [title, setTitle] = useState(newStory.data.title);
     console.log(title)
     const [message, setMessage] = useState(newStory.data.message);
+    const latitude = newStory.data.latitude
+    const longitude = newStory.data.longitude
+    const id = newStory.data.id
     console.log(newStory)
+    console.log(latitude)
+    console.log(longitude)
     const [left, setLeft] = useState(1000);
 
     const setCharacterLimit = (e) => {
@@ -20,10 +25,10 @@ const StoryEdit = ({newStory}) => {
         const newStory = {
             title,
             message,
-            longitude: newStory.data.longitude,
-            latitude:newStory.data.latitude
+            longitude,
+            latitude,
         };
-        sendNewStory(newStory).then((data) => console.log(data));
+        editNewStory(newStory,id).then((data) => console.log(data));
     };
     
     return (
