@@ -27,9 +27,9 @@ export const sendNewStory = async (newStory) => {
   return await response.json();
 };
 
-export const editOrDeleteNewStory = async (newStory, id, method) => {
+export const editNewStory = async (newStory, id) => {
   const requestOptions = {
-    method: {method},
+    method: 'PUT',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(newStory),
   };
@@ -39,3 +39,10 @@ export const editOrDeleteNewStory = async (newStory, id, method) => {
   );
   return await response.json();
 }
+
+export const deleteStory = async (id) => {
+  const response = await fetch(`https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/:${id}`, 
+  { method: 'DELETE' });
+
+  return await response.json();
+};
