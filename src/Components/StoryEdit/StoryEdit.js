@@ -1,7 +1,9 @@
 import './StoryEdit.css';
-import React from "react"
+import {useState} from "react"
 
 const StoryEdit = ({newStory}) => {
+    const [title, setTitle] = useState('');
+    const [message, setMessage] = useState('');
     console.log(newStory)
     return (
         <form className='edit-story-form'>
