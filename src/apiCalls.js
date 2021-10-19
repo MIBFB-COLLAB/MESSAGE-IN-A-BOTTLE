@@ -41,7 +41,7 @@ export const editNewStory = async (newStory, id) => {
 }
 
 export const deleteStory = async (id) => {
-  const response = await fetch(`https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/:${id}`, 
+  const response = await fetch(`https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/${id}`, 
   { method: 'DELETE' });
 
   return await response.json();

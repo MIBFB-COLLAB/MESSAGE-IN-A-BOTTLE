@@ -4,14 +4,10 @@ import { editNewStory, deleteStory } from '../../apiCalls';
 
 const StoryEdit = ({newStory}) => {
     const [title, setTitle] = useState(newStory.data.title);
-    console.log(title)
     const [message, setMessage] = useState(newStory.data.message);
     const latitude = newStory.data.latitude
     const longitude = newStory.data.longitude
     const id = newStory.data.id
-    console.log(newStory)
-    console.log(latitude)
-    console.log(longitude)
     const [left, setLeft] = useState(1000);
 
     const setCharacterLimit = (e) => {
@@ -20,8 +16,7 @@ const StoryEdit = ({newStory}) => {
         setLeft(1000 - input.length);
     }
 
-    const submitMessage = (e) => {
-        e.preventDefault();
+    const submitMessage = () => {
         const newStory = {
             title,
             message,
@@ -30,6 +25,10 @@ const StoryEdit = ({newStory}) => {
         };
         editNewStory(newStory,id).then((data) => console.log(data));
     };
+    
+    const deleteNewStory = () => {
+        deleteStory(id).then((data) => console.log(data))
+    }
     
     return (
         <form className='edit-story-form'>
@@ -69,14 +68,14 @@ const StoryEdit = ({newStory}) => {
             <button
                 type="submit"
                 className="story-submit-button"
-                onClick={(e) => submitMessage(e)}
+                onClick={() => submitMessage()}
             >
                 Submit my Edits
             </button>
             <button
                 type="submit"
                 className="story-delete-button"
-                onClick={(e) => deleteStory(id)}
+                onClick={() => deleteNewStory()}
             >
                 Delete Story
             </button>
