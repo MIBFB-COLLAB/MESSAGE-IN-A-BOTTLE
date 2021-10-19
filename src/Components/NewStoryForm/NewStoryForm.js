@@ -1,15 +1,18 @@
 import './NewStoryForm.css';
 import React, { useState, useEffect } from 'react';
 import { sendNewStory } from '../../apiCalls';
+import MicroModal from 'react-micro-modal';
+import StoryEdit from '../StoryEdit/StoryEdit';
 
-export const NewStoryForm = ({setNewStory}) => {
+export const NewStoryForm = () => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
+  const [newStory, setNewStory] = useState(null)
   const [left, setLeft] = useState(1000);
-
+  console.log(newStory)
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
@@ -41,6 +44,8 @@ export const NewStoryForm = ({setNewStory}) => {
   }, []);
 
   return (
+    <div>
+    {!newStory && 
     <form type="submit" className="new-story-form">
       <input
         type="text"
@@ -51,7 +56,6 @@ export const NewStoryForm = ({setNewStory}) => {
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
-        // onChange={setCharacterLimit}
         className="message"
         placeholder="type your story here"
         maxLength={left}
@@ -67,6 +71,23 @@ export const NewStoryForm = ({setNewStory}) => {
       >
         Submit Story
       </button>
-    </form>
+      </form>
+    }
+      {newStory &&
+        <MicroModal
+        trigger={(open) => (
+          <StoryEdit newStory={newStory}/>
+          
+        )}
+        >
+          {(close) => {
+            return(
+                <StoryEdit newStory={newStory}/>
+            
+            )
+          }}
+      </MicroModal>
+      }
+      </div>
   );
 };

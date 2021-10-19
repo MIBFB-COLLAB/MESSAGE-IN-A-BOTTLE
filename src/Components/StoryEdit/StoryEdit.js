@@ -1,8 +1,8 @@
 import './StoryEdit.css';
 import React from "react"
 
-const StoryEdit = () => {
-
+const StoryEdit = ({newStory}) => {
+    console.log(newStory)
     return (
         <form className='edit-story-form'>
             <p>
