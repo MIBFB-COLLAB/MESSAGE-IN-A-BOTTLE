@@ -35,6 +35,7 @@ const StoryEdit = ({newStory}) => {
                 <br/>
                 Once you have exited this screen, you are unable to make any further changes.
             </p>
+            Title:
             <input
         type="text"
         className="title"
@@ -43,14 +44,17 @@ const StoryEdit = ({newStory}) => {
         required
         onChange={(e) => setTitle(e.target.value)}
             />
+            Message:
             <textarea
                 type="text"
                 className="message"
                 placeholder="type your story here"
+                maxLength={left}
                 value={message}
                 required
                 onChange={(e) => setCharacterLimit(e)}
             />
+            <h2>{left} characters left</h2>
             <button
                 type="submit"
                 className="take-home"
