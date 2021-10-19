@@ -2,12 +2,13 @@ import './App.css';
 import React from 'react';
 import StoriesPage from '../StoriesPage/StoriesPage';
 import HomePage from '../HomePage/HomePage';
+import { Route } from 'react-router-dom'
 
 const App = () => {
   return (
     <div className="App">
-      <HomePage />
-      <StoriesPage />
+      <Route exact path='/' component={HomePage}/>
+      <Route exact path='/storiesPage' component={StoriesPage}/>
     </div>
   );
 };
