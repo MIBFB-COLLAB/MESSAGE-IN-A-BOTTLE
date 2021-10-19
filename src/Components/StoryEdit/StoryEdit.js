@@ -1,6 +1,6 @@
 import './StoryEdit.css';
 import {useState} from "react"
-import { editNewStory } from '../../apiCalls';
+import { editNewStory, deleteStory } from '../../apiCalls';
 
 const StoryEdit = ({newStory}) => {
     const [title, setTitle] = useState(newStory.data.title);
@@ -76,6 +76,7 @@ const StoryEdit = ({newStory}) => {
             <button
                 type="submit"
                 className="story-delete-button"
+                onClick={(e) => deleteStory(id)}
             >
                 Delete Story
             </button>
