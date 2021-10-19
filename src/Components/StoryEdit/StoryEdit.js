@@ -12,6 +12,14 @@ const StoryEdit = ({newStory}) => {
                 <br/>
                 Once you have exited this screen, you are unable to make any further changes.
             </p>
+            <input
+        type="text"
+        className="title"
+        placeholder="title"
+        value=''
+        required
+        // onChange={(e) => setTitle(e.target.value)}
+      />
             <textarea
                 type="text"
                 className="message"
