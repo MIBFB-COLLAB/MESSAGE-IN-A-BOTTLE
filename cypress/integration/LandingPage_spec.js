@@ -33,5 +33,11 @@ describe('Landing Page', () => {
       expect(txt).to.contains('Allow', 'Block');
     })
   });
-  
+
+  it('Should be able to see button to get stories near', () => {
+    cy.get('.location-selection')
+    .get('h4').contains('Click The Button To Get Stories Near You')
+    .get('.get-stories-btn').contains('Get Stories')
+  })
+
 });
