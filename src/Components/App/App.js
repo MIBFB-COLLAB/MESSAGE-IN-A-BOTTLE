@@ -2,14 +2,15 @@ import './App.css';
 import React from 'react';
 import StoriesPage from '../StoriesPage/StoriesPage';
 import HomePage from '../HomePage/HomePage';
-import { LocationSelection } from '../LocationSelection/LocationSelection';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
     <div className="App">
-      <HomePage />
-      <StoriesPage />
-      <LocationSelection />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/storiesPage" render={() => <StoriesPage />} />
+      </Switch>
     </div>
   );
 };
