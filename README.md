@@ -124,14 +124,15 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 <h3>Frontend Team<h3>
-<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
-<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:faraakhatova@gmail.com">faraakhatova@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:maelduphorne@gmail.com">maelduphorne@gmail.com</a>
 <a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
 
 <h3>Backend Team<h3>
-<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
-<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
-<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:marlaa.schulz@gmail.com">marlaa.schulz@gmail.com</a>
+<a class="u-email Link--primary " href="mattdkragen@gmail.com">mattdkragen@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:taylor.varoglu@colorado.edu
+">taylor.varoglu@colorado.edu</a>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
