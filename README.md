@@ -97,3 +97,9 @@ To get a local copy up and running follow these simple steps.
    npm install
    ```
 
+## USAGE                       
+<!--DESCRIBE WHAT THE USAGE EXPERIENCE IS LIKE/BUILT ON -->
+
+Mobile Spec              |  Desktop Spec
+:----------------------------:|:-------------------------:
+![MIB_mobile_gif](gist-gif)|![MIB_desktop_gif](gist-gif)
