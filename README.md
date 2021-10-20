@@ -1,6 +1,6 @@
 ## Message in a Bottle
 
-<!-- Frequently Used Links 
+<!-- Frequently Used Links
 https://shields.io/
 
 My GitHub Profile
@@ -97,7 +97,7 @@ To get a local copy up and running follow these simple steps.
    npm install
    ```
 
-## USAGE                       
+## USAGE
 <!--DESCRIBE WHAT THE USAGE EXPERIENCE IS LIKE/BUILT ON -->
 
 Mobile Spec              |  Desktop Spec
@@ -106,7 +106,7 @@ Mobile Spec              |  Desktop Spec
 
 
 
-<!-- ROADMAP -->
+<!-- ROAD MAP -->
 ## Road Map
 
 See the [open issues](https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues) for a list of proposed features (and known issues).
@@ -124,5 +124,31 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 ## Contact
-
+<h3>Frontend Team<h3>
 <a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+
+<h3>Backend Team<h3>
+<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[project-spec-url]: https://mod4.turing.edu/projects/capstone/
+[turing-shield]: https://img.shields.io/badge/Project%20-Spec-blue
+[contributors-shield]: https://img.shields.io/badge/Contributors-1-blue
+[contributors-url]: https://github.com/orgs/MIBFB-COLLAB/people
+[issues-shield]: https://img.shields.io/badge/Issues-1-blue
+[issues-url]: https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues
+[react-hooks-shield]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[react-hooks-url]: https://reactjs.org/docs/hooks-intro.html
+[react-router-shield]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[react-router-url]: https://reactrouter.com/
+[npm-sheild]: https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white
+[npm-url]: https://www.npmjs.com/
+[cypress-sheild]: https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e
+[cypress-url]: https://docs.cypress.io/guides/overview/why-cypress
+[visual-studio-code-sheild]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
+[visual-studio-code-url]: https://code.visualstudio.com/
