@@ -8,6 +8,8 @@ describe('Landing Page', () => {
     cy.url().should('eq', 'http://localhost:3000/')
   });
 
+  //add sad path for URL
+
   it('Should be able to see page Title', () => {
     cy.get('Header')
     .get('h1').contains('Welcome to Message in a Bottle')
