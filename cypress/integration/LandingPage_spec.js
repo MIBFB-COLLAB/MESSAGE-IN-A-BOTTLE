@@ -24,4 +24,14 @@ describe('Landing Page', () => {
     .get('div')
     .get('.story-submit').contains('Submit a story')
   })
+
+  it('Should be able click submit story button, in order to submit new story', () => {
+    cy.get('Header')
+    .get('div')
+    .get('.story-submit').contains('Submit a story').click()
+    cy.on('window:confirm',(txt)=>{
+      expect(txt).to.contains('Allow', 'Block');
+    })
+  });
+  
 });
