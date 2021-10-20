@@ -25,6 +25,11 @@ export const LocationSelection = () => {
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
 
+  useEffect(() => {
+    console.log('am i running');
+    setIsLoading(false);
+  }, [latitude, longitude]);
+
   return (
     <>
       {error && <p>{error}</p>}
