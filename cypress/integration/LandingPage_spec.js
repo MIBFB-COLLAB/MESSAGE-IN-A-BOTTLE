@@ -34,10 +34,14 @@ describe('Landing Page', () => {
     })
   });
 
-  it('Should be able to see button to get stories near', () => {
+  it('Should be able to see button and text to get stories near by', () => {
     cy.get('.location-selection')
     .get('h4').contains('Click The Button To Get Stories Near You')
     .get('.get-stories-btn').contains('Get Stories')
   })
-
+  
+  // it('Should be able to get stories near by clicking the button', () => {
+  //   cy.get('.location-selection')
+  //   .get('.get-stories-btn').contains('Get Stories')
+  // })
 });
