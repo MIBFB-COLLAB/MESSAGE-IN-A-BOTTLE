@@ -8,6 +8,7 @@ export const LocationSelection = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const getLocation = (position) => {
     console.log(position);
