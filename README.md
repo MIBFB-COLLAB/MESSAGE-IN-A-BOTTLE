@@ -66,7 +66,7 @@ Websites
 [![Typescript][typescript-shield]][typescript-url]
 [![React Hooks][react-hooks-shield]][react-hooks-url]
 [![React Router][react-router-shield]][react-router-url]
-[![React Micromodal][react-micromodal-shield]][typescript-url]
+[![React Micromodal][react-micromodal-shield]][react-micromodal-url]
 [![NPM][npm-shield]][npm-url]
 [![Cypress Shield][cypress-shield]][cypress-url]
 [![Visual Studio Code][visual-studio-code-shield]][visual-studio-code-url]
