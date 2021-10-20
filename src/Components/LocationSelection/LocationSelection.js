@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
