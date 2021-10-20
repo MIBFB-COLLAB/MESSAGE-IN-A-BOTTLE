@@ -47,6 +47,7 @@ export const LocationSelection = () => {
         </div>
       )}
       {isLoading && <LoadingComponent />}
+      {latitude && longitude && <Redirect to="/storiesPage" />}
     </>
   );
 };
