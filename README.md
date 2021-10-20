@@ -30,7 +30,6 @@ Websites
     <a href="https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues">Report Bug</a>
     ·
     <a href="https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues">Request Feature</a>
-
 </p>
 
 
