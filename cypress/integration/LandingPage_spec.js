@@ -1,5 +1,6 @@
 describe('Landing Page', () => {
-  it('expect true to be true', () => {
-    expect('true').to.equal('true');
+  beforeEach('Home Page' , () => {
+    cy.visit('http://localhost:3000/')
   });
+  
 });
