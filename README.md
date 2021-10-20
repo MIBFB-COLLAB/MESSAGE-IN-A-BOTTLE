@@ -59,3 +59,16 @@ Websites
 </details>
 
 
+### About the Project
+<!-- Describe what the over all scope and learninging goal of the project is, and what set-up the challenge was framed in-->
+
+
+### Built With
+
+
+[![React Hooks][react-hooks-shield]][react-hooks-url]
+[![React Router][react-router-shield]][react-router-url]
+[![NPM][npm-sheild]][npm-url]
+[![Cypress Sheild][cypress-sheild]][cypress-url]
+[![Visual Studio Code][visual-studio-code-sheild]][visual-studio-code-url]
+
