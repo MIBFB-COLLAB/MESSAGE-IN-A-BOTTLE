@@ -18,5 +18,10 @@ describe('Landing Page', () => {
     .get('p').contains('Happy searching!')
     cy.get('.disclaimer').contains('**')
   });
-  
+
+  it('Should be able to see a button to submit a story', () => {
+    cy.get('Header')
+    .get('div')
+    .get('.story-submit').contains('Submit a story')
+  })
 });
