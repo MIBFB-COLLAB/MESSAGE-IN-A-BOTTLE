@@ -11,5 +11,12 @@ describe('Landing Page', () => {
   it('Should be able to see page Title', () => {
     cy.get('Header')
     .get('h1').contains('Welcome to Message in a Bottle')
-  })
+  });
+
+  it('Should be able to see instructions to follow', () => {
+    cy.get('article')
+    .get('p').contains('Happy searching!')
+    cy.get('.disclaimer').contains('**')
+  });
+  
 });
