@@ -11,7 +11,6 @@ export const LocationSelection = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const getLocation = (position) => {
-    console.log(position);
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
@@ -22,6 +21,7 @@ export const LocationSelection = () => {
   };
 
   const handleClick = () => {
+    setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
 
@@ -36,7 +36,6 @@ export const LocationSelection = () => {
       {!error && (
         <div className="location-selection">
           <h4>Click The Button To Get Stories Near You</h4>
-
           <button
             className="get-stories-btn"
             type="click"
