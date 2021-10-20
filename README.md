@@ -64,11 +64,36 @@ Websites
 
 
 ### Built With
-
-
+[![Typescript][typescript-shield]][typescript-url]
 [![React Hooks][react-hooks-shield]][react-hooks-url]
 [![React Router][react-router-shield]][react-router-url]
-[![NPM][npm-sheild]][npm-url]
-[![Cypress Sheild][cypress-sheild]][cypress-url]
-[![Visual Studio Code][visual-studio-code-sheild]][visual-studio-code-url]
+[![React Micromodal][react-micromodal-shield]][typescript-url]
+[![NPM][npm-shield]][npm-url]
+[![Cypress Shield][cypress-shield]][cypress-url]
+[![Visual Studio Code][visual-studio-code-shield]][visual-studio-code-url]
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+* Text Editor
+* NPM
+* React Router
+* React Micromodal
+* Dayjs
+* Normalize
+* Typescript
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone git@github.com:MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
 
