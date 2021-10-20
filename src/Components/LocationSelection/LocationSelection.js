@@ -46,6 +46,7 @@ export const LocationSelection = () => {
           </button>
         </div>
       )}
+      {isLoading && <LoadingComponent />}
     </>
   );
 };
