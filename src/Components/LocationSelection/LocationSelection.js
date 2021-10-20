@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
+
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
