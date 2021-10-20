@@ -8,21 +8,23 @@ const Header = () => {
     <header className="Header">
       <h1> Welcome to Message in a Bottle </h1>
       <MicroModal
+        backdrop='static'
         trigger={(open) => (
           <div onClick={open}>
             <button className="story-submit">Submit a story</button>
           </div>
         )}
-      >
-        {(close) => {
+      > 
+      {(close) => {
           return (
             <article>
               <h3>Create Your Message</h3>
-              <NewStoryForm />
+              <NewStoryForm/>
             </article>
           );
         }}
       </MicroModal>
+        
     </header>
   );
 };
