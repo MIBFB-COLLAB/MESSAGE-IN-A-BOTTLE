@@ -60,7 +60,7 @@ Websites
 
 
 ### About the Project
-<!-- Describe what the over all scope and learninging goal of the project is, and what set-up the challenge was framed in-->
+<!-- Describe what the over all scope and learning goal of the project is, and what set-up the challenge was framed in-->
 
 
 ### Built With
@@ -103,3 +103,26 @@ To get a local copy up and running follow these simple steps.
 Mobile Spec              |  Desktop Spec
 :----------------------------:|:-------------------------:
 ![MIB_mobile_gif](gist-gif)|![MIB_desktop_gif](gist-gif)
+
+
+
+<!-- ROADMAP -->
+## Road Map
+
+See the [open issues](https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues) for a list of proposed features (and known issues).
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Contact
+
+<a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
