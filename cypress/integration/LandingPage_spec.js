@@ -8,7 +8,9 @@ describe('Landing Page', () => {
     cy.url().should('eq', 'http://localhost:3000/')
   });
 
-  //add sad path for URL
+  it('should be able to show an error if URL path is wrong', () => {
+    
+  })
 
   it('Should be able to see page Title', () => {
     cy.get('Header')
