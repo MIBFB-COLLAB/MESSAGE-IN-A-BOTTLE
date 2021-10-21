@@ -9,7 +9,7 @@ describe('Landing Page', () => {
   });
 
   it('should be able to show an error if URL path is wrong', () => {
-    
+
   })
 
   it('Should be able to see page Title', () => {
@@ -49,3 +49,9 @@ describe('Landing Page', () => {
   //   .get('.get-stories-btn').contains('Get Stories')
   // })
 });
+
+describe('Create new stroy', () => {
+  beforeEach('New card form modal', () => {
+    cy.visit('http://localhost:3000/')
+  })
+})
