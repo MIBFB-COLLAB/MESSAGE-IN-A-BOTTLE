@@ -10,7 +10,7 @@ export const NewStoryForm = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
-  const [newStory, setNewStory] = useState(null)
+  const [newStory, setNewStory] = useState(null);
   const [left, setLeft] = useState(1000);
 
   const getLocation = (position) => {
@@ -35,9 +35,9 @@ export const NewStoryForm = () => {
 
   const setCharacterLimit = (e) => {
     let input = e.target.value;
-    setMessage(e.target.value)
+    setMessage(e.target.value);
     setLeft(1000 - input.length);
-  }
+  };
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
@@ -45,49 +45,43 @@ export const NewStoryForm = () => {
 
   return (
     <div>
-    {!newStory && 
-    <form type="submit" className="new-story-form">
-      <input
-        type="text"
-        className="title"
-        placeholder="title"
-        value={title}
-        required
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <textarea
-        className="message"
-        placeholder="type your story here"
-        maxLength={left}
-        value={message}
-        required
-        onChange={(e) => setCharacterLimit(e)}
-      />
-      <h2>{left} characters left</h2>
-      <button
-        type="submit"
-        className="story-submit-button"
-        onClick={(e) => submitMessage(e)}
-      >
-        Submit Story
-      </button>
-      </form>
-    }
-      {newStory &&
-        <MicroModal
-        trigger={(open) => (
-          <StoryEdit newStory={newStory}/>
-          
-        )}
-        >
+      {!newStory && (
+        <form type="submit" className="new-story-form">
+          <input
+            type="text"
+            className="title"
+            placeholder="title"
+            value={title}
+            required
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <textarea
+            className="message"
+            placeholder="type your story here"
+            maxLength={left}
+            value={message}
+            required
+            onChange={(e) => setCharacterLimit(e)}
+          />
+          <h2>{left} characters left</h2>
+          <button
+            type="submit"
+            className="story-submit-button"
+            onClick={(e) => submitMessage(e)}
+          >
+            Submit Story
+          </button>
+        </form>
+      )}
+      {newStory && (
+        <MicroModal trigger={(open) => <StoryEdit newStory={newStory} />}>
           {(close) => {
-            return(
-                <StoryEdit newStory={newStory}/>
-            
-            )
+            return <StoryEdit newStory={newStory} />;
           }}
-      </MicroModal>
-      }
-      </div>
+        </MicroModal>
+      )}
+    </div>
   );
 };
+
+//  I am a test comment
