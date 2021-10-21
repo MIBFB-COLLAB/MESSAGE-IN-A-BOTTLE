@@ -78,3 +78,9 @@ describe('Create new story', () => {
     cy.GetStory('POST')
   });
 })
+
+describe('EditStory component', () => {
+  beforeEach('Edit story card form modal', () => {
+    cy.visit('http://localhost:3000/')
+  })
+})
