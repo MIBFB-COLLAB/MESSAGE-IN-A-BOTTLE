@@ -54,4 +54,23 @@ describe('Create new stroy', () => {
   beforeEach('New card form modal', () => {
     cy.visit('http://localhost:3000/')
   })
+
+  it('Should be able click submit story button, in order to submit new story', () => {
+    cy.get('Header')
+    .get('div')
+    .get('.story-submit').contains('Submit a story').click()
+    cy.on('window:confirm',(txt)=>{
+      expect(txt).to.contains('Allow', 'Block');
+    })
+
+    cy.get('article')
+    .get('h3').contains('Create Your Message')
+    .get('div')
+    .get('.new-story-form')
+    .get('.title').type('Hello')
+    .get('textarea').type('Hellooooo')
+    .get('h2').contains('characters left')
+    .get('button').contains('Submit Story') // need to add click, after stubing http GET request, and invoke stub
+  });
+
 })
