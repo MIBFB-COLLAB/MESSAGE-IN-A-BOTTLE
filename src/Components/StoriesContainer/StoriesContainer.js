@@ -40,7 +40,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
       {(currentStories.length === 0 && !isLoading) && 
       <div className="stories-error-message">
         We're sorry - there are no messages within 25 miles of your current location. 
-        Be the first to create a message by clicking the "Submit a Story" button above
+        Be the first to create a message by clicking the "Submit a Story" button above.
       </div>}
     </section>
   )
