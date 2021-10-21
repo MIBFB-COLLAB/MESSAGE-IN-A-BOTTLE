@@ -82,5 +82,31 @@ describe('Create new story', () => {
 describe('EditStory component', () => {
   beforeEach('Edit story card form modal', () => {
     cy.visit('http://localhost:3000/')
+    cy.get('.story-submit').contains('Submit a story').click()
+    cy.get('article')
+    .get('h3').contains('Create Your Message')
+    .get('div')
+    .get('.new-story-form')
+    .get('.title').type('Hello')
+    .get('textarea').type('Hellooooo')
+    .get('h2').contains('characters left')
+    .get('button').contains('Submit Story').click()
+    cy.GetStory('POST')
   })
+
+  it('After submitting new story, should be able to see new pop up modal with edit options', () => {
+    cy.get('.edit-story-form')
+    .get('p').contains('Your story successfully been added')
+    .get('input[name="title"]').type('Hello')
+      .invoke('val')
+      .then(sometext => cy.log('Hello'));
+
+      cy.get('textarea[name="text"]').type('Hellooo')
+      .invoke('val')
+      .then(sometext => cy.log('Hellooo'));
+      cy.get('h2').contains('characters left')
+  })
+  
+
+
 })

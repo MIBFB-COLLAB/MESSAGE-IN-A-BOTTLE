@@ -43,6 +43,7 @@ const StoryEdit = ({newStory}) => {
             <input
         type="text"
         className="title"
+        name="title"
         placeholder="title"
         value={title}
         required
@@ -51,6 +52,7 @@ const StoryEdit = ({newStory}) => {
             Message:
             <textarea
                 type="text"
+                name="text"
                 className="message"
                 placeholder="type your story here"
                 maxLength={left}
