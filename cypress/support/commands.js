@@ -12,12 +12,11 @@
 // -- This is a parent command --
  const baseURL = 'https://message-in-a-bottle-api.herokuapp.com/api/v1/stories'
 
-Cypress.Commands.add('GetStory', () => {
-    cy.intercept(baseURL, {
-        method: 'GET',
+Cypress.Commands.add('GetStory', (method) => {
+    cy.intercept(`${method}`,`${baseURL}`, {
         statusCode: 200,
         body: {
-            "data":[
+            data:[
             {
                 "id":54,
                 "latitude":-18.982791,
@@ -41,7 +40,8 @@ Cypress.Commands.add('GetStory', () => {
                 "updated_at":"2021-10-20T20:17:47.528270Z"}
             ]
         }
-    })
+    }).as('GetStory')
+    cy.wait('@GetStory').should('include', [])
 
 })
 //
