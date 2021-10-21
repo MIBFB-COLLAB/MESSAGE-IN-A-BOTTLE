@@ -41,7 +41,11 @@ describe('Landing Page', () => {
   it('Should be able to see button and text to get stories near by', () => {
     cy.get('.location-selection')
     .get('h4').contains('Click The Button To Get Stories Near You')
-    .get('.get-stories-btn').contains('Get Stories') // need add click after stubbing  http GET request
+    .get('.get-stories-btn').contains('Get Stories').click()// need add click after stubbing  http GET request
+    cy.GetStory()
+    cy.visit('http://localhost:3000/storiesPage')
+    cy.url().should('include', '/storiesPage')
+    cy.url().should('eq', 'http://localhost:3000/storiesPage')
   })
   
   // it('Should be able to get stories near by clicking the button', () => {

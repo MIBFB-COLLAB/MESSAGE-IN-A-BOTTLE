@@ -12,7 +12,7 @@
 // -- This is a parent command --
  const baseURL = 'https://message-in-a-bottle-api.herokuapp.com/api/v1/stories'
 
-Cypress.Commands.add('Get Story', () => {
+Cypress.Commands.add('GetStory', () => {
     cy.intercept(baseURL, {
         method: 'GET',
         statusCode: 200,
