@@ -41,7 +41,7 @@ describe('Landing Page', () => {
   it('Should be able to see button and text to get stories near by', () => {
     cy.get('.location-selection')
     .get('h4').contains('Click The Button To Get Stories Near You')
-    .get('.get-stories-btn').contains('Get Stories')
+    .get('.get-stories-btn').contains('Get Stories') // need add click after stubbing  http GET request
   })
   
   // it('Should be able to get stories near by clicking the button', () => {
@@ -72,5 +72,4 @@ describe('Create new stroy', () => {
     .get('h2').contains('characters left')
     .get('button').contains('Submit Story') // need to add click, after stubing http GET request, and invoke stub
   });
-
 })
