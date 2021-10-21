@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const ErrorHandlingPage = () => {
   return (
     <div className="error-page">
-      <p>Whoops, something went wrong!</p>
-      <Link to='/'>
+      <p className="error-message">Whoops, something went wrong!</p>
+      <Link to='/' className="error-page-home-link">
         Take Me Home
       </Link>
     </div>
