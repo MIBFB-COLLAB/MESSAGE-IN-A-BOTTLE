@@ -9,12 +9,18 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/storiesPage" render={() => <StoriesPage />} />
+        <Route exact path="/" 
+          component={HomePage} 
+        />
+        <Route exact path="/storiesPage" 
+          render={() => 
+            <StoriesPage />
+          } 
+        />
         <Route
-          render={() => (
-            <ErrorHandlingPage errorMessage="Whoops, something went wrong!" />
-          )}
+          render={() => 
+            <ErrorHandlingPage />
+          }
         />
       </Switch>
     </div>
