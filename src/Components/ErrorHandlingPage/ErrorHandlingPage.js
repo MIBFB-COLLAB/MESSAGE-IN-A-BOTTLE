@@ -2,11 +2,10 @@ import './ErrorHandlingPage.css';
 import React from "react"
 import { Link } from 'react-router-dom'
 
-const ErrorHandlingPage = ({ errorMessage }) => {
-  console.log(errorMessage)
+const ErrorHandlingPage = () => {
   return (
     <div className="error-page">
-      <p>{errorMessage}</p>
+      <p>Whoops, something went wrong!</p>
       <Link to='/'>
         Take Me Home
       </Link>
