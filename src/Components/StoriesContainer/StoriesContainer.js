@@ -12,7 +12,6 @@ const StoriesContainer = ({ longitude, latitude }) => {
   const getStories = () => {
     getData()
       .then((data) => setCurrentStories(data.data))
-      // .then((data) => console.log(data))
       .catch((error) => setError(error));
   };
 
@@ -33,7 +32,16 @@ const StoriesContainer = ({ longitude, latitude }) => {
     );
   });
 
-  return <section className="stories-container">{storyCards}</section>;
+  return (
+    <section>
+      {currentStories && <div className="stories-container">{storyCards}</div>}
+      {(currentStories.length === 0) && 
+      <div>
+        We're sorry - there are no messages within 25 miles of your current location. 
+        Be the first to create a message by clicking the "Submit a Story" button above
+      </div>}
+    </section>
+  )
 };
 
 export default StoriesContainer;
