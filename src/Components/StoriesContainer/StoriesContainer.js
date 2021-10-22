@@ -10,14 +10,15 @@ const StoriesContainer = ({ longitude, latitude }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const getStories = () => {
-    getData()
-      .then((data) => setCurrentStories(data.data))
+  const getStories = (latitude, longitude) => {
+    getData(latitude, longitude)
+      // .then((data) => console.log(data))
+      .then((data) => setCurrentStories(data.stories))
       .catch((error) => setError(error));
   };
 
   useEffect(() => {
-    getStories();
+    getStories(latitude, longitude);
     setIsLoading(true)
   }, []);
 
