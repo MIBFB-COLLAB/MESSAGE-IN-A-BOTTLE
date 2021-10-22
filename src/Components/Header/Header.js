@@ -7,7 +7,7 @@ import { NewStoryForm } from '../NewStoryForm/NewStoryForm';
 const Header = () => {
   return (
     <header className="Header">
-      <Link to='/'> 
+      <Link to='/' className='header-text'> 
         Welcome to Message in a Bottle 
       </Link>
       <MicroModal
