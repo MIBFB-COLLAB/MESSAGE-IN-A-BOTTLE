@@ -1,12 +1,15 @@
 import './Header.css';
 import React from 'react';
 import MicroModal from 'react-micro-modal';
+import { Link } from 'react-router-dom'
 import { NewStoryForm } from '../NewStoryForm/NewStoryForm';
 
 const Header = () => {
   return (
     <header className="Header">
-      <h1> Welcome to Message in a Bottle </h1>
+      <Link to='/'> 
+        Welcome to Message in a Bottle 
+      </Link>
       <MicroModal
         backdrop='static'
         trigger={(open) => (

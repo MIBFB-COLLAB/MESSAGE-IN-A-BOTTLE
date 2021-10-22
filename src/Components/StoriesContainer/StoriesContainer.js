@@ -7,17 +7,18 @@ const { v4: uuidv4 } = require('uuid');
 
 const StoriesContainer = ({ longitude, latitude }) => {
   const [currentStories, setCurrentStories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
   const getStories = () => {
     getData()
       .then((data) => setCurrentStories(data.data))
-      // .then((data) => console.log(data))
       .catch((error) => setError(error));
   };
 
   useEffect(() => {
     getStories();
+    setIsLoading(true)
   }, []);
 
   const storyCards = currentStories.map((story) => {
@@ -33,7 +34,16 @@ const StoriesContainer = ({ longitude, latitude }) => {
     );
   });
 
-  return <section className="stories-container">{storyCards}</section>;
+  return (
+    <section>
+      {currentStories && <div className="stories-container">{storyCards}</div>}
+      {(currentStories.length === 0 && !isLoading) && 
+      <div className="stories-error-message">
+        We're sorry - there are no messages within 25 miles of your current location. 
+        Be the first to create a message by clicking the "Submit a Story" button above.
+      </div>}
+    </section>
+  )
 };
 
 export default StoriesContainer;
