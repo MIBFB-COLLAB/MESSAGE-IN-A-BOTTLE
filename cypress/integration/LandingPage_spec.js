@@ -8,8 +8,9 @@ describe('Landing Page', () => {
     cy.url().should('eq', 'http://localhost:3000/')
   });
 
-  // it('should be able to show an error if URL path is wrong', () => {
-   
+  // it('Should be able to show an error if URL path is wrong', () => {
+    
+
   // })
 
   it('Should be able to see page Title', () => {
@@ -142,9 +143,4 @@ describe('EditStory component', () => {
       .get('.story-delete-button').click()
       cy.DeleteStory('DELETE')
   })
-  
-
-
-
-
 })
