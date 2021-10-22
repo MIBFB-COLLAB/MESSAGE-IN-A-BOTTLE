@@ -7,6 +7,7 @@ import { getDirections } from '../../apiCalls';
 
 const StoryCard = ({ id, title, distance, latitude, longitude }) => {
   const [directions, setDirections] = useState('');
+  const [story, setStory] = useState('');
   const [error, setError] = useState('');
 
   const handleDirectionsClick = () => {
@@ -18,7 +19,14 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
       .catch((error) => setError(error.message));
   };
 
-  const getStory = () => {};
+  const getStory = () => {
+    console.log('gettin the story');
+    getStory(id, latitude, longitude)
+    // We may need to change how we access the data here depending on data structure
+    .then((data) => setStory)
+    // We may need to change how we access the error message here depending on data structure
+    .catch((error) => setError(error.message));
+  };
 
   useEffect(() => {
     return <ErrorHandlingCard errorMessage={error} />;
