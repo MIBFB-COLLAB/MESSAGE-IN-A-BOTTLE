@@ -4,16 +4,16 @@ import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
 import './LocationSelection.css';
 
-export const LocationSelection = () => {
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+export const LocationSelection = ({latitude, setLatitude, longitude, setLongitude, getLocation}) => {
+  // const [latitude, setLatitude] = useState('');
+  // const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const getLocation = (position) => {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
-  };
+  // const getLocation = (position) => {
+  //   setLatitude(position.coords.latitude);
+  //   setLongitude(position.coords.longitude);
+  // };
 
   const catchError = () => {
     setError('Sorry, no position available.');
