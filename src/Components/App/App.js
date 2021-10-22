@@ -9,19 +9,18 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" 
-          component={HomePage} 
-        />
-        <Route exact path="/storiesPage" 
-          render={() => 
-            <StoriesPage />
-          } 
-        />
+        <Route exact path="/" component={HomePage} />
         <Route
-          render={() => 
-            <ErrorHandlingPage />
-          }
+          exact
+          path="/storiesPage/:latitude/:longitude"
+          render={({ match }) => (
+            <StoriesPage
+              latitude={match.params.latitude}
+              longitude={match.params.longitude}
+            />
+          )}
         />
+        <Route render={() => <ErrorHandlingPage />} />
       </Switch>
     </div>
   );
