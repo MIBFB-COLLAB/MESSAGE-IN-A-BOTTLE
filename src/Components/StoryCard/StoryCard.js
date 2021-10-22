@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import MicroModal from 'react-micro-modal';
 import Directions from '../Directions/Directions';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
+import FullStoryCard from '../FullStoryCard/FullStoryCard';
 import { getDirections } from '../../apiCalls';
 
 const StoryCard = ({ id, title, distance, latitude, longitude }) => {
@@ -16,7 +17,7 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
       // We may need to change how we access the data here depending on data structure
       .then((data) => setDirections)
       // We may need to change how we access the error message here depending on data structure
-      .catch((error) => setError(error.message));
+      .catch((error) => setError(error));
   };
 
   const getStory = () => {
@@ -25,7 +26,7 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
     // We may need to change how we access the data here depending on data structure
     .then((data) => setStory)
     // We may need to change how we access the error message here depending on data structure
-    .catch((error) => setError(error.message));
+    .catch((error) => setError(error));
   };
 
   useEffect(() => {
@@ -68,7 +69,7 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
         {(close) => {
           return (
             <article className="story-modal">
-              <FullStoryCard title={title} message={message} />
+              <FullStoryCard title={title} />
             </article>
           );
         }}
