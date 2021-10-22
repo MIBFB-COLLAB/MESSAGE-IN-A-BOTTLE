@@ -4,7 +4,7 @@ import MicroModal from 'react-micro-modal';
 import Directions from '../Directions/Directions';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import FullStoryCard from '../FullStoryCard/FullStoryCard';
-import { getDirections } from '../../apiCalls';
+import { getDirections, getStory } from '../../apiCalls';
 
 const StoryCard = ({ id, title, distance, latitude, longitude }) => {
   const [directions, setDirections] = useState('');
@@ -20,11 +20,11 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
       .catch((error) => setError(error));
   };
 
-  const getStory = () => {
+  const getSingleStory = () => {
     console.log('gettin the story');
     getStory(id, latitude, longitude)
     // We may need to change how we access the data here depending on data structure
-    .then((data) => setStory)
+    .then((data) => console.log(data))
     // We may need to change how we access the error message here depending on data structure
     .catch((error) => setError(error));
   };
@@ -60,7 +60,7 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
       <MicroModal
         trigger={(open) => (
           <div onClick={open}>
-            <button className="view-story-btn" onClick={() => getStory()}>
+            <button className="view-story-btn" onClick={() => getSingleStory()}>
               View Story
             </button>
           </div>
@@ -69,7 +69,7 @@ const StoryCard = ({ id, title, distance, latitude, longitude }) => {
         {(close) => {
           return (
             <article className="story-modal">
-              <FullStoryCard title={title} />
+              <FullStoryCard story={story}/>
             </article>
           );
         }}
