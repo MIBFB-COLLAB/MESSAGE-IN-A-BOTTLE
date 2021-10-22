@@ -62,12 +62,19 @@ Cypress.Commands.add('PostStory', (method) => {
 
 })
 
-Cypress.Commands.add('PatchStory', (method,baseURL2) => {
-    cy.intercept(`${method}`, {
+Cypress.Commands.add('PatchStory', (method) => {
+    cy.intercept(`${method}`, `${baseURL2}`, {
         statusCode: 200,
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({title: 'Hello world', message:'Hello'}),
     })
+})
+
+Cypress.Commands.add('DeleteStory', (method) => {
+    cy.intercept(`${method}`,`${baseURL2}`, {
+        statusCode: 200,
+    })
+    // i think also need to add response message: but at this point i dont know how it looks lol 
 })
 
 //

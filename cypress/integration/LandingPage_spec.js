@@ -9,7 +9,7 @@ describe('Landing Page', () => {
   });
 
   // it('should be able to show an error if URL path is wrong', () => {
-
+   
   // })
 
   it('Should be able to see page Title', () => {
@@ -122,8 +122,29 @@ describe('EditStory component', () => {
       .invoke('val')
       .then(sometext => cy.log('Hellooo'));
       cy.get('h2').contains('characters left')
-      cy.get('.story-submit-button').click()
+      .get('.story-submit-button').click()
       cy.PatchStory('PATCH')
   })
+
+  it('Should be able to delete story by clicking button and modal has to close', () => {
+    cy.get('button').contains('Submit Story').click()
+    cy.PostStory('POST')
+    cy.get('.edit-story-form')
+    .get('p').contains('Your story successfully been added')
+    .get('input[name="title"]').type('Hello World')
+      .invoke('val')
+      .then(sometext => cy.log('Hello World'));
+
+      cy.get('textarea[name="text"]').type('Hellooo')
+      .invoke('val')
+      .then(sometext => cy.log('Hellooo'));
+      cy.get('h2').contains('characters left')
+      .get('.story-delete-button').click()
+      cy.DeleteStory('DELETE')
+  })
+  
+
+
+
 
 })
