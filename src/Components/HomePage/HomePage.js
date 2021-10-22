@@ -4,12 +4,12 @@ import Header from '../Header/Header';
 import UserInstructions from '../UserInstructions/UserInstructions';
 import { LocationSelection } from '../LocationSelection/LocationSelection';
 
-const HomePage = () => {
+const HomePage = ({latitude, longitude, getLocation}) => {
   return (
     <section className="home-page">
       <Header />
       <UserInstructions />
-      <LocationSelection />
+      <LocationSelection latitude={latitude} longitude={longitude} getLocation={getLocation}/>
     </section>
   );
 };
