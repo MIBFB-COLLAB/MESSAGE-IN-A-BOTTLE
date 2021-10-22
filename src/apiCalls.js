@@ -1,6 +1,6 @@
 export const getData = async (latitude, longitude) => {
   const response = await fetch(
-    'https://message-in-a-bottle-api.herokuapp.com/api/v1/stories',
+    `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories?latitude=${latitude}&longitude${longitude}`,
     { mode: 'cors' }
   );
   return await response.json();
