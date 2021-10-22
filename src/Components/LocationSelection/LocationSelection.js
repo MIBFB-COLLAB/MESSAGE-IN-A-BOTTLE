@@ -13,6 +13,7 @@ export const LocationSelection = () => {
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
+    console.log('here',latitude,longitude)
   };
 
   const catchError = () => {
@@ -28,6 +29,7 @@ export const LocationSelection = () => {
   useEffect(() => {
     console.log('am i running');
     setIsLoading(false);
+    console.log(latitude,longitude)
   }, [latitude, longitude]);
 
   return (

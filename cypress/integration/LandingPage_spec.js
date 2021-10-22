@@ -75,7 +75,7 @@ describe('Create new story', () => {
     .get('textarea').type('Hellooooo')
     .get('h2').contains('characters left')
     .get('button').contains('Submit Story').click()
-    cy.GetStory('POST')
+    cy.PostStory('POST')
   });
 })
 
@@ -91,10 +91,12 @@ describe('EditStory component', () => {
     .get('textarea').type('Hellooooo')
     .get('h2').contains('characters left')
     .get('button').contains('Submit Story').click()
-    cy.GetStory('POST')
+    cy.PostStory('POST')
   })
 
   it('After submitting new story, should be able to see new pop up modal with edit options', () => {
+    cy.get('button').contains('Submit Story').click()
+    cy.PostStory('POST')
     cy.get('.edit-story-form')
     .get('p').contains('Your story successfully been added')
     .get('input[name="title"]').type('Hello')
@@ -107,6 +109,21 @@ describe('EditStory component', () => {
       cy.get('h2').contains('characters left')
   })
   
+  it('Should be able to submit changes by clicking submit my edits button and modal has to close', () => {
+    cy.get('button').contains('Submit Story').click()
+    cy.PostStory('POST')
+    cy.get('.edit-story-form')
+    .get('p').contains('Your story successfully been added')
+    .get('input[name="title"]').type('Hello World')
+      .invoke('val')
+      .then(sometext => cy.log('Hello World'));
 
+      cy.get('textarea[name="text"]').type('Hellooo')
+      .invoke('val')
+      .then(sometext => cy.log('Hellooo'));
+      cy.get('h2').contains('characters left')
+      cy.get('.story-submit-button').click()
+      cy.PatchStory('PATCH')
+  })
 
 })
