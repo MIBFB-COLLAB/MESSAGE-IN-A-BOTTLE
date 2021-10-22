@@ -11,14 +11,15 @@ const StoriesContainer = ({ longitude, latitude }) => {
   const [error, setError] = useState('');
 
   const getStories = () => {
-    getData()
-      .then((data) => setCurrentStories(data.data))
+    getData(latitude, longitude)
+      // .then((data) => console.log(data.data.stories))
+      .then((data) => setCurrentStories(data.data.stories))
       .catch((error) => setError(error));
   };
 
   useEffect(() => {
     getStories();
-    setIsLoading(true)
+    setIsLoading(true);
   }, []);
 
   const storyCards = currentStories.map((story) => {
@@ -37,13 +38,15 @@ const StoriesContainer = ({ longitude, latitude }) => {
   return (
     <section>
       {currentStories && <div className="stories-container">{storyCards}</div>}
-      {(currentStories.length === 0 && !isLoading) && 
-      <div className="stories-error-message">
-        We're sorry - there are no messages within 25 miles of your current location. 
-        Be the first to create a message by clicking the "Submit a Story" button above.
-      </div>}
+      {currentStories.length === 0 && !isLoading && (
+        <div className="stories-error-message">
+          We're sorry - there are no messages within 25 miles of your current
+          location. Be the first to create a message by clicking the "Submit a
+          Story" button above.
+        </div>
+      )}
     </section>
-  )
+  );
 };
 
 export default StoriesContainer;
