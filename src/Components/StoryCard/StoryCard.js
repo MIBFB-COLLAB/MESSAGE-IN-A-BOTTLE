@@ -1,6 +1,5 @@
 import './StoryCard.css';
 import React, { useState, useEffect, useRef } from 'react';
-import MicroModal from 'react-micro-modal';
 import Directions from '../Directions/Directions';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import FullStoryCard from '../FullStoryCard/FullStoryCard';
@@ -55,63 +54,20 @@ const isLocated = useRef(false)
     // <ErrorHandlingCard errorMessage={error} />
   }, [longitude])
 
-  useEffect(() => {
-    return <ErrorHandlingCard errorMessage={error} />;
-  }, [error]);
-
-  {/* conditionally render micromodal with either full story if there's lat/long or error card if not && it's finished loading */}
   return (
-    <>
-      <article className="story-card">
-        <h3 className="story-title">{title}</h3>
-        <p className="story-distance">Distance from story: {distance}</p>
-        <MicroModal
-          trigger={(open) => (
-            <div onClick={open}>
-              <button
-                className="get-directions-btn"
-                onClick={() => handleDirectionsClick()}
-              >
-                GET DIRECTIONS
-              </button>
-            </div>
-          )}
+    <article className="story-card">
+      <h3 className="story-title">{title}</h3>
+      <p className="story-distance">Distance from story: {distance}</p>
+        <button
+          className="get-directions-btn"
+          onClick={() => handleDirectionsClick()}
         >
-          {(close) => {
-            return (
-              <article className="directions-modal">
-                <Directions title={title} directions={directions} />
-              </article>
-            );
-          }}
-        </MicroModal>
-        
-
-        <MicroModal
-          trigger={(open) => (
-            <div onClick={open}>
-              <button className="view-story-btn" onClick={() => handleClick()}>
-                View Story
-              </button>
-            </div>
-          )}
-        >
-          {(close) => {
-            // !isLoading && !error
-            return (
-              // <>
-              // { !isLoading && !error && (
-                <article className="story-modal">
-                  <FullStoryCard story={story}/>
-                </article>)
-              }
-          //     </>
-          //     )
-          // }
-          }
-        </MicroModal>
-      </article>
-    </>
+          GET DIRECTIONS
+        </button>
+        <button className="view-story-btn" onClick={() => handleClick()}>
+          VIEW STORY
+        </button>
+    </article>
   );
 };
 
