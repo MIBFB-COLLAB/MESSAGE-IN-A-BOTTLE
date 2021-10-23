@@ -44,9 +44,9 @@ describe('Landing Page', () => {
     .get('h4').contains('Click The Button To Get Stories Near You')
     .get('.get-stories-btn').contains('Get Stories').click()// need add click after stubbing  http GET request
     cy.GetStory('GET')
-    cy.visit('http://localhost:3000/storiesPage')
-    cy.url().should('include', '/storiesPage')
-    cy.url().should('eq', 'http://localhost:3000/storiesPage')
+    cy.visit('http://localhost:3000/storiesPage/39.6265535/-104.8108433')
+    cy.url().should('include', '/storiesPage/39.6265535/-104.8108433')
+    cy.url().should('eq', 'http://localhost:3000/storiesPage/39.6265535/-104.8108433')
   })
   
   it('Should be able to get stories near by clicking the button', () => {
@@ -96,7 +96,7 @@ describe('EditStory component', () => {
   })
 
   it('After submitting new story, should be able to see new pop up modal with edit options', () => {
-    cy.get('button').contains('Submit Story').click()
+    cy.get('.story-submit-button').contains('Submit Story').click()
     cy.PostStory('POST')
     cy.get('.edit-story-form')
     .get('p').contains('Your story successfully been added')
@@ -111,7 +111,7 @@ describe('EditStory component', () => {
   })
   
   it('Should be able to submit changes by clicking submit my edits button and modal has to close', () => {
-    cy.get('button').contains('Submit Story').click()
+    cy.get('.story-submit-button').contains('Submit Story').click().wait(3000)
     cy.PostStory('POST')
     cy.get('.edit-story-form')
     .get('p').contains('Your story successfully been added')
@@ -122,13 +122,13 @@ describe('EditStory component', () => {
       cy.get('textarea[name="text"]').type('Hellooo')
       .invoke('val')
       .then(sometext => cy.log('Hellooo'));
-      cy.get('h2').contains('characters left')
-      .get('.story-submit-button').click()
+      cy.get('h2').contains('characters left').wait(3000)
+      cy.get('.story-submit-button').click()
       cy.PatchStory('PATCH')
   })
 
   it('Should be able to delete story by clicking button and modal has to close', () => {
-    cy.get('button').contains('Submit Story').click()
+    cy.get('.story-submit-button').contains('Submit Story').click()
     cy.PostStory('POST')
     cy.get('.edit-story-form')
     .get('p').contains('Your story successfully been added')
