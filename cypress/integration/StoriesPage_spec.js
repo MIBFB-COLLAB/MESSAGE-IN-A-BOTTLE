@@ -10,8 +10,6 @@ describe('StoriesPage', () => {
         cy.get('h4')
         cy.get('.get-stories-btn').click().wait(3000)
         
-        
-        
     })
 
     it('Should be able go to a new page and see title, instructions and button', () => {
@@ -27,6 +25,14 @@ describe('StoriesPage', () => {
         cy.get('.stories-container')
         cy.get('.story-card')
         .get('.story-title') // should have value of title
+    })
+
+    it('Should be able to click button to get directions', () => {
+        cy.get('.get-directions-btn') // need click()
+    })
+
+    it('Should be able to click button to view a story', () => {
+        cy.get('.view-story-btn') // need click
     })
 })
 
