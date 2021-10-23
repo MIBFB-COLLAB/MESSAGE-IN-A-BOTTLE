@@ -13,7 +13,7 @@ import { NewStoryForm } from '../NewStoryForm/NewStoryForm';
 const Header = () => {
   return (
     <header className="Header">
-      <Box>
+      <Box sx={{ flexGrow: 1 }}>
         <Link to="/" className="header-text">
           Welcome to Message in a Bottle
         </Link>
