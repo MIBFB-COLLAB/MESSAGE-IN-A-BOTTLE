@@ -25,7 +25,7 @@ const Header = () => {
               backdrop="static"
               trigger={(open) => (
                 <div onClick={open}>
-                  <button className="story-submit">Submit a story</button>
+                  <Button color="inherit">Create Story</Button>
                 </div>
               )}
             >
