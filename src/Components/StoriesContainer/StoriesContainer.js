@@ -23,14 +23,13 @@ const StoriesContainer = ({ longitude, latitude }) => {
   }, []);
 
   const storyCards = currentStories.map((story) => {
+    const { title, distance_in_miles } = story.attributes
     return (
       <StoryCard
         key={uuidv4()}
         id={story.id}
-        name={story.name}
-        title={story.title}
-        distance={story.distance_in_miles}
-        message={story.message}
+        title={title}
+        distance={distance_in_miles}
       />
     );
   });
