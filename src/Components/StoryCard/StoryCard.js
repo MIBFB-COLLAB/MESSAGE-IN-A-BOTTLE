@@ -42,9 +42,7 @@ const [isLoading, setIsLoading] = useState(false)
   const handleDirectionsClick = () => {
     console.log('handlin the click');
     getDirections(id, latitude, longitude)
-      // We may need to change how we access the data here depending on data structure
       .then((data) => setDirections)
-      // We may need to change how we access the error message here depending on data structure
       .catch((error) => setError(error));
   };
 
