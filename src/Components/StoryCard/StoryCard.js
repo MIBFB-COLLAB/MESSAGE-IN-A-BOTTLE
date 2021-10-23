@@ -59,15 +59,20 @@ const isLocated = useRef(false)
     <article className="story-card">
       <h3 className="story-title">{title}</h3>
       <p className="story-distance">Distance from story: {distance}</p>
-        <button
-          className="get-directions-btn"
+        <Button
+          // className="get-directions-btn"
+          variant="outlined"
           onClick={() => handleDirectionsClick()}
         >
           GET DIRECTIONS
-        </button>
-        <button className="view-story-btn" onClick={() => handleClick()}>
+        </Button>
+        <Button 
+          // className="view-story-btn" 
+          variant="outlined"
+          onClick={() => handleClick()}
+        >
           VIEW STORY
-        </button>
+        </Button>
     </article>
   );
 };
