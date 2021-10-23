@@ -58,7 +58,7 @@ const isLocated = useRef(false)
   return (
     <article className="story-card">
       <h3 className="story-title">{title}</h3>
-      <p className="story-distance">Distance from story: {distance}</p>
+      <p className="story-distance">Distance from story: {distance.toFixed(2)}</p>
         <Button
           // className="get-directions-btn"
           variant="outlined"
