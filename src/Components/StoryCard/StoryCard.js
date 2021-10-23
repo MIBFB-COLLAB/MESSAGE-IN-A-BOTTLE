@@ -4,6 +4,7 @@ import Directions from '../Directions/Directions';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import FullStoryCard from '../FullStoryCard/FullStoryCard';
 import { getDirections, getStory } from '../../apiCalls';
+import { Button } from '@mui/material';
 
 const StoryCard = ({ id, title, distance }) => {
 const [latitude, setLatitude] = useState('');
