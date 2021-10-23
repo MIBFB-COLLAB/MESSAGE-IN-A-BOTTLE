@@ -13,6 +13,7 @@ const [directions, setDirections] = useState('');
 const [story, setStory] = useState('');
 const [error, setError] = useState('');
 const [isLoading, setIsLoading] = useState(false)
+const isLocated = useRef(false)
 
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
@@ -31,7 +32,6 @@ const [isLoading, setIsLoading] = useState(false)
   }
 
   const getSingleStory = () => {
-    console.log('gettin the story');
     getStory(id, latitude, longitude)
     .then((data) => setStory(data.data.attributes))
     .catch((error) => setError(error));
@@ -39,17 +39,21 @@ const [isLoading, setIsLoading] = useState(false)
   };
 
   const handleDirectionsClick = () => {
-    console.log('handlin the click');
     getDirections(id, latitude, longitude)
       .then((data) => setDirections)
       .catch((error) => setError(error));
   };
 
   useEffect(() => {
-    console.log('latitude', latitude)
-    latitude && longitude ? getSingleStory(id, latitude, longitude) : console.log('false')
+    console.log('lat/long', latitude, longitude)
+    if (isLocated.current) {
+      getSingleStory(id, latitude, longitude)
+    } else {
+      isLocated.current = true
+    }
+    // latitude && longitude ? getSingleStory(id, latitude, longitude) : console.log('false')
     // <ErrorHandlingCard errorMessage={error} />
-  }, [latitude, longitude])
+  }, [longitude])
 
   useEffect(() => {
     return <ErrorHandlingCard errorMessage={error} />;
