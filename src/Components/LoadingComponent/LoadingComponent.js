@@ -3,7 +3,7 @@ import './LoadingComponent.css';
 
 export const LoadingComponent = () => {
   return (
-    <div class="lds-spinner">
+    <div className="lds-spinner">
       <div></div>
       <div></div>
       <div></div>

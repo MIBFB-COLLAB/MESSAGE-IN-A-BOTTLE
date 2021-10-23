@@ -2,7 +2,7 @@ import './FullStoryCard.css';
 import React from "react"
 
 const FullStoryCard = ({ story }) => {
-  console.log(story)
+  console.log('fullstory', story)
   return (
     <article className="full-story-card">
       <h3>Title:</h3>
