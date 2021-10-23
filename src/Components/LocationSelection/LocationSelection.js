@@ -35,7 +35,6 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <h4>Click The Button To Get Stories Near You</h4>
           <Button
             variant="outlined"
             className="get-stories-btn"
