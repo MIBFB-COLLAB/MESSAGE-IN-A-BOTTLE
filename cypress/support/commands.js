@@ -10,10 +10,10 @@
 //
 //
 // -- This is a parent command --
-const baseURL = 'https://message-in-a-bottle-api.herokuapp.com/api/v1/stories?latitude=39.62654536&longitude=-104.8108256'
+export const baseURL = 'https://message-in-a-bottle-api.herokuapp.com/api/v1/stories?latitude=39.62654536&longitude=-104.8108256'
 const id=53
 const baseURL1 = 'https://message-in-a-bottle-api.herokuapp.com/api/v1/stories'
-const baseURL2 = `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories${id}`
+const baseURL2 = `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/53`
 
 Cypress.Commands.add('GetStory', (method) => {
     cy.intercept(`${method}`,`${baseURL}`, {
@@ -75,4 +75,25 @@ Cypress.Commands.add('DeleteStory', (method) => {
         statusCode: 200,
     })
     // i think also need to add response message: but at this point i dont know how it looks lol 
+})
+
+
+// Cypress.Commands.add('visitWithMockGeolocation', (url, latitude = 54, longitude = 39) => {
+//     const mockGeolocation = (win, latitude, longitude) => {
+//     cy.stub(win.navigator.geolocation, 'getCurrentPosition', cb => {
+//         return cb({ coords: { latitude, longitude } });
+//     });
+//     };
+//     cy.visit(url, {
+//     onBeforeLoad: win => {
+//         mockGeolocation(win, latitude, longitude);
+//     }
+//     })
+
+Cypress.Commands.add('mockGeolocation', (latitude = 39.62654536, longitude = -104.8108256) => {
+	cy.window().then(($window) =>  {
+		cy.stub($window.navigator.geolocation, 'getCurrentPosition', (callback) => {
+	return callback({ coords: { latitude, longitude } });
+		});
+	})
 })
