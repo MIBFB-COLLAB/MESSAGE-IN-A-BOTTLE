@@ -1,4 +1,3 @@
-import { baseURL } from "../support/commands"
 
 describe('StoriesPage', () => {
     beforeEach('User can see stories near', () => {
