@@ -37,7 +37,6 @@ export const LocationSelection = () => {
         <div className="location-selection">
           <Button
             variant="outlined"
-            className="get-stories-btn"
             type="click"
             onClick={(e) => handleClick(e)}
           >
