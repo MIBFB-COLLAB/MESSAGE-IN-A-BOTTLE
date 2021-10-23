@@ -27,13 +27,14 @@ const [isLoading, setIsLoading] = useState(false)
   const handleClick = () => {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
+    getSingleStory()
   }
 
   const getSingleStory = () => {
     console.log('gettin the story');
     getStory(id, latitude, longitude)
     // We may need to change how we access the data here depending on data structure
-    .then((data) => console.log(data))
+    .then((data) => setStory(data.data.attributes))
     // We may need to change how we access the error message here depending on data structure
     .catch((error) => setError(error));
     setIsLoading(false)
@@ -85,26 +86,6 @@ const [isLoading, setIsLoading] = useState(false)
         trigger={(open) => (
           <div onClick={open}>
             <button className="view-story-btn" onClick={() => handleClick()}>
-              View Story
-            </button>
-          </div>
-        )}
-      >
-        {(close) => {
-          return (
-            <article className="story-modal">
-              <FullStoryCard story={story}/>
-            </article>
-          );
-        }}
-      </MicroModal>
-      {/* } */}
-
-      {/* {!latitude && !longitude && isLoading && */}
-      <MicroModal
-        trigger={(open) => (
-          <div onClick={open}>
-            <button className="view-story-btn" onClick={() => getSingleStory()}>
               View Story
             </button>
           </div>
