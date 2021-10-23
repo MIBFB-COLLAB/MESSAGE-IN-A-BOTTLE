@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
+import { Button } from '@mui/material';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
 import './LocationSelection.css';
@@ -35,13 +36,14 @@ export const LocationSelection = () => {
       {!error && (
         <div className="location-selection">
           <h4>Click The Button To Get Stories Near You</h4>
-          <button
+          <Button
+            variant="outlined"
             className="get-stories-btn"
             type="click"
             onClick={(e) => handleClick(e)}
           >
             Get Stories
-          </button>
+          </Button>
         </div>
       )}
       {isLoading && <LoadingComponent />}
