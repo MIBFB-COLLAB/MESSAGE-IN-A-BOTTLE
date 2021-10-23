@@ -16,9 +16,11 @@ const Header = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <Link to="/" className="header-text">
-              Welcome to Message in a Bottle
-            </Link>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Link to="/" className="header-text">
+                Welcome to Message in a Bottle
+              </Link>
+            </Typography>
             <MicroModal
               backdrop="static"
               trigger={(open) => (
