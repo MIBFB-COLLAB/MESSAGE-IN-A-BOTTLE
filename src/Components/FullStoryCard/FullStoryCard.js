@@ -5,8 +5,8 @@ const FullStoryCard = ({ story }) => {
   console.log('fullstory', story)
   return (
     <article className="full-story-card">
-      <h3>Title:</h3>
-      <p>Message:</p>
+      <h3>Title: {story.title}</h3>
+      <p>Message:{story.message}</p>
       <button>BACK TO CARD</button>
     </article>
   )
