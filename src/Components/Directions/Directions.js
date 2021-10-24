@@ -1,9 +1,20 @@
 import './Directions.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getDirections } from '../../apiCalls';
 
 const Directions = ({ id, latitude, longitude }) => {
   const [directions, setDirections] = useState({});
   const [error, setError] = useState('');
+
+  const getStoryDirections = () => {
+    getDirections(id, latitude, longitude)
+      .then((data) => setDirections(data.data.attributes))
+      .catch((error) => setError(error));
+  };
+
+  useEffect(() => {
+    getStoryDirections();
+  }, []);
 
   return (
     <article className="directions">
