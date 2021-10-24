@@ -73,7 +73,6 @@ const StoryEdit = ({ newStory }) => {
           className="title"
           value={newTitle}
           minLength={0}
-          maxLength={1000}
           required
           onChange={(e) => setNewTitle(e.target.value)}
         />
