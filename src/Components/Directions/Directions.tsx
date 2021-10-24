@@ -5,7 +5,7 @@ import { getDirections } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
-interface direction {
+export interface direction {
   attributes:{ distance: string, narrative: string }
 }
 
