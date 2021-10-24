@@ -5,6 +5,7 @@ import { getDirections } from '../../apiCalls';
 const Directions = ({ id, latitude, longitude }) => {
   const [directions, setDirections] = useState({});
   const [error, setError] = useState('');
+  const { distance, narrative } = directions;
 
   const getStoryDirections = () => {
     getDirections(id, latitude, longitude)
