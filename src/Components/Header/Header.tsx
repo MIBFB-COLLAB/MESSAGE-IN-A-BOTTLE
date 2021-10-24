@@ -22,7 +22,6 @@ const Header = () => {
               </Link>
             </Typography>
             <MicroModal
-              backdrop="static"
               trigger={(open) => (
                 <div onClick={open}>
                   <Button color="inherit">Create Story</Button>
