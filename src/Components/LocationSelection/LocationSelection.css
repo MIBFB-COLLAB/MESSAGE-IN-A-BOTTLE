@@ -1,0 +1,26 @@
+.get-stories-btn {
+    font-family: 'Noto Serif', serif;
+    height: 60px;
+    width: 200px;
+    margin: 5%;
+    border-radius: 26px;
+    border: transparent;
+    font-size: x-large;
+    background: #088C7F;
+    color:#F2F2F2;
+    cursor:pointer;
+    align-items: center;
+}
+
+.get-stories-btn:hover {
+    background: #F25E95
+}
+
+.location-selection {
+  margin: 10%;
+  text-align: center;
+}
+
+.location-selection h4 {
+  color: #F2B544;
+}

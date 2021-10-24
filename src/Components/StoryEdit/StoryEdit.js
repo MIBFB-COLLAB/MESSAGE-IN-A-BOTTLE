@@ -1,5 +1,5 @@
 import './StoryEdit.css';
-import {useState} from "react"
+import React,{useState} from "react"
 import { editNewStory, deleteStory } from '../../apiCalls';
 
 const StoryEdit = ({newStory}) => {
@@ -25,11 +25,11 @@ const StoryEdit = ({newStory}) => {
         };
         editNewStory(newStory,id).then((data) => console.log(data));
     };
-    
+
     const deleteNewStory = () => {
         deleteStory(id).then((data) => console.log(data))
     }
-    
+
     return (
         <form className='edit-story-form'>
             <p>
