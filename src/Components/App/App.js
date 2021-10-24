@@ -5,6 +5,7 @@ import HomePage from '../HomePage/HomePage';
 import { Route, Switch } from 'react-router-dom';
 import ErrorHandlingPage from '../ErrorHandlingPage/ErrorHandlingPage';
 import FullStoryPage from '../FullStoryPage/FullStoryPage';
+import Header from '../Header/Header'
 
 const App = () => {
   return (
@@ -23,11 +24,14 @@ const App = () => {
         <Route 
           exact path="/fullStoryPage/:id/:latitude/:longitude"
           render={({ match }) => (
+            <>
+            <Header/>
             <FullStoryPage
               id={match.params.id}
               latitude={match.params.latitude}
               longitude={match.params.longitude}
             />
+            </>
           )}
         />
         <Route render={() => <ErrorHandlingPage />} />
