@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { getDirections } from '../../apiCalls';
 
 const Directions = ({ id, latitude, longitude }) => {
-  const [directions, setDirections] = useState({});
+  const [directions, setDirections] = useState([]);
   const [error, setError] = useState('');
-  const { distance, narrative } = directions;
+  // console.log(directions);
 
   const getStoryDirections = () => {
     getDirections(id, latitude, longitude)
-      .then((data) => setDirections(data.data.attributes))
+      .then((data) => console.log(data.data))
+      // .then((data) => setDirections(data.data.attributes))
       .catch((error) => setError(error));
   };
 
@@ -19,10 +20,10 @@ const Directions = ({ id, latitude, longitude }) => {
 
   return (
     <article className="directions">
-      <h3>Directions</h3>
+      {/* <h3>Directions</h3>
       <p>Distance {distance}</p>
       <p>{narrative}</p>
-      <button>BACK TO CARD</button>
+      <button>BACK TO CARD</button> */}
     </article>
   );
 };
