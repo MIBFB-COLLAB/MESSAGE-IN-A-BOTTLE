@@ -20,7 +20,7 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
 
   return (
     <>
-      {error && <ErrorHandlingCard errorMessage={error}}
+      {error && <ErrorHandlingCard errorMessage={error} />}
       {story.distance_in_miles > 10 && (
         <p>You are not within range of this story</p>
       )}
