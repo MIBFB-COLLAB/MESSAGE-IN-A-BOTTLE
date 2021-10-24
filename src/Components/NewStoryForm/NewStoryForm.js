@@ -9,6 +9,8 @@ import StoryEdit from '../StoryEdit/StoryEdit';
 import { TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 // import SendIcon from '@mui/icons-material/Send';
+import { Stack } from '@mui/material';
+import { Button } from '@mui/material';
 import FilledInput from '@mui/material/FilledInput';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -49,6 +51,9 @@ export const NewStoryForm = () => {
     let input = e.target.value;
     setMessage(e.target.value);
     setLeft(1000 - input.length);
+    // if ( e.target.value > 1000 ) {
+
+    // }
   };
 
   useEffect(() => {
@@ -56,52 +61,101 @@ export const NewStoryForm = () => {
   }, []);
 
   return (
-    <Box
-      className="new-story-modal"
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        {!newStory && (
-          <form type="submit" className="new-story-form">
-            <input
+    <div>
+      {!newStory && (
+        <Box
+          className="new-story-modal"
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <FormControl variant="standard">
+            {/* <InputLabel htmlFor="component-simple" required>
+          Title
+        </InputLabel> */}
+            <TextField
+              placeholder="Title"
+              // id="component-simple"
+              label="Title"
+              size="small"
               type="text"
               className="title"
-              placeholder="title"
               value={title}
               required
               onChange={(e) => setTitle(e.target.value)}
             />
-            <textarea
-              className="message"
-              placeholder="type your story here"
-              maxLength={left}
-              value={message}
-              required
-              onChange={(e) => setCharacterLimit(e)}
-            />
-            <h2>{left} characters left</h2>
-            <button
+          </FormControl>
+          <Stack direction="column" spacing={4}>
+            <FormControl variant="standard">
+              <TextField
+                // id="outlined-textarea"
+                label={`${left} characters left`}
+                // type="text"
+                className="message"
+                placeholder="Type your story here"
+                value={message}
+                required
+                maxLength={left}
+                onChange={(e) => setCharacterLimit(e)}
+                multiline
+              />
+              <FormHelperText id="component-helper-text">
+                Your Story
+              </FormHelperText>
+            </FormControl>
+            <Button
+              // endIcon={<SendIcon />}
+              variant="outlined"
               type="submit"
               className="story-submit-button"
               onClick={(e) => submitMessage(e)}
             >
               Submit Story
-            </button>
-          </form>
-        )}
-        {newStory && (
-          <MicroModal trigger={(open) => <StoryEdit newStory={newStory} />}>
-            {(close) => {
-              return <StoryEdit newStory={newStory} />;
-            }}
-          </MicroModal>
-        )}
-      </div>
-    </Box>
+            </Button>
+          </Stack>
+        </Box>
+      )}
+      {newStory && (
+        <MicroModal trigger={(open) => <StoryEdit newStory={newStory} />}>
+          {(close) => {
+            return <StoryEdit newStory={newStory} />;
+          }}
+        </MicroModal>
+      )}
+    </div>
   );
 };
+
+// <form type="submit" className="new-story-form">
+//           <input
+//             type="text"
+//             className="title"
+//             placeholder="title"
+//             value={title}
+//             required
+//             onChange={(e) => setTitle(e.target.value)}
+//           />
+//           <textarea
+//             className="message"
+//             placeholder="type your story here"
+// maxLength={left}
+// value={message}
+// required
+// onChange={(e) => setCharacterLimit(e)}
+//           />
+
+{
+  /* <h2>{left} characters left</h2>; */
+}
+
+//           <button
+//             type="submit"
+//             className="story-submit-button"
+//             onClick={(e) => submitMessage(e)}
+//           >
+//             Submit Story
+//           </button>
+//         </form>
