@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './FullStoryPage.css';
 import { getStory } from '../../apiCalls';
+import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 
 export const FullStoryPage = ({ id, latitude, longitude }) => {
 
@@ -19,10 +20,15 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
   }, [])
 
   return(
-    <div>
-      Title:{story.title}
-      Message:{story.message}
-    </div>
+    <>
+    {error && <ErrorHandlingCard/>}
+    {story.distance_in_miles <= 10 && (
+      <div>
+        Title:{story.title}
+        Message:{story.message}
+      </div>
+    )}
+    </>
   )
 }
 
