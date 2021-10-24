@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import './FullStoryPage.css';
 import { getStory } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom'
+import FullStoryCard from '../FullStoryCard/FullStoryCard';
 
 export const FullStoryPage = ({ id, latitude, longitude }) => {
 
@@ -21,13 +24,12 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
 
   return(
     <>
-    {error && <ErrorHandlingCard/>}
+    {error && <p>Oops, something went wrong! Please go back and try again</p>}
+    {story.distance_in_miles > 10 && <p>You are not within range of this story</p>}
     {story.distance_in_miles <= 10 && (
-      <div>
-        Title:{story.title}
-        Message:{story.message}
-      </div>
+      <FullStoryCard story={story}/>
     )}
+    <Link to='/'>TAKE ME HOME</Link>
     </>
   )
 }
