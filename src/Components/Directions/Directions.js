@@ -1,5 +1,6 @@
 import './Directions.css';
 import React, { useState, useEffect } from 'react';
+import { DirectionsCard } from '../DirectionsCard/DirectionsCard';
 import { getDirections } from '../../apiCalls';
 
 const Directions = ({ id, latitude, longitude }) => {
