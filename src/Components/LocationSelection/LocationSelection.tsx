@@ -46,13 +46,14 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <button 
-            // variant="outlined"
-            // type="click"
+          <Button
+            href="#text-buttons"
+            variant="outlined"
+            type="click"
             onClick={(e) => handleClick(e)}
           >
             Get Stories
-          </button>
+          </Button>
         </div>
       )}
       {isLoading && <LoadingComponent />}

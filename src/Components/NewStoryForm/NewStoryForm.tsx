@@ -12,9 +12,12 @@ import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
+import { ChangeEvent } from 'react';
 // import Input from '@mui/material/Input';
 // import InputLabel from '@mui/material/InputLabel';
 // import OutlinedInput from '@mui/material/OutlinedInput';
+
+
 
 export const NewStoryForm = () => {
   const [title, setTitle] = useState('');
@@ -91,7 +94,11 @@ export const NewStoryForm = () => {
                 placeholder="Type your story here"
                 value={message}
                 required
-                maxLength={left}
+                /// chnaged for TS, syill need fix bug
+                inputProps={{
+                  maxLength: {left},
+                }}
+
                 onChange={(e) => setCharacterLimit(e)}
                 multiline
               />

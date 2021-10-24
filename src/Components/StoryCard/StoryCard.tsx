@@ -74,6 +74,7 @@ const StoryCard = ({ id, title, distance }) => {
           </CardContent>
           <CardActions>
             <Button
+              href="#text-buttons"
               variant="outlined"
               type="click"
               onClick={() => handleDirectionsClick()}
@@ -81,6 +82,7 @@ const StoryCard = ({ id, title, distance }) => {
               GET DIRECTIONS
             </Button>
             <Button
+              href="#text-buttons"
               variant="outlined"
               type="click"
               onClick={() => handleStoryClick()}
