@@ -37,7 +37,7 @@ export const sendNewStory = async (newStory) => {
 
 export const editNewStory = async (newStory, id) => {
   const requestOptions = {
-    method: 'PUT',
+    method: 'PATCH',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(newStory),
   };
