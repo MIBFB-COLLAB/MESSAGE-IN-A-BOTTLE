@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
-import { Button } from '@mui/material';
+// import { Button} from '@mui/material';
+import Button from '@mui/material/Button';
+// import Button, { ButtonProps } from "@material-ui/core/Button";
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
+
+// declare module '@mui/material' {
+//   export interface MyProps {
+
+//     exact?: boolean;
+//     to?: string;
+//   }
+//   export const Button extends StyledComponent<ButtonProps & MyProps> {
+//   }
+
+// }
 
 import './LocationSelection.css';
 
@@ -21,7 +34,7 @@ export const LocationSelection = () => {
     console.log(error);
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
