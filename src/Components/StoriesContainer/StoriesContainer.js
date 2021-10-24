@@ -23,8 +23,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
   }, []);
 
   const storyCards = currentStories.map((story) => {
-    console.log('am i working?')
-    const { title, distance_in_miles } = story.attributes
+    const { title, distance_in_miles } = story.attributes;
     return (
       <StoryCard
         key={uuidv4()}
