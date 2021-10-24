@@ -3,6 +3,9 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { CardActions } from '@mui/material';
 
 const FullStoryCard = ({ story }) => {
   return (
@@ -15,6 +18,11 @@ const FullStoryCard = ({ story }) => {
           <p>{story.message}</p>
         </Typography>
       </CardContent>
+      <CardActions>
+        <Link to="/">
+          <Button>TAKE ME HOME </Button>
+        </Link>
+      </CardActions>
     </Card>
   );
 };
