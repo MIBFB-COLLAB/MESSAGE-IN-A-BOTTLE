@@ -10,6 +10,7 @@ import Header from '../Header/Header'
 const App = () => {
   return (
     <div className="App">
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route
@@ -24,14 +25,11 @@ const App = () => {
         <Route 
           exact path="/fullStoryPage/:id/:latitude/:longitude"
           render={({ match }) => (
-            <>
-            <Header/>
             <FullStoryPage
               id={match.params.id}
               latitude={match.params.latitude}
               longitude={match.params.longitude}
             />
-            </>
           )}
         />
         <Route render={() => <ErrorHandlingPage />} />
