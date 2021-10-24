@@ -45,48 +45,50 @@ const StoryCard = ({ id, title, distance }) => {
       {!latitude && !longitude && (
         <Card
           sx={{
+            display: 'flex',
+            flexDirection: 'column',
             minWidth: 275,
             textAlign: 'center',
             backgroundColor: '#f2f0e3',
+            alignItems: 'center',
           }}
         >
-          {/* <article className="story-card"> */}
-          <Typography variant="body2">
-            <h3 className="story-title">{title}</h3>
-          </Typography>
-          {/* <h3 className="story-title">{title}</h3> */}
-          <Typography
-            sx={{ fontSize: 14, marginBottom: '5px' }}
-            color="text.secondary"
-            gutterBottom
-          >
-            <p className="story-distance">
-              {distance.toFixed(2)} Miles to Story
-            </p>
-          </Typography>
-          {/* <p className="story-distance">
+          <CardContent>
+            {/* <article className="story-card"> */}
+            <Typography variant="h6">
+              <h3 className="story-title">{title}</h3>
+            </Typography>
+            {/* <h3 className="story-title">{title}</h3> */}
+            <Typography
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              <p className="story-distance">
+                {distance.toFixed(2)} Miles to Story
+              </p>
+            </Typography>
+            {/* <p className="story-distance">
             Distance from story: {distance.toFixed(2)}
           </p> */}
-          <Button
-            variant="outlined"
-            type="click"
-            onClick={() => handleDirectionsClick()}
-          >
-            GET DIRECTIONS
-          </Button>
-          <br />
-          <br />
-          <Button
-            variant="outlined"
-            type="click"
-            onClick={() => handleStoryClick()}
-          >
-            VIEW STORY
-          </Button>
-          <br />
-          <br />
-
-          {/* </article> */}
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="outlined"
+              type="click"
+              onClick={() => handleDirectionsClick()}
+            >
+              GET DIRECTIONS
+            </Button>
+            <Button
+              variant="outlined"
+              type="click"
+              onClick={() => handleStoryClick()}
+            >
+              VIEW STORY
+            </Button>
+            {/* </article> */}
+          </CardActions>
         </Card>
       )}
       {latitude && longitude && isStory && (
