@@ -32,7 +32,7 @@ export const LocationSelection = () => {
     console.log(error);
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };

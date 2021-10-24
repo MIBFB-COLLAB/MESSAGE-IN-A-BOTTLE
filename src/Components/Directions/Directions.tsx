@@ -5,6 +5,10 @@ import { getDirections } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
+interface direction {
+  attributes:{ distance: string, narrative: string }
+}
+
 const Directions = ({ id, latitude, longitude }) => {
   const [directions, setDirections] = useState([]);
   const [error, setError] = useState('');
@@ -23,7 +27,7 @@ const Directions = ({ id, latitude, longitude }) => {
 
   let directionsCards;
   if (directions.length > 0) {
-    directionsCards = directions.map((direction) => {
+    directionsCards = directions.map((direction:direction) => {
       return <DirectionsCard direction={direction.attributes} />;
     });
   } else {
