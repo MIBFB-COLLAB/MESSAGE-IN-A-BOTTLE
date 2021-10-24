@@ -16,8 +16,6 @@ const StoryEdit = ({ newStory }) => {
 
   const [newTitle, setNewTitle] = useState(title);
   const [newMessage, setNewMessage] = useState(message);
-  //   const latitude = newStory.data.latitude;
-  //   const longitude = newStory.data.longitude;
   const id = newStory.data.id;
   const [left, setLeft] = useState(1000);
 
@@ -74,6 +72,8 @@ const StoryEdit = ({ newStory }) => {
           type="text"
           className="title"
           value={newTitle}
+          minLength={0}
+          maxLength={1000}
           required
           onChange={(e) => setNewTitle(e.target.value)}
         />
