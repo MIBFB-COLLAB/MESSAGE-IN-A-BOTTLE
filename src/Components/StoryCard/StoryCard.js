@@ -1,58 +1,78 @@
 import './StoryCard.css';
-import React, { useState, useEffect } from "react";
-import MicroModal from 'react-micro-modal';
+import React, { useState, useEffect, useRef } from 'react';
 import Directions from '../Directions/Directions';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
-import { getDirections } from '../../apiCalls';
+import FullStoryCard from '../FullStoryCard/FullStoryCard';
+import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
+import { getDirections, getStory } from '../../apiCalls';
+import { Button } from '@mui/material';
+import { Redirect } from 'react-router-dom'
 
-const StoryCard = ({id, title, distance, latitude, longitude}) => {
-  const [directions, setDirections] = useState('')
-  const [error, setError] = useState('')
+const StoryCard = ({ id, title, distance }) => {
+const [latitude, setLatitude] = useState('');
+const [longitude, setLongitude] = useState('');
+const [directions, setDirections] = useState('');
+// const [story, setStory] = useState('');
+const [error, setError] = useState('');
+const [isLoading, setIsLoading] = useState(false)
+// const isLocated = useRef(false)
 
-  const handleDirectionsClick = () => {
-    console.log('handlin the click')
-    getDirections(id, latitude, longitude)
-    // We may need to change how we access the data here depending on data structure
-    .then((data) => setDirections)
-    // We may need to change how we access the error message here depending on data structure
-    .catch((error) => setError(error.message))
+  const getLocation = (position) => {
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+  };
+
+  const catchError = () => {
+    setError('Sorry, no position available.');
+    console.log(error);
+  };
+
+  const handleStoryClick = () => {
+    setIsLoading(true);
+    navigator.geolocation.getCurrentPosition(getLocation, catchError);
   }
 
-  useEffect(() => {
-    return (
-      <ErrorHandlingCard errorMessage={error}/>
-    )
-  }, [error])
+  const handleDirectionsClick = () => {
+    getDirections(id, latitude, longitude)
+      .then((data) => setDirections)
+      .catch((error) => setError(error));
+  };
 
-  return(
-    <article className="story-card">
+  // useEffect(() => {
+  //   if (isLocated.current) {
+  //     <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
+  //   } else {
+  //     isLocated.current = true
+  //   }
+  // }, [longitude])
+
+  return (
+    <>
+    {!latitude && !longitude && (
+      <article className="story-card">
       <h3 className="story-title">{title}</h3>
-      <p className="story-distance">Distance from story: {distance}</p>
-      <MicroModal 
-        trigger={(open) => (
-          <div onClick={open}>
-            <button 
-              className="get-directions-btn" 
-              onClick={() => handleDirectionsClick()}>
-              GET DIRECTIONS
-            </button>
-          </div>
-      )}>
-        {(close) => {
-          return (
-            <article className="directions-modal">
-              <Directions 
-                title={title} 
-                directions={directions}
-              />
-            </article>
-          )
-        }}
-      </MicroModal>
-      <button className="view-story-btn">VIEW STORY</button>
-    </article>
-  )
-
-}
+      <p className="story-distance">Distance from story: {distance.toFixed(2)}</p>
+        <Button
+          // className="get-directions-btn"
+          variant="outlined"
+          type="click"
+          onClick={() => handleDirectionsClick()}
+        >
+          GET DIRECTIONS
+        </Button>
+        <Button 
+          // className="view-story-btn" 
+          variant="outlined"
+          type="click"
+          onClick={() => handleStoryClick()}
+        >
+          VIEW STORY
+        </Button>
+      </article>
+    )}
+    {latitude && longitude && <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />}
+    </>
+  );
+};
 
 export default StoryCard;

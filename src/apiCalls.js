@@ -8,11 +8,19 @@ export const getData = async (latitude, longitude) => {
 
 export const getDirections = async (id, latitude, longitude) => {
   const response = await fetch(
-    `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/:${id}/directions?lat=${latitude}&long=${longitude}`,
+    `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/${id}/directions?lat=${latitude}&long=${longitude}`,
     { mode: 'cors' }
   );
   return await response.json();
 };
+
+export const getStory = async (id, latitude, longitude) => {
+  const response = await fetch(
+    `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/${id}?latitude=${latitude}&longitude=${longitude}`,
+    { mode: 'cors' }
+  )
+  return await response.json();
+}
 
 export const sendNewStory = async (newStory) => {
   const requestOptions = {

@@ -1,12 +1,11 @@
 import './FullStoryCard.css';
 import React from "react"
 
-const FullStoryCard = ({title, story}) => {
+const FullStoryCard = ({ story }) => {
   return (
     <article className="full-story-card">
-      <h3>{title}</h3>
-      <p>{story}</p>
-      <button>BACK TO CARD</button>
+      <h3>Title: {story.title}</h3>
+      <p>Message:{story.message}</p>
     </article>
   )
 }

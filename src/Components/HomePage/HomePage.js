@@ -7,7 +7,6 @@ import { LocationSelection } from '../LocationSelection/LocationSelection';
 const HomePage = () => {
   return (
     <section className="home-page">
-      <Header />
       <UserInstructions />
       <LocationSelection />
     </section>
