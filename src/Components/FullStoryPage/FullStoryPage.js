@@ -19,7 +19,10 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
   }, [])
 
   return(
-    <div>I'm a story page!</div>
+    <div>
+      Title:{story.title}
+      Message:{story.message}
+    </div>
   )
 }
 
