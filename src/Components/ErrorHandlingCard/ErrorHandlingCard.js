@@ -1,13 +1,28 @@
 import './ErrorHandlingCard.css';
 import React from "react"
 
-const ErrorHandlingCard = ({ errorMessage }) => {
-  console.log(errorMessage)
+const ErrorHandlingCard = ({ errorMessage, networkMessage, directionMessage }) => {
   return (
-    <article className="error-card">
-      <p>{errorMessage}</p>
-      <button className="directions-button">BACK TO DIRECTIONS</button>
-    </article>
+    <>
+    {errorMessage && (
+      <article className="error-card">
+        <p>{errorMessage}</p>
+        <Link to='/' className="home-button">TAKE ME HOME</Link>
+      </article>
+    )}
+    {networkMessage && (
+      <article className="error-card">
+        <p>{networkMessage}</p>
+        <Link to='/' className="home-button">TAKE ME HOME</Link>
+      </article>
+    )}
+    {directionMessage && (
+      <article className="error-card">
+        <p>{directionMessage}</p>
+        <Link to='/' className="home-button">TAKE ME HOME</Link>
+      </article>
+    )}
+    </>
   )
 };
 
