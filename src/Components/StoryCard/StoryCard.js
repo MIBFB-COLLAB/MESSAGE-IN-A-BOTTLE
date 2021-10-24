@@ -39,14 +39,6 @@ const StoryCard = ({ id, title, distance }) => {
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
 
-  // useEffect(() => {
-  //   if (isLocated.current) {
-  //     <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
-  //   } else {
-  //     isLocated.current = true
-  //   }
-  // }, [longitude])
-
   return (
     <>
       {!latitude && !longitude && (
@@ -56,7 +48,6 @@ const StoryCard = ({ id, title, distance }) => {
             Distance from story: {distance.toFixed(2)}
           </p>
           <Button
-            // className="get-directions-btn"
             variant="outlined"
             type="click"
             onClick={() => handleDirectionsClick()}
@@ -64,7 +55,6 @@ const StoryCard = ({ id, title, distance }) => {
             GET DIRECTIONS
           </Button>
           <Button
-            // className="view-story-btn"
             variant="outlined"
             type="click"
             onClick={() => handleStoryClick()}
@@ -73,9 +63,16 @@ const StoryCard = ({ id, title, distance }) => {
           </Button>
         </article>
       )}
-      {latitude && longitude && (
-        <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
-      )}
+      {latitude &&
+        longitude &&
+        isStory(
+          <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
+        )}
+      {latitude &&
+        longitude &&
+        isDirections(
+          <Redirect to={`/directionsPage/${id}/${latitude}/${longitude}`} />
+        )}
     </>
   );
 };
