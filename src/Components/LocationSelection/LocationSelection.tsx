@@ -17,12 +17,12 @@ import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const getLocation = (position) => {
+  const getLocation = (position: { coords: { latitude: React.SetStateAction<number>; longitude: React.SetStateAction<number>; }; }) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
@@ -32,7 +32,7 @@ export const LocationSelection = () => {
     console.log(error);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = (e) => {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
@@ -46,13 +46,13 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <Button 
-            variant="outlined"
-            type="click"
+          <button 
+            // variant="outlined"
+            // type="click"
             onClick={(e) => handleClick(e)}
           >
             Get Stories
-          </Button>
+          </button>
         </div>
       )}
       {isLoading && <LoadingComponent />}
