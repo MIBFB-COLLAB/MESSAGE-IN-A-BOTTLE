@@ -72,7 +72,9 @@ const StoryEdit = ({ newStory }) => {
           type="text"
           className="title"
           value={newTitle}
-          minLength={0}
+          inputProps={{
+            maxLength:{left},
+          }}
           required
           onChange={(e) => setNewTitle(e.target.value)}
         />
@@ -87,7 +89,10 @@ const StoryEdit = ({ newStory }) => {
             placeholder="Type your story here"
             value={newMessage}
             required
-            maxLength={left}
+            inputProps={{
+              maxLength:{left},
+              minLength:0
+            }}
             onChange={(e) => setCharacterLimit(e)}
             multiline
           />

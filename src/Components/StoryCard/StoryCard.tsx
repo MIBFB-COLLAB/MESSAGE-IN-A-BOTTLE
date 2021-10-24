@@ -54,42 +54,34 @@ const StoryCard = ({ id, title, distance }) => {
           }}
         >
           <CardContent>
-            {/* <article className="story-card"> */}
             <Typography variant="h6">
-              <h3 className="story-title">{title}</h3>
+              {title}
             </Typography>
-            {/* <h3 className="story-title">{title}</h3> */}
             <Typography
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
             >
-              <p className="story-distance">
                 {distance.toFixed(2)} Miles to Story
-              </p>
             </Typography>
-            {/* <p className="story-distance">
-            Distance from story: {distance.toFixed(2)}
-          </p> */}
           </CardContent>
           <CardActions>
-            <Button
-              href="#text-buttons"
-              variant="outlined"
-              type="click"
+            <button
+              // href={`directionsPage/${id}/${latitude}/${longitude}`}
+              // variant="outlined"
+              // type="click"
               onClick={() => handleDirectionsClick()}
             >
               GET DIRECTIONS
-            </Button>
-            <Button
-              href="#text-buttons"
-              variant="outlined"
-              type="click"
+            </button>
+            <button
+              // href="#text-buttons"
+              // variant="outlined"
+              // type="click"
               onClick={() => handleStoryClick()}
             >
               VIEW STORY
-            </Button>
-            {/* </article> */}
+            </button>
           </CardActions>
         </Card>
       )}

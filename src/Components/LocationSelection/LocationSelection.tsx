@@ -17,12 +17,12 @@ import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
-  const [latitude, setLatitude] = useState(0);
-  const [longitude, setLongitude] = useState(0);
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const getLocation = (position: { coords: { latitude: React.SetStateAction<number>; longitude: React.SetStateAction<number>; }; }) => {
+  const getLocation = (position:any) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
@@ -46,14 +46,14 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <Button
-            href="#text-buttons"
-            variant="outlined"
-            type="click"
+          <button
+            // href="#text-buttons"
+            // variant="outlined"
+            // type="click"
             onClick={(e) => handleClick(e)}
           >
             Get Stories
-          </Button>
+          </button>
         </div>
       )}
       {isLoading && <LoadingComponent />}

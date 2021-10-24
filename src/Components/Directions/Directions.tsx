@@ -4,6 +4,7 @@ import { DirectionsCard } from '../DirectionsCard/DirectionsCard';
 import { getDirections } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
+const { v4: uuidv4 } = require('uuid');
 
 export interface direction {
   attributes:{ distance: string, narrative: string }
@@ -28,7 +29,7 @@ const Directions = ({ id, latitude, longitude }) => {
   let directionsCards;
   if (directions.length > 0) {
     directionsCards = directions.map((direction:direction) => {
-      return <DirectionsCard direction={direction.attributes} />;
+      return <DirectionsCard  key={uuidv4()} direction={direction.attributes} />;
     });
   } else {
     directionsCards = <LoadingComponent />;
