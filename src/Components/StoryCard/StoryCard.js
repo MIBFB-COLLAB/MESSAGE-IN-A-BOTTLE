@@ -13,7 +13,7 @@ const StoryCard = ({ id, title, distance }) => {
   const [longitude, setLongitude] = useState('');
   const [directions, setDirections] = useState('');
   const [isStory, setIsStory] = useState(false);
-  const [isDirections, setIsDirections] = false;
+  const [isDirections, setIsDirections] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -63,16 +63,12 @@ const StoryCard = ({ id, title, distance }) => {
           </Button>
         </article>
       )}
-      {latitude &&
-        longitude &&
-        isStory(
-          <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
-        )}
-      {latitude &&
-        longitude &&
-        isDirections(
-          <Redirect to={`/directionsPage/${id}/${latitude}/${longitude}`} />
-        )}
+      {latitude && longitude && isStory && (
+        <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
+      )}
+      {latitude && longitude && isDirections && (
+        <Redirect to={`/directionsPage/${id}/${latitude}/${longitude}`} />
+      )}
     </>
   );
 };
