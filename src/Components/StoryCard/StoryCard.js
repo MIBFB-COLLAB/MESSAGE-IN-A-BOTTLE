@@ -1,12 +1,13 @@
 import './StoryCard.css';
-import React, { useState, useEffect, useRef } from 'react';
-import Directions from '../Directions/Directions';
-import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
-import FullStoryCard from '../FullStoryCard/FullStoryCard';
-import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
-import { getDirections, getStory } from '../../apiCalls';
-import { Button } from '@mui/material';
+import React, { useState } from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
+// import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
+// import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
 const StoryCard = ({ id, title, distance }) => {
   const [latitude, setLatitude] = useState('');
@@ -42,11 +43,30 @@ const StoryCard = ({ id, title, distance }) => {
   return (
     <>
       {!latitude && !longitude && (
-        <article className="story-card">
-          <h3 className="story-title">{title}</h3>
-          <p className="story-distance">
+        <Card
+          sx={{
+            minWidth: 275,
+            textAlign: 'center',
+            backgroundColor: '#f2f0e3',
+          }}
+        >
+          {/* <article className="story-card"> */}
+          <Typography variant="body2">
+            <h3 className="story-title">{title}</h3>
+          </Typography>
+          {/* <h3 className="story-title">{title}</h3> */}
+          <Typography
+            sx={{ fontSize: 14, marginBottom: '5px' }}
+            color="text.secondary"
+            gutterBottom
+          >
+            <p className="story-distance">
+              {distance.toFixed(2)} Miles to Story
+            </p>
+          </Typography>
+          {/* <p className="story-distance">
             Distance from story: {distance.toFixed(2)}
-          </p>
+          </p> */}
           <Button
             variant="outlined"
             type="click"
@@ -54,6 +74,8 @@ const StoryCard = ({ id, title, distance }) => {
           >
             GET DIRECTIONS
           </Button>
+          <br />
+          <br />
           <Button
             variant="outlined"
             type="click"
@@ -61,7 +83,11 @@ const StoryCard = ({ id, title, distance }) => {
           >
             VIEW STORY
           </Button>
-        </article>
+          <br />
+          <br />
+
+          {/* </article> */}
+        </Card>
       )}
       {latitude && longitude && isStory && (
         <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
