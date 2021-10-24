@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
-// import { Button} from '@mui/material';
-import Button from '@mui/material/Button';
-// import Button, { ButtonProps } from "@material-ui/core/Button";
+import { Button } from '@mui/material';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
 // declare module '@mui/material' {
@@ -48,7 +46,7 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <Button
+          <Button 
             variant="outlined"
             type="click"
             onClick={(e) => handleClick(e)}
