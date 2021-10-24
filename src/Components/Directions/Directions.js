@@ -2,6 +2,7 @@ import './Directions.css';
 import React, { useState, useEffect } from 'react';
 import { DirectionsCard } from '../DirectionsCard/DirectionsCard';
 import { getDirections } from '../../apiCalls';
+import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 
 const Directions = ({ id, latitude, longitude }) => {
   const [directions, setDirections] = useState([]);
@@ -10,8 +11,8 @@ const Directions = ({ id, latitude, longitude }) => {
 
   const getStoryDirections = () => {
     getDirections(id, latitude, longitude)
-      .then((data) => console.log(data.data))
-      // .then((data) => setDirections(data.data.attributes))
+      // .then((data) => console.log(data.data))
+      .then((data) => setDirections(data.data))
       .catch((error) => setError(error));
   };
 
@@ -19,14 +20,18 @@ const Directions = ({ id, latitude, longitude }) => {
     getStoryDirections();
   }, []);
 
-  return (
-    <article className="directions">
-      {/* <h3>Directions</h3>
-      <p>Distance {distance}</p>
-      <p>{narrative}</p>
-      <button>BACK TO CARD</button> */}
-    </article>
-  );
+  let directionsCards;
+  if (directions.length > 0) {
+    directionsCards = directions.map((direction) => {
+      return <DirectionsCard direction={direction.attributes} />;
+    });
+  } else {
+    directionsCards = (
+      <ErrorHandlingCard errorMessage={`Whoops, something went wrong`} />
+    );
+  }
+
+  return <article className="directions">{directionsCards}</article>;
 };
 
 export default Directions;

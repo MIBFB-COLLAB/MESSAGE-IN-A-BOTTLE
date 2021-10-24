@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const DirectionsCard = ({ directions }) => {
-  const { narrative, distance } = directions;
+export const DirectionsCard = ({ direction }) => {
+  const { narrative, distance } = direction;
   return (
     <article>
       <p>
