@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { DirectionsCard } from '../DirectionsCard/DirectionsCard';
 import { getDirections } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
+import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
 const Directions = ({ id, latitude, longitude }) => {
   const [directions, setDirections] = useState([]);
@@ -26,9 +27,7 @@ const Directions = ({ id, latitude, longitude }) => {
       return <DirectionsCard direction={direction.attributes} />;
     });
   } else {
-    directionsCards = (
-      <ErrorHandlingCard errorMessage={`Whoops, something went wrong`} />
-    );
+    directionsCards = <LoadingComponent />;
   }
 
   return <article className="directions">{directionsCards}</article>;
