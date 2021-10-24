@@ -18,7 +18,6 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
   };
 
   useEffect(() => {
-    console.log('gettin a story')
     getSingleStory()
   }, [])
 
