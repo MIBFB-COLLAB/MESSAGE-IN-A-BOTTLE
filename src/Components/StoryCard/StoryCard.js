@@ -6,16 +6,16 @@ import FullStoryCard from '../FullStoryCard/FullStoryCard';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 import { getDirections, getStory } from '../../apiCalls';
 import { Button } from '@mui/material';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 const StoryCard = ({ id, title, distance }) => {
-const [latitude, setLatitude] = useState('');
-const [longitude, setLongitude] = useState('');
-const [directions, setDirections] = useState('');
-// const [story, setStory] = useState('');
-const [error, setError] = useState('');
-const [isLoading, setIsLoading] = useState(false)
-// const isLocated = useRef(false)
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [directions, setDirections] = useState('');
+  const [isStory, setIsStory] = useState(false);
+  const [isDirections, setIsDirections] = false;
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
@@ -29,13 +29,14 @@ const [isLoading, setIsLoading] = useState(false)
 
   const handleStoryClick = () => {
     setIsLoading(true);
+    setIsStory(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
-  }
+  };
 
   const handleDirectionsClick = () => {
-    getDirections(id, latitude, longitude)
-      .then((data) => setDirections)
-      .catch((error) => setError(error));
+    setIsLoading(true);
+    setIsDirections(true);
+    navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
 
   // useEffect(() => {
@@ -48,29 +49,33 @@ const [isLoading, setIsLoading] = useState(false)
 
   return (
     <>
-    {!latitude && !longitude && (
-      <article className="story-card">
-      <h3 className="story-title">{title}</h3>
-      <p className="story-distance">Distance from story: {distance.toFixed(2)}</p>
-        <Button
-          // className="get-directions-btn"
-          variant="outlined"
-          type="click"
-          onClick={() => handleDirectionsClick()}
-        >
-          GET DIRECTIONS
-        </Button>
-        <Button 
-          // className="view-story-btn" 
-          variant="outlined"
-          type="click"
-          onClick={() => handleStoryClick()}
-        >
-          VIEW STORY
-        </Button>
-      </article>
-    )}
-    {latitude && longitude && <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />}
+      {!latitude && !longitude && (
+        <article className="story-card">
+          <h3 className="story-title">{title}</h3>
+          <p className="story-distance">
+            Distance from story: {distance.toFixed(2)}
+          </p>
+          <Button
+            // className="get-directions-btn"
+            variant="outlined"
+            type="click"
+            onClick={() => handleDirectionsClick()}
+          >
+            GET DIRECTIONS
+          </Button>
+          <Button
+            // className="view-story-btn"
+            variant="outlined"
+            type="click"
+            onClick={() => handleStoryClick()}
+          >
+            VIEW STORY
+          </Button>
+        </article>
+      )}
+      {latitude && longitude && (
+        <Redirect to={`/fullStoryPage/${id}/${latitude}/${longitude}`} />
+      )}
     </>
   );
 };
