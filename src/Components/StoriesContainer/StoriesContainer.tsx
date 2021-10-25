@@ -53,8 +53,8 @@ const StoriesContainer = ({ longitude, latitude }) => {
         </div>
       )}
       <Link to="/">
-          <Button>TAKE ME HOME </Button>
-        </Link>
+        <Button>TAKE ME HOME </Button>
+      </Link>
     </section>
   );
 };
