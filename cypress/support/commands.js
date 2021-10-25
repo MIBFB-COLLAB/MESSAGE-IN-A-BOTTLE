@@ -23,13 +23,13 @@ Cypress.Commands.add('GetStory', (method) => {
                 "input_location": "Arapahoe, CO",
                 "stories": [
                     {
-                        "id": "53",
+                        "id": "172",
                         "type": "story",
                         "attributes": {
-                            "title": "Wie Traurig",
-                            "distance_in_miles": 15.0466,
-                            "latitude": 39.7754063,
-                            "longitude": -105.0169859
+                            "title": "Test",
+                            "distance_in_miles": 0.0007,
+                            "latitude": 39.6265185,
+                            "longitude": -104.8108565
                         }
                     }
                 ]
@@ -43,21 +43,20 @@ Cypress.Commands.add('PostStory', (method) => {
         statusCode: 200,
         body: {
             "data": {
-                "input_location": "Arapahoe, CO",
-                "stories": [
-                    {
-                        "id": "53",
-                        "type": "story",
-                        "attributes": {
-                            "title": "Wie Traurig",
-                            "distance_in_miles": 15.0466,
-                            "latitude": 39.7754063,
-                            "longitude": -105.0169859
-                        }
-                    }
-                ]
-            }
-        }
+                id: 172,
+                type: "Story",
+                attributes: {
+                    created_at: "2021-10-25T22:11:44.305064Z",
+                    latitude: 39.6265308,
+                    location: "Arapahoe, CO",
+                    longitude: -104.8108571,
+                    message: "faras test",
+                    name: "Anonymous",
+                    title: "Test",
+                    updated_at: "2021-10-25T22:11:44.305094Z",
+                }
+            }  
+        }  
     })
 
 })
