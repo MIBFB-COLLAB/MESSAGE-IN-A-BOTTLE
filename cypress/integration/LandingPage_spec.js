@@ -87,60 +87,55 @@ describe('EditStory component', () => {
     cy.get('article')
     .get('h3').contains('Create Your Message')
     .get('div')
-    // .get('.new-story-form')
-    .get('.title').type('Hello')
-    .get('textarea').type('Hellooooo')
-    .get('h2').contains('characters left')
+    .get('.title').type('Test')
+    .get('[id="message"]').type('Hello')
     .get('button').contains('Submit Story').click()
     cy.PostStory('POST')
   })
 
-  it('After submitting new story, should be able to see new pop up modal with edit options', () => {
-    cy.get('.MuiButton-root').click()
-    cy.PostStory('POST')
-    cy.get('.edit-story-form')
-    .get('p').contains('Your story successfully been added')
-    .get('input[name="title"]').type('Hello')
-      .invoke('val')
-      .then(sometext => cy.log('Hello'));
-
-      cy.get('textarea[name="text"]').type('Hellooo')
-      .invoke('val')
-      .then(sometext => cy.log('Hellooo'));
-      cy.get('h2').contains('characters left')
+  it('After submitting new story, should be able to see new pop up modal with edit options and edit story', () => {
+    cy.get('.new-story-modal')
+    cy.get('#editInstructions').contains('Bottle')
+    .get('#outlinedTextArea').type(' editing faras test')
+    .get('#title').type('Test')
+    .get('#text').contains('Once')
+    .get('#editStoryBtn').click()
+    cy.PatchStory('PATCH')
+    cy.visit('http://localhost:3000/')
+    cy.get('.get-stories-btn').contains('Get Stories').click()
   })
   
-  it('Should be able to submit changes by clicking submit my edits button and modal has to close', () => {
-    cy.get('.story-submit-button').contains('Submit Story').click().wait(3000)
-    cy.PostStory('POST')
-    cy.get('.edit-story-form')
-    .get('p').contains('Your story successfully been added') 
-    .get('input[name="title"]').type('Hello World')
-      .invoke('val')
-      .then(sometext => cy.log('Hello World'));
+  // it('Should be able to submit changes by clicking submit my edits button and modal has to close', () => {
+  //   cy.get('.story-submit-button').contains('Submit Story').click().wait(3000)
+  //   cy.PostStory('POST')
+  //   cy.get('.edit-story-form')
+  //   .get('p').contains('Your story successfully been added') 
+  //   .get('input[name="title"]').type('Hello World')
+  //     .invoke('val')
+  //     .then(sometext => cy.log('Hello World'));
 
-      cy.get('textarea[name="text"]').type('Hellooo')
-      .invoke('val')
-      .then(sometext => cy.log('Hellooo'));
-      cy.get('h2').contains('characters left').wait(3000)
-      cy.get('.story-submit-button').click()
-      cy.PatchStory('PATCH')
-  })
+  //     cy.get('textarea[name="text"]').type('Hellooo')
+  //     .invoke('val')
+  //     .then(sometext => cy.log('Hellooo'));
+  //     cy.get('h2').contains('characters left').wait(3000)
+  //     cy.get('.story-submit-button').click()
+  //     cy.PatchStory('PATCH')
+  // })
 
-  it('Should be able to delete story by clicking button and modal has to close', () => {
-    cy.get('.story-submit-button').contains('Submit Story').click()
-    cy.PostStory('POST')
-    cy.get('.edit-story-form')
-    .get('p').contains('Your story successfully been added')
-    .get('input[name="title"]').type('Hello World')
-      .invoke('val')
-      .then(sometext => cy.log('Hello World'));
+  // it('Should be able to delete story by clicking button and modal has to close', () => {
+  //   cy.get('.story-submit-button').contains('Submit Story').click()
+  //   cy.PostStory('POST')
+  //   cy.get('.edit-story-form')
+  //   .get('p').contains('Your story successfully been added')
+  //   .get('input[name="title"]').type('Hello World')
+  //     .invoke('val')
+  //     .then(sometext => cy.log('Hello World'));
 
-      cy.get('textarea[name="text"]').type('Hellooo')
-      .invoke('val')
-      .then(sometext => cy.log('Hellooo'));
-      cy.get('h2').contains('characters left')
-      .get('.story-delete-button').click()
-      cy.DeleteStory('DELETE')
-  })
+  //     cy.get('textarea[name="text"]').type('Hellooo')
+  //     .invoke('val')
+  //     .then(sometext => cy.log('Hellooo'));
+  //     cy.get('h2').contains('characters left')
+  //     .get('.story-delete-button').click()
+  //     cy.DeleteStory('DELETE')
+  // })
 })
