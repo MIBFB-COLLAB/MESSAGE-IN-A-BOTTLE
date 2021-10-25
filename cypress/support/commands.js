@@ -65,7 +65,7 @@ Cypress.Commands.add('PatchStory', (method) => {
     cy.intercept(`${method}`, `${baseURL2}`, {
         statusCode: 200,
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({title: 'Hello world', message:'Hello'}),
+        body: JSON.stringify({ name: 'Anonymous', title: 'Test', message:'faras test editing faras test'}),
     })
 })
 
