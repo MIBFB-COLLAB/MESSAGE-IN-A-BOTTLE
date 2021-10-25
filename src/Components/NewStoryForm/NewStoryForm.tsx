@@ -52,9 +52,6 @@ export const NewStoryForm = () => {
     let input = e.target.value;
     setMessage(e.target.value);
     setLeft(1000 - input.length);
-    // if ( e.target.value > 1000 ) {
-
-    // }
   };
 
   useEffect(() => {
@@ -94,9 +91,8 @@ export const NewStoryForm = () => {
                 placeholder="Type your story here"
                 value={message}
                 required
-                /// chnaged for TS, syill need fix bug
                 inputProps={{
-                  maxLength: {left},
+                  maxLength: 1000,
                 }}
 
                 onChange={(e) => setCharacterLimit(e)}
@@ -107,7 +103,6 @@ export const NewStoryForm = () => {
               </FormHelperText>
             </FormControl>
             <Button
-              // endIcon={<SendIcon />}
               variant="outlined"
               type="submit"
               className="story-submit-button"
