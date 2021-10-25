@@ -42,24 +42,17 @@ describe('Landing Page', () => {
     })
   });
 
-  it('Should be able to see button and text to get stories near by', () => {
-    cy.get('.location-selection')
-    .get('.get-stories-btn').contains('Get Stories').click()
-    cy.GetStory('GET')
-    cy.visit('http://localhost:3000/storiesPage/39.6265535/-104.8108433')
-    cy.url().should('include', '/storiesPage/39.6265535/-104.8108433')
-    cy.url().should('eq', 'http://localhost:3000/storiesPage/39.6265535/-104.8108433')
-  })
   
   it('Should be able to get stories near by clicking the button', () => {
     cy.get('.location-selection')
-    .get('.get-stories-btn').contains('Get Stories')
+    .get('.get-stories-btn').contains('Get Stories').click()
   })
 });
 
 describe('Create new story', () => {
   beforeEach('New card form modal', () => {
     cy.visit('http://localhost:3000/')
+  
   })
 
   it('Should be able click submit story button, in order to submit new story', () => {
@@ -79,6 +72,22 @@ describe('Create new story', () => {
     .get('button').contains('Submit Story').click()
     cy.PostStory('POST')
   });
+
+  it('Should be able to see button and text to get stories near by', () => {
+    cy.get('.location-selection')
+    .get('.get-stories-btn').contains('Get Stories').click()
+    cy.GetStory('GET')
+  //   cy.url().should('include', 'http://localhost:3000/storiesPage/39.6265386/-104.8108526')
+  //   // cy.window().then((win) => {
+  //   //   console.log(win.location)
+  //   // })
+  //   // cy.location().should((loc) => {
+  //   //   expect(loc.pathname).to.eq('/StoriesPage/')
+      
+  //   // cy.url().should('include', '/storiesPage/39.6265535/-104.8108433')
+  //   // cy.url().should('eq', 'http://localhost:3000/storiesPage/39.6265535/-104.8108433')
+  // // })
+})
 })
 
 // describe('EditStory component', () => {
@@ -88,7 +97,7 @@ describe('Create new story', () => {
 //     cy.get('article')
 //     .get('h3').contains('Create Your Message')
 //     .get('div')
-//     .get('.new-story-form')
+//     // .get('.new-story-form')
 //     .get('.title').type('Hello')
 //     .get('textarea').type('Hellooooo')
 //     .get('h2').contains('characters left')
@@ -115,7 +124,7 @@ describe('Create new story', () => {
 //     cy.get('.story-submit-button').contains('Submit Story').click().wait(3000)
 //     cy.PostStory('POST')
 //     cy.get('.edit-story-form')
-//     .get('p').contains('Your story successfully been added')
+//     .get('p').contains('Your story successfully been added') 
 //     .get('input[name="title"]').type('Hello World')
 //       .invoke('val')
 //       .then(sometext => cy.log('Hello World'));
