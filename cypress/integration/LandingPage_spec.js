@@ -6,12 +6,15 @@ describe('Landing Page', () => {
   it('Should be able to access to application by URL and see Home Page', () => {
     cy.url().should('include', '/')
     cy.url().should('eq', 'http://localhost:3000/')
+    
   });
 
-  // it('Should be able to show an error if URL path is wrong', () => {
-    
-
-  // })
+  it('Should be able to show an error if URL path is wrong', () => {
+    cy.visit('http://localhost:3000/hotdogs')
+    cy.get('.error-message').contains('Whoops, something went wrong!')
+    cy.get('a > .MuiButton-root').click()
+    cy.url().should('eq', 'http://localhost:3000/')
+  })
 
   it('Should be able to see page Title', () => {
     cy.get('Header')
@@ -41,8 +44,7 @@ describe('Landing Page', () => {
 
   it('Should be able to see button and text to get stories near by', () => {
     cy.get('.location-selection')
-    // .get('h4').contains('Click The Button To Get Stories Near You')
-    .get('.get-stories-btn').contains('Get Stories').click()// need add click after stubbing  http GET request
+    .get('.get-stories-btn').contains('Get Stories').click()
     cy.GetStory('GET')
     cy.visit('http://localhost:3000/storiesPage/39.6265535/-104.8108433')
     cy.url().should('include', '/storiesPage/39.6265535/-104.8108433')
@@ -71,10 +73,9 @@ describe('Create new story', () => {
     cy.get('article')
     .get('h3').contains('Create Your Message')
     .get('div')
-    .get('#new-story-modal')
+    .get('#newStoryModal')
     .get('.title').type('Hello')
-    .get('textarea').type('Hellooooo')
-    .get('h2').contains('characters left')
+    cy.get('[id="message"]').type('heloooooo')
     .get('button').contains('Submit Story').click()
     cy.PostStory('POST')
   });

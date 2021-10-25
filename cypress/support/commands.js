@@ -20,7 +20,7 @@ Cypress.Commands.add('GetStory', (method) => {
         statusCode: 200,
         body: {
             "data": {
-                "input_location": "This is a temporary location!",
+                "input_location": "Arapahoe, CO",
                 "stories": [
                     {
                         "id": "53",
@@ -43,7 +43,7 @@ Cypress.Commands.add('PostStory', (method) => {
         statusCode: 200,
         body: {
             "data": {
-                "input_location": "This is a temporary location!",
+                "input_location": "Arapahoe, CO",
                 "stories": [
                     {
                         "id": "53",
