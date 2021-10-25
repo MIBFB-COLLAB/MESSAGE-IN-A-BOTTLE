@@ -12,34 +12,31 @@ import { FormHelperText } from '@mui/material';
 const StoryEdit = ({ newStory }) => {
   const { data } = newStory;
   const { attributes } = data;
-  const { name, title, message, latitude, longitude } = attributes;
 
-  const [newTitle, setNewTitle] = useState(title);
-  const [newMessage, setNewMessage] = useState(message);
-  const id = newStory.data.id;
+  const [title, setTitle] = useState(attributes.title);
+  const [message, setMessage] = useState(attributes.message);
+  const id = data.id;
   const [left, setLeft] = useState(1000);
 
   const setCharacterLimit = (e) => {
     let input = e.target.value;
-    setNewMessage(e.target.value);
+    setMessage(e.target.value);
     setLeft(1000 - input.length);
   };
 
   const submitMessage = (e) => {
     e.preventDefault();
-    console.log(latitude, longitude);
     const newStory = {
-      newTitle,
-      newMessage,
-      longitude,
-      latitude,
+      name: attributes.name,
+      title,
+      message,
     };
     editNewStory(newStory, id).then((data) => console.log(data));
   };
 
   const deleteNewStory = (e) => {
     e.preventDefault();
-    deleteStory(id).then((data) => console.log(data));
+    deleteStory(id);
   };
 
   return (
@@ -71,23 +68,20 @@ const StoryEdit = ({ newStory }) => {
           size="small"
           type="text"
           className="title"
-          value={newTitle}
-          inputProps={{
-            maxLength:{left},
-          }}
+          value={title}
           required
-          onChange={(e) => setNewTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </FormControl>
       <Stack direction="column" spacing={4}>
-        <FormControl variant="standard">
+        <FormControl variant="standard" >
           <TextField
             // id="outlined-textarea"
             label={`${left} characters left`}
             type="text"
             className="message"
             placeholder="Type your story here"
-            value={newMessage}
+            value={message}
             required
             inputProps={{
               maxLength:1000
@@ -98,14 +92,17 @@ const StoryEdit = ({ newStory }) => {
           <FormHelperText id="component-helper-text">Your Story</FormHelperText>
         </FormControl>
         <Typography variant="h6">{left} characters left</Typography>
+        <Typography variant="h6">
+          Once you have clicked a button, click outside the dialog box to
+          complete your submission
+        </Typography>
         <Button
           // endIcon={<SendIcon />}
           variant="outlined"
           type="submit"
-          className="story-submit-button"
           onClick={(e) => submitMessage(e)}
         >
-          Submit Story
+          Edit Story
         </Button>
         <Button
           // Trash Icon

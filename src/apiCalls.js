@@ -36,6 +36,7 @@ export const sendNewStory = async (newStory) => {
 };
 
 export const editNewStory = async (newStory, id) => {
+  console.log('api', newStory);
   const requestOptions = {
     method: 'PATCH',
     headers: { 'content-type': 'application/json' },
@@ -54,5 +55,5 @@ export const deleteStory = async (id) => {
     { method: 'DELETE' }
   );
 
-  return await response.json();
+  // return await response.json();
 };
