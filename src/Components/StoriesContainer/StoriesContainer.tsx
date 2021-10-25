@@ -2,6 +2,8 @@ import './StoriesContainer.css';
 import React, { useEffect, useState } from 'react';
 import StoryCard from '../StoryCard/StoryCard';
 import { getData } from '../../apiCalls';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const { v4: uuidv4 } = require('uuid');
 
@@ -50,6 +52,9 @@ const StoriesContainer = ({ longitude, latitude }) => {
           Story" button above.
         </div>
       )}
+      <Link to="/">
+          <Button>TAKE ME HOME </Button>
+        </Link>
     </section>
   );
 };
