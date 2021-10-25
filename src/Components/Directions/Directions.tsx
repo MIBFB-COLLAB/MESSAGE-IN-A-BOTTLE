@@ -44,7 +44,7 @@ const Directions = ({ id, latitude, longitude }) => {
       <Link to="/">
         <Button>TAKE ME HOME</Button>
       </Link>
-      <Link to="/">
+      <Link to={`/storiesPage/${latitude}/${longitude}`}>
         <Button>BACK TO CARDS</Button>
       </Link>
     </article>
