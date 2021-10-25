@@ -54,10 +54,11 @@ const StoryCard = ({ id, title, distance }) => {
           }}
         >
           <CardContent>
-            <Typography variant="h6">
+            <Typography variant="h6" id="storyTitle">
               {title}
             </Typography>
             <Typography
+              id="miles"
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom

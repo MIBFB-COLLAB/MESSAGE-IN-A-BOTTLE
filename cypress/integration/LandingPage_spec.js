@@ -68,7 +68,7 @@ describe('Create new story', () => {
     .get('div')
     .get('#newStoryModal')
     .get('.title').type('Test')
-    cy.get('[id="message"]').type('Hello')
+    cy.get('[id="message"]').type('faras test')
     .get('button').contains('Submit Story').click()
     cy.PostStory('POST')
   });
@@ -103,25 +103,12 @@ describe('EditStory component', () => {
     cy.PatchStory('PATCH')
     cy.visit('http://localhost:3000/')
     cy.get('.get-stories-btn').contains('Get Stories').click()
+    cy.get('.instructions').contains('location')
+    cy.get('.stories-container')
+    .get('#storyTitle')
+    .get('#miles').contains('Miles')
   })
   
-  // it('Should be able to submit changes by clicking submit my edits button and modal has to close', () => {
-  //   cy.get('.story-submit-button').contains('Submit Story').click().wait(3000)
-  //   cy.PostStory('POST')
-  //   cy.get('.edit-story-form')
-  //   .get('p').contains('Your story successfully been added') 
-  //   .get('input[name="title"]').type('Hello World')
-  //     .invoke('val')
-  //     .then(sometext => cy.log('Hello World'));
-
-  //     cy.get('textarea[name="text"]').type('Hellooo')
-  //     .invoke('val')
-  //     .then(sometext => cy.log('Hellooo'));
-  //     cy.get('h2').contains('characters left').wait(3000)
-  //     cy.get('.story-submit-button').click()
-  //     cy.PatchStory('PATCH')
-  // })
-
   // it('Should be able to delete story by clicking button and modal has to close', () => {
   //   cy.get('.story-submit-button').contains('Submit Story').click()
   //   cy.PostStory('POST')
