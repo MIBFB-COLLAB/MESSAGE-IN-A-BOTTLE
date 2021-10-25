@@ -43,7 +43,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
   });
 
   return (
-    <section>
+    <React.Fragment>
       {currentStories && <div className="stories-container">{storyCards}</div>}
       {currentStories.length === 0 && !isLoading && (
         <div className="stories-error-message">
@@ -55,7 +55,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
       <Link to="/">
         <Button variant="outlined">TAKE ME HOME</Button>
       </Link>
-    </section>
+    </React.Fragment>
   );
 };
 

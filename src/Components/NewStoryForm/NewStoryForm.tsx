@@ -59,7 +59,7 @@ export const NewStoryForm = () => {
   }, []);
 
   return (
-    <div>
+    <React.Fragment>
       {!newStory && (
         <Box
           className="new-story-modal"
@@ -120,6 +120,6 @@ export const NewStoryForm = () => {
           }}
         </MicroModal>
       )}
-    </div>
+    </React.Fragment>
   );
 };

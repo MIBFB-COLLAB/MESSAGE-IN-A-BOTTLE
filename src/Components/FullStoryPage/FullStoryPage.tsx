@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FullStoryPage.css';
 import { getStory } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
@@ -30,7 +30,7 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       {error && <ErrorHandlingCard errorMessage={error} networkMessage={undefined} directionMessage={undefined} />}
       {story.distance_in_miles > 10 && (
         <p>You are not within range of this story</p>
@@ -42,7 +42,7 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
       <Link to={`/storiesPage/${latitude}/${longitude}`}>
         <Button variant="outlined">BACK TO CARDS</Button>
       </Link>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -18,8 +18,6 @@ const FullStoryCard = ({ story }) => {
           <p>{story.message}</p>
         </Typography>
       </CardContent>
-      {/* <CardActions>
-      </CardActions> */}
     </Card>
   );
 };
