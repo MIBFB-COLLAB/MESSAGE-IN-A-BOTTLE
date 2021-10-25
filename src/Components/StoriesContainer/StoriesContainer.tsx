@@ -53,7 +53,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
         </div>
       )}
       <Link to="/">
-        <Button>TAKE ME HOME </Button>
+        <Button variant="outlined">TAKE ME HOME</Button>
       </Link>
     </section>
   );
