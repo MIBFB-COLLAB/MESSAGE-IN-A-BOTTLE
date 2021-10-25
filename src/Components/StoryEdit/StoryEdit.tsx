@@ -49,7 +49,8 @@ const StoryEdit = ({ newStory }) => {
       noValidate
       autoComplete="off"
     >
-      <Typography>
+      <Typography
+        id="editInstructions">
         Your story successfully been added to Message in a Bottle.
         <br />
         Please take a moment to review, edit or remove your story.
@@ -67,7 +68,7 @@ const StoryEdit = ({ newStory }) => {
           label="Title"
           size="small"
           type="text"
-          className="title"
+          id="title"
           value={title}
           required
           onChange={(e) => setTitle(e.target.value)}
@@ -76,7 +77,7 @@ const StoryEdit = ({ newStory }) => {
       <Stack direction="column" spacing={4}>
         <FormControl variant="standard" >
           <TextField
-            // id="outlined-textarea"
+            id="outlinedTextArea"
             label={`${left} characters left`}
             type="text"
             className="message"
@@ -91,12 +92,13 @@ const StoryEdit = ({ newStory }) => {
           />
           <FormHelperText id="component-helper-text">Your Story</FormHelperText>
         </FormControl>
-        <Typography variant="h6">{left} characters left</Typography>
-        <Typography variant="h6">
+        {/* <Typography variant="h6">{left} characters left</Typography> */}
+        <Typography variant="h6" id="text">
           Once you have clicked a button, click outside the dialog box to
           complete your submission
         </Typography>
         <Button
+        id="editStoryBtn"
           // endIcon={<SendIcon />}
           variant="outlined"
           type="submit"
