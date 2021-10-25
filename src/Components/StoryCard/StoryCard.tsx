@@ -68,9 +68,7 @@ const StoryCard = ({ id, title, distance }) => {
           </CardContent>
           <CardActions>
             <button
-              // href={`directionsPage/${id}/${latitude}/${longitude}`}
-              // variant="outlined"
-              // type="click"
+              className="get-directions-btn"
               onClick={() => handleDirectionsClick()}
             >
               GET DIRECTIONS
