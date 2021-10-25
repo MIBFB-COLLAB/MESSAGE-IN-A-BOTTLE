@@ -27,7 +27,14 @@ describe('StoriesPage', () => {
   });
 
   it('Should be able to click button to get directions', () => {
-    cy.get('.get-directions-btn'); // need click()
+    cy.get('.stories-container');
+    cy.get('.MuiPaper-root')
+      .eq(0)
+      .get('h6')
+      .eq(0)
+      .get('.get-directions-btn')
+      .eq(0)
+      .click();
   });
 
   it('Should be able to click button to view a story', () => {
