@@ -3,6 +3,17 @@ import { Redirect } from 'react-router';
 import { Button } from '@mui/material';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
+// declare module '@mui/material' {
+//   export interface MyProps {
+
+//     exact?: boolean;
+//     to?: string;
+//   }
+//   export const Button extends StyledComponent<ButtonProps & MyProps> {
+//   }
+
+// }
+
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
@@ -11,7 +22,7 @@ export const LocationSelection = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const getLocation = (position) => {
+  const getLocation = (position:any) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
@@ -21,7 +32,7 @@ export const LocationSelection = () => {
     console.log(error);
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
@@ -35,13 +46,14 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <Button
-            variant="outlined"
-            type="click"
+          <button
+            // href="#text-buttons"
+            // variant="outlined"
+            // type="click"
             onClick={(e) => handleClick(e)}
           >
             Get Stories
-          </Button>
+          </button>
         </div>
       )}
       {isLoading && <LoadingComponent />}

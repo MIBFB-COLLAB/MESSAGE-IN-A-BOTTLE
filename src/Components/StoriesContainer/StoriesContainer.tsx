@@ -5,6 +5,12 @@ import { getData } from '../../apiCalls';
 
 const { v4: uuidv4 } = require('uuid');
 
+
+interface story {
+    attributes: { title: string; distance_in_miles: number; };
+    id:number,
+}
+
 const StoriesContainer = ({ longitude, latitude }) => {
   const [currentStories, setCurrentStories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +28,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
     setIsLoading(true);
   }, []);
 
-  const storyCards = currentStories.map((story) => {
+  const storyCards = currentStories.map((story:story) => {
     const { title, distance_in_miles } = story.attributes;
     return (
       <StoryCard
