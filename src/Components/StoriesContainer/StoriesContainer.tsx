@@ -60,37 +60,3 @@ const StoriesContainer = ({ longitude, latitude }) => {
 };
 
 export default StoriesContainer;
-
-// Test Data
-// [
-//   {
-//     id: 1,
-//     type: 'story',
-//     attributes: {
-//       title: 'my cool story',
-//       message: 'This one time I saw a bird',
-//       latitude: 13.201,
-//       longitude: 9.2673,
-//       distance_in_miles: 1.2,
-//     },
-//   },
-//   {
-//     id: 2,
-//     type: 'another story',
-//     attributes: {
-//       title: 'my cool second story',
-//       message: 'This one time I saw another bird',
-//       latitude: 13.201,
-//       longitude: 9.2673,
-//       distance_in_miles: 1.5,
-//     },
-//   },
-// ]
-
-// id: 1
-// latitude: 123.456892
-// location: ""
-// longitude: -19.982791
-// message: "I once saw a really pretty flower."
-// name: "Anonymous"
-// title: "My Cool Story!"
