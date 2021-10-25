@@ -42,7 +42,10 @@ const Directions = ({ id, latitude, longitude }) => {
     <article className="directions">
       {directionsCards}
       <Link to="/">
-        <Button>TAKE ME HOME </Button>
+        <Button>TAKE ME HOME</Button>
+      </Link>
+      <Link to="/">
+        <Button>BACK TO CARDS</Button>
       </Link>
     </article>
   )
