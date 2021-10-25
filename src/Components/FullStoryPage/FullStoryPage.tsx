@@ -3,6 +3,8 @@ import './FullStoryPage.css';
 import { getStory } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import FullStoryCard from '../FullStoryCard/FullStoryCard';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 interface story {
   distance_in_miles: number ;
@@ -34,6 +36,12 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
         <p>You are not within range of this story</p>
       )}
       {story.distance_in_miles <= 10 && <FullStoryCard story={story} />}
+      <Link to="/">
+        <Button variant="outlined">TAKE ME HOME </Button>
+      </Link>
+      <Link to={`/storiesPage/${latitude}/${longitude}`}>
+        <Button variant="outlined">BACK TO CARDS</Button>
+      </Link>
     </>
   );
 };
