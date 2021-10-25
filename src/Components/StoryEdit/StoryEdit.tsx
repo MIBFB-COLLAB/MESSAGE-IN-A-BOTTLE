@@ -90,8 +90,7 @@ const StoryEdit = ({ newStory }) => {
             value={newMessage}
             required
             inputProps={{
-              maxLength:{left},
-              minLength:0
+              maxLength:1000
             }}
             onChange={(e) => setCharacterLimit(e)}
             multiline
