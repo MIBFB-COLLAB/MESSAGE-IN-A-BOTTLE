@@ -6,21 +6,24 @@ describe('StoriesPage', () => {
     cy.get('.Header');
     cy.get('.header-text');
     cy.get('a.header-text').contains('Welcome to Message in a Bottle');
-    cy.get('.get-stories-btn').click().wait(3000);
+    cy.get('.location-selection');
+    cy.get('.get-stories-button').click().wait(5000);
   });
 
-  it('Should be able go to a new page and see title, instructions and button', () => {
-    cy.get('.Header');
-    cy.get('.header-text')
-      .contains('Welcome to Message in a Bottle')
-      .get('.story-submit');
-    cy.get('article').get('p').contains('Happy searching!');
-    cy.get('.disclaimer').contains('**');
-  });
+  //   it('Should be able go to a new page and see title, instructions and button', () => {
+  //     cy.get('.Header');
+  //     cy.get('.header-text').contains('Welcome to Message in a Bottle');
+  //     cy.get('Header').get('div');
+  //     cy.get('.MuiButton-root');
+  //   });
 
   it('Should be able to see cards with title and buttons', () => {
     cy.get('.stories-container');
-    cy.get('.story-card').get('.story-title'); // should have value of title
+    cy.get('.MuiPaper-root')
+      .eq(0)
+      .get('h6')
+      .eq(0)
+      .contains('Fake News 10/25 11: 47AM'); // should have value of title
   });
 
   it('Should be able to click button to get directions', () => {
