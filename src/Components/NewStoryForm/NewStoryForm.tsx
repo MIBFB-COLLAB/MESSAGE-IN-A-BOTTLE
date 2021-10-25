@@ -62,7 +62,7 @@ export const NewStoryForm = () => {
     <React.Fragment>
       {!newStory && (
         <Box
-          className="new-story-modal"
+          id="new-story-modal"
           component="form"
           sx={{
             '& .MuiTextField-root': { m: 1, width: '25ch' },

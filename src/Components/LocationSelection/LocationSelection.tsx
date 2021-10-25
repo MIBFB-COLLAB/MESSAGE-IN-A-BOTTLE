@@ -46,7 +46,8 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <button
+          <button 
+          className="get-stories-btn"
             // href="#text-buttons"
             // variant="outlined"
             // type="click"
