@@ -1,5 +1,4 @@
 import './UserInstructions.css';
-import React from 'react';
 
 const UserInstructions = () => {
   return (
