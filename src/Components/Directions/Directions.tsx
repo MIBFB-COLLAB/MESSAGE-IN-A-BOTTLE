@@ -4,7 +4,10 @@ import { DirectionsCard } from '../DirectionsCard/DirectionsCard';
 import { getDirections } from '../../apiCalls';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 const { v4: uuidv4 } = require('uuid');
+
 
 export interface direction {
   attributes:{ distance: string, narrative: string }
@@ -35,7 +38,17 @@ const Directions = ({ id, latitude, longitude }) => {
     directionsCards = <LoadingComponent />;
   }
 
-  return <article className="directions">{directionsCards}</article>;
+  return (
+    <article className="directions">
+      {directionsCards}
+      <Link to="/">
+        <Button variant="outlined">TAKE ME HOME</Button>
+      </Link>
+      <Link to={`/storiesPage/${latitude}/${longitude}`}>
+        <Button variant="outlined">BACK TO CARDS</Button>
+      </Link>
+    </article>
+  )
 };
 
 export default Directions;

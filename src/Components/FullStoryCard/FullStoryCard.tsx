@@ -18,11 +18,6 @@ const FullStoryCard = ({ story }) => {
           <p>{story.message}</p>
         </Typography>
       </CardContent>
-      <CardActions>
-        <Link to="/">
-          <Button>TAKE ME HOME </Button>
-        </Link>
-      </CardActions>
     </Card>
   );
 };

@@ -42,7 +42,7 @@ export const LocationSelection = () => {
   }, [latitude, longitude]);
 
   return (
-    <>
+    <React.Fragment>
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
@@ -60,6 +60,6 @@ export const LocationSelection = () => {
       {latitude && longitude && (
         <Redirect to={`/storiesPage/${latitude}/${longitude}`} />
       )}
-    </>
+    </React.Fragment>
   );
 };

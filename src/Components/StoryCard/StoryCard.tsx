@@ -41,7 +41,7 @@ const StoryCard = ({ id, title, distance }) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {!latitude && !longitude && (
         <Card
           sx={{
@@ -91,7 +91,7 @@ const StoryCard = ({ id, title, distance }) => {
       {latitude && longitude && isDirections && (
         <Redirect to={`/directionsPage/${id}/${latitude}/${longitude}`} />
       )}
-    </>
+    </React.Fragment>
   );
 };
 

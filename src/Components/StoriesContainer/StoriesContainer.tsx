@@ -2,6 +2,8 @@ import './StoriesContainer.css';
 import React, { useEffect, useState } from 'react';
 import StoryCard from '../StoryCard/StoryCard';
 import { getData } from '../../apiCalls';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const { v4: uuidv4 } = require('uuid');
 
@@ -41,7 +43,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
   });
 
   return (
-    <section>
+    <React.Fragment>
       {currentStories && <div className="stories-container">{storyCards}</div>}
       {currentStories.length === 0 && !isLoading && (
         <div className="stories-error-message">
@@ -50,42 +52,11 @@ const StoriesContainer = ({ longitude, latitude }) => {
           Story" button above.
         </div>
       )}
-    </section>
+      <Link to="/">
+        <Button variant="outlined">TAKE ME HOME</Button>
+      </Link>
+    </React.Fragment>
   );
 };
 
 export default StoriesContainer;
-
-// Test Data
-// [
-//   {
-//     id: 1,
-//     type: 'story',
-//     attributes: {
-//       title: 'my cool story',
-//       message: 'This one time I saw a bird',
-//       latitude: 13.201,
-//       longitude: 9.2673,
-//       distance_in_miles: 1.2,
-//     },
-//   },
-//   {
-//     id: 2,
-//     type: 'another story',
-//     attributes: {
-//       title: 'my cool second story',
-//       message: 'This one time I saw another bird',
-//       latitude: 13.201,
-//       longitude: 9.2673,
-//       distance_in_miles: 1.5,
-//     },
-//   },
-// ]
-
-// id: 1
-// latitude: 123.456892
-// location: ""
-// longitude: -19.982791
-// message: "I once saw a really pretty flower."
-// name: "Anonymous"
-// title: "My Cool Story!"
