@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { Button } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
 // declare module '@mui/material' {
@@ -46,18 +47,17 @@ export const LocationSelection = () => {
       {error && <p>{error}</p>}
       {!error && (
         <div className="location-selection">
-          <button 
+          <LoadingButton
+          loading={isLoading} 
           className="get-stories-btn"
-            // href="#text-buttons"
-            // variant="outlined"
-            // type="click"
+            variant="outlined"
             onClick={(e) => handleClick(e)}
           >
-            Get Stories
-          </button>
+            GET STORIES
+          </LoadingButton>
         </div>
       )}
-      {isLoading && <LoadingComponent />}
+      {/* {isLoading && <LoadingComponent />} */}
       {latitude && longitude && (
         <Redirect to={`/storiesPage/${latitude}/${longitude}`} />
       )}

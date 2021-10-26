@@ -41,12 +41,14 @@ const Directions = ({ id, latitude, longitude }) => {
   return (
     <article className="directions">
       {directionsCards}
-      <Link to="/">
-        <Button variant="outlined" id="homeBtn">TAKE ME HOME</Button>
-      </Link>
-      <Link to={`/storiesPage/${latitude}/${longitude}`}>
-        <Button variant="outlined" id="storiesPageReturn">BACK TO CARDS</Button>
-      </Link>
+      <div className="button-wrapper">
+        <Link to="/">
+          <Button variant="outlined" id="homeBtn">TAKE ME HOME</Button>
+        </Link>
+        <Link to={`/storiesPage/${latitude}/${longitude}`}>
+          <Button variant="outlined" id="storiesPageReturn">BACK TO CARDS</Button>
+        </Link>
+      </div>
     </article>
   )
 };

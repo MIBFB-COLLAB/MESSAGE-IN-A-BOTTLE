@@ -8,6 +8,7 @@ import { FormControl } from '@mui/material';
 import { Stack } from '@mui/material';
 import { TextField } from '@mui/material';
 import { FormHelperText } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const StoryEdit = ({ newStory }) => {
   const { data } = newStory;
@@ -98,7 +99,7 @@ const StoryEdit = ({ newStory }) => {
           type="submit"
           onClick={(e) => submitMessage(e)}
         >
-          Edit Story
+          All Done
         </Button>
         <Button
           id="deleteBtn"
