@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
+import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 
 // import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 // import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
@@ -44,6 +45,7 @@ const StoryCard = ({ id, title, distance, timeStamp }) => {
 
   return (
     <React.Fragment>
+      {error && <ErrorHandlingCard networkMessage errorMessage={error} directionMessage/>}
       {!latitude && !longitude && (
         <Card
           sx={{
