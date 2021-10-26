@@ -12,10 +12,6 @@ import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
-import { ChangeEvent } from 'react';
-// import Input from '@mui/material/Input';
-// import InputLabel from '@mui/material/InputLabel';
-// import OutlinedInput from '@mui/material/OutlinedInput';
 
 
 
@@ -45,7 +41,8 @@ export const NewStoryForm = () => {
       longitude,
       latitude,
     };
-    sendNewStory(newStory).then((data) => setNewStory(data));
+    sendNewStory(newStory).then((data) => setNewStory(data))
+    .catch(error => setError(error));
   };
 
   const setCharacterLimit = (e) => {
@@ -118,7 +115,8 @@ export const NewStoryForm = () => {
         </Box>
       )}
       {newStory && (
-        <MicroModal trigger={(open) => <StoryEdit newStory={newStory} />}>
+        <MicroModal trigger={(open) => <StoryEdit newStory={newStory} />}
+        >
           {(close) => {
             return <StoryEdit newStory={newStory} />;
           }}
