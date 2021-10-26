@@ -60,6 +60,14 @@ const StoryCard = ({ id, title, distance, timeStamp }) => {
               {title}
             </Typography>
             <Typography
+              id="timeStamp"
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+            >
+               Written on: {timeStamp}
+            </Typography>
+            <Typography
               id="miles"
               sx={{ fontSize: 14 }}
               color="text.secondary"
