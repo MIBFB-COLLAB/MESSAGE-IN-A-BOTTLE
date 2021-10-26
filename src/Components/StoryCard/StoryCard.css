@@ -11,3 +11,23 @@ h3{
 p{
   margin: 0
 }
+
+.get-directions-btn {
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  color: white;
+  background-color: #1278D1;
+}
+
+.view-story-btn {
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  color: white;
+  background-color: #1278D1;
+}
+
+
