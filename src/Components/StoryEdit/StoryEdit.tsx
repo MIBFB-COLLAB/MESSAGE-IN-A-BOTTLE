@@ -101,6 +101,7 @@ const StoryEdit = ({ newStory }) => {
           Edit Story
         </Button>
         <Button
+          id="deleteBtn"
           variant="outlined"
           type="submit"
           onClick={(e) => deleteNewStory(e)}
