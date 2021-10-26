@@ -37,10 +37,10 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
       )}
       {story.distance_in_miles <= 10 && <FullStoryCard story={story} />}
       <Link to="/">
-        <Button variant="outlined">TAKE ME HOME </Button>
+        <Button variant="outlined" id="homeBtn">TAKE ME HOME </Button>
       </Link>
       <Link to={`/storiesPage/${latitude}/${longitude}`}>
-        <Button variant="outlined">BACK TO CARDS</Button>
+        <Button variant="outlined" id="storiesPageReturn">BACK TO CARDS</Button>
       </Link>
     </React.Fragment>
   );
