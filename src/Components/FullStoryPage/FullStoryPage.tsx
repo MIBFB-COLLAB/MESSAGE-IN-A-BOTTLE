@@ -36,12 +36,14 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
         <p>You are not within range of this story</p>
       )}
       {story.distance_in_miles <= 10 && <FullStoryCard story={story} />}
+      <div className="button-wrapper">
       <Link to="/">
         <Button variant="outlined" id="homeBtn">TAKE ME HOME </Button>
       </Link>
       <Link to={`/storiesPage/${latitude}/${longitude}`}>
         <Button variant="outlined" id="storiesPageReturn">BACK TO CARDS</Button>
       </Link>
+      </div>
     </React.Fragment>
   );
 };
