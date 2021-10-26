@@ -62,7 +62,7 @@ export const NewStoryForm = () => {
     <React.Fragment>
       {!newStory && (
         <Box
-          className="new-story-modal"
+          id="newStoryModal"
           component="form"
           sx={{
             '& .MuiTextField-root': { m: 1, width: '25ch' },
@@ -72,6 +72,9 @@ export const NewStoryForm = () => {
         >
           <FormControl variant="standard">
             <TextField
+              inputProps={{
+                id: "title",
+              }}
               placeholder="Title"
               label="Title"
               size="small"
@@ -93,6 +96,7 @@ export const NewStoryForm = () => {
                 required
                 inputProps={{
                   maxLength: 1000,
+                  id: "message"
                 }}
 
                 onChange={(e) => setCharacterLimit(e)}
