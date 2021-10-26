@@ -109,7 +109,7 @@ describe('EditStory component', () => {
 
   it('Should be able to delete story by clicking button and modal has to close', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('.MuiButton-root').click();
+    cy.get('.MuiButton-root').eq(0).click();
     cy.get('article')
       .get('h3')
       .contains('Create Your Message')
@@ -131,7 +131,7 @@ describe('EditStory component', () => {
       .click();
     cy.DeleteStory('DELETE');
     cy.visit('http://localhost:3000/');
-    cy.get('.get-stories-btn').contains('Get Stories').click();
+    cy.get('.MuiLoadingButton-root').click();
     cy.get('.instructions').contains('location');
     cy.expect('#storyTitle').to.not.equal('Delete test');
   });

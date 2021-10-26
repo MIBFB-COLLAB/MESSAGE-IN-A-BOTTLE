@@ -12,7 +12,7 @@ describe('StoriesPage', () => {
 
   it('Should be able to see cards with title and buttons', () => {
     cy.get('.stories-container');
-    cy.get('.MuiPaper-root').get('h6').eq(0).contains('TestTest');
+    cy.get('.MuiPaper-root').get('h6').should('be.visible');
   });
 
   it('Should be able to click button to get & view directions', () => {
@@ -47,7 +47,7 @@ describe('StoriesPage', () => {
       .wait(3000);
     cy.get('.MuiCardContent-root')
       .should('be.visible')
-      .get('h3')
+      .get('h5')
       .should('be.visible')
       .get('.MuiTypography-body1')
       .should('be.visible')
