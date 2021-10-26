@@ -7,13 +7,14 @@
     background-color: hsl(52, 37%, 92%);
     border-radius: 6px;
     margin-top: 15px;
-    width: 75%;
+    margin-bottom: 10px;
+    min-width: 275px;
 }
 
 
 .user-instructions {
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 .disclaimer {
     margin: 0px 5px 10px 5px;
