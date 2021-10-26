@@ -41,7 +41,7 @@ const StoryEdit = ({ newStory }) => {
 
   return (
     <Box
-      className="new-story-modal"
+      id="newStoryModal"
       component="form"
       sx={{
         '& .MuiTextField-root': { m: 1, width: '25ch' },
