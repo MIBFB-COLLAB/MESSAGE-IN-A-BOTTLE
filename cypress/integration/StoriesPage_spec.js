@@ -31,7 +31,16 @@ describe('StoriesPage', () => {
     cy.get('.directions').should('be.visible')
   });
 
-    // it('Should be able to click button to view a story', () => {
-    //   cy.get('.view-story-btn')
-    // });
+    it('Should be able to click button to view a story', () => {
+      cy.get('.stories-container');
+      cy.get('.MuiPaper-root')
+      .eq(0)
+      .get('h6')
+      .eq(0)
+      .get('.view-story-btn')
+      .eq(0)
+      .click()
+      .wait(5000)
+    cy.get('.MuiCardContent-root').should('be.visible')
+    });
 });
