@@ -18,7 +18,7 @@ const Header = () => {
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link to="/" className="header-text">
-                Welcome to Message in a Bottle
+                Message in a Bottle
               </Link>
             </Typography>
             <MicroModal
