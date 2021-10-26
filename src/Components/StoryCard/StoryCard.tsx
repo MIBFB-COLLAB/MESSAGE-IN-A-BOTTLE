@@ -1,5 +1,6 @@
 import './StoryCard.css';
 import React, { useState } from 'react';
+import dayjs from 'dayjs';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
+
 
 const StoryCard = ({ id, title, distance, timeStamp }) => {
   const [latitude, setLatitude] = useState('');
@@ -61,7 +63,7 @@ const StoryCard = ({ id, title, distance, timeStamp }) => {
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
-            >Date Written: {timeStamp}
+            >{dayjs(timeStamp).format('MMM D, YYYY [at] h:mm A')}
             </Typography>
             <Typography
               id="miles"
