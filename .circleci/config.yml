@@ -23,8 +23,6 @@ workflows:
           # If you are using yarn, change the line below from "npm" to "yarn"
           # pkg-manager: npm
       # - heroku/deploy-via-git
-  jobs:
-      - build
       - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
           requires:
             - build
