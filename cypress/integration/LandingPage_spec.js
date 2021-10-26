@@ -94,9 +94,9 @@ describe('EditStory component', () => {
   })
 
   it('After submitting new story, should be able to see new pop up modal with edit options and edit story', () => {
-    cy.get('.new-story-modal')
-    cy.get('#editInstructions').contains('Bottle')
-    .get('#outlinedTextArea').type(' editing faras test')
+    cy.get('#newStoryModal').wait(3000)
+    // cy.get('#editInstructions').contains('Bottle')
+    cy.get('#outlinedTextArea').type(' editing faras test')
     .get('#title').type('Test')
     .get('#text').contains('Once')
     .get('#editStoryBtn').click()
@@ -119,7 +119,7 @@ describe('EditStory component', () => {
     .get('[id="message"]').type('faras delete test')
     .get('button').contains('Submit Story').click()
     cy.PostStory('POST')
-    cy.get('.new-story-modal')
+    cy.get('#newStoryModal')
     cy.get('#editInstructions').contains('Bottle')
     .get('#text').contains('Once')
     .get('#deleteBtn').click()
