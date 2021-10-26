@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
+import LoadingButton from '@mui/lab/LoadingButton';
+
 // import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 // import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
@@ -67,18 +69,22 @@ const StoryCard = ({ id, title, distance }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <button
+            <LoadingButton
+            loading={isLoading}
               className="get-directions-btn"
               onClick={() => handleDirectionsClick()}
             >
               GET DIRECTIONS
-            </button>
-            <button
+            </LoadingButton>
+          </CardActions>
+          <CardActions>
+            <LoadingButton
+              loading={isLoading}
               className="view-story-btn"
               onClick={() => handleStoryClick()}
             >
               VIEW STORY
-            </button>
+            </LoadingButton>
           </CardActions>
         </Card>
       )}
