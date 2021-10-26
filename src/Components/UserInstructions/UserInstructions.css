@@ -11,11 +11,7 @@
     /* overflow: hidden; */
 }
 
-.instructions-text {
-    margin: 10px 5px 10px 5px;
-}
-
-.disclaimer-text {
+.disclaimer {
     margin: 0px 5px 10px 5px;
     font-weight: bold;
 }
