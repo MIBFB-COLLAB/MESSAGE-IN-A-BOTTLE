@@ -3,15 +3,14 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
+
 const StoryCard = ({ id, title, distance, timeStamp }) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [directions, setDirections] = useState('');
   const [isStory, setIsStory] = useState(false);
   const [isDirections, setIsDirections] = useState(false);
   const [error, setError] = useState('');
@@ -62,7 +61,7 @@ const StoryCard = ({ id, title, distance, timeStamp }) => {
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
-            >Written on: {timeStamp}
+            >Date Written: {timeStamp}
             </Typography>
             <Typography
               id="miles"
