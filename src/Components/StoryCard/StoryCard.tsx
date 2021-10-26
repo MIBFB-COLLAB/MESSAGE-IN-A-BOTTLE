@@ -8,10 +8,6 @@ import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
 import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
-
-// import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
-// import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
-
 const StoryCard = ({ id, title, distance, timeStamp }) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
@@ -66,8 +62,7 @@ const StoryCard = ({ id, title, distance, timeStamp }) => {
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
-            >
-               Written on: {timeStamp}
+            >Written on: {timeStamp}
             </Typography>
             <Typography
               id="miles"
