@@ -2,17 +2,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* height: 100vh; */
-    /* background: #CFD9E4; */
-    /* grid-template-areas: */
-        /* 'Nav-bar Header' */
-        /* 'Nav-bar Instructions' */
-        /* 'Nav-bar Instructions'; */
-    /* grid-template-rows: 1fr 6fr 1fr; */
-    /* grid-template-columns: 1fr 6fr; */
-    /* grid-row-gap: 10px; */
-    /* grid-column-gap: 10px; */
-    /* justify-content: center; */
-    /* justify-items: center; */
-    /* align-content: center; */
 }
+ 
