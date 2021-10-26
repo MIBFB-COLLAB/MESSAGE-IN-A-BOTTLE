@@ -1,20 +1,18 @@
 import './StoryCard.css';
 import React, { useState } from 'react';
+import dayjs from 'dayjs';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Redirect } from 'react-router-dom';
 import LoadingButton from '@mui/lab/LoadingButton';
+import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 
-// import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
-// import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 
-const StoryCard = ({ id, title, distance }) => {
+const StoryCard = ({ id, title, distance, timeStamp }) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [directions, setDirections] = useState('');
   const [isStory, setIsStory] = useState(false);
   const [isDirections, setIsDirections] = useState(false);
   const [error, setError] = useState('');
@@ -44,6 +42,7 @@ const StoryCard = ({ id, title, distance }) => {
 
   return (
     <React.Fragment>
+      {error && <ErrorHandlingCard networkMessage errorMessage={error} directionMessage/>}
       {!latitude && !longitude && (
         <Card
           sx={{
@@ -58,6 +57,13 @@ const StoryCard = ({ id, title, distance }) => {
           <CardContent>
             <Typography variant="h6" id="storyTitle">
               {title}
+            </Typography>
+            <Typography
+              id="timeStamp"
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+            >{dayjs(timeStamp).format('MMM D, YYYY [at] h:mm A')}
             </Typography>
             <Typography
               id="miles"
