@@ -99,7 +99,7 @@ const StoryEdit = ({ newStory }) => {
           type="submit"
           onClick={(e) => submitMessage(e)}
         >
-          Edit Story
+          All Done
         </Button>
         <Button
           id="deleteBtn"
@@ -109,9 +109,6 @@ const StoryEdit = ({ newStory }) => {
         >
           Delete Story
         </Button>
-        <Link to="/">
-        <Button variant="outlined">TAKE ME HOME</Button>
-        </Link>
       </Stack>
     </Box>
   );
