@@ -8,6 +8,7 @@ import { FormControl } from '@mui/material';
 import { Stack } from '@mui/material';
 import { TextField } from '@mui/material';
 import { FormHelperText } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const StoryEdit = ({ newStory }) => {
   const { data } = newStory;
@@ -108,6 +109,9 @@ const StoryEdit = ({ newStory }) => {
         >
           Delete Story
         </Button>
+        <Link to="/">
+        <Button variant="outlined">TAKE ME HOME</Button>
+        </Link>
       </Stack>
     </Box>
   );
