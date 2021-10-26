@@ -53,7 +53,7 @@ export const LocationSelection = () => {
             // type="click"
             onClick={(e) => handleClick(e)}
           >
-            Get Stories
+            GET STORIES
           </button>
         </div>
       )}
