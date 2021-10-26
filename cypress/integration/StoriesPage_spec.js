@@ -7,28 +7,27 @@ describe('StoriesPage', () => {
     cy.get('.header-text');
     cy.get('a.header-text').contains('Welcome to Message in a Bottle');
     cy.get('.location-selection');
-    cy.get('.get-stories-button').click().wait(5000);
+    cy.get('.get-stories-btn').click().wait(5000);
   });
 
   it('Should be able to see cards with title and buttons', () => {
     cy.get('.stories-container');
     cy.get('.MuiPaper-root')
-      .eq(0)
       .get('h6')
       .eq(0)
-      .contains('Fake News 10/25 11: 47AM');
+      .contains('TestTest');
   });
 
-  it('Should be able to click button to get directions', () => {
-    cy.get('.stories-container');
-    cy.get('.MuiPaper-root')
-      .eq(0)
-      .get('h6')
-      .eq(0)
-      .get('.get-directions-btn')
-      .eq(0)
-      .click()
-      .wait(5000);
+  // it('Should be able to click button to get directions', () => {
+  //   cy.get('.stories-container');
+  //   cy.get('.MuiPaper-root')
+  //     .eq(0)
+  //     .get('h6')
+  //     .eq(0)
+  //     .get('.get-directions-btn')
+  //     .eq(0)
+  //     .click()
+  //     .wait(5000);
     // cy.getDirections('GET');
     // .visit('http://localhost:3000/directionsPage/39.6265535/-104.8108433')
     // .url()
@@ -38,7 +37,7 @@ describe('StoriesPage', () => {
     //   'eq',
     //   'http://localhost:3000/directionsPage/39.6265535/-104.8108433'
     // );
-  });
+  // });
 
   //   it('Should be able to click button to view a story', () => {
   //     cy.get('.view-story-btn'); // need click
