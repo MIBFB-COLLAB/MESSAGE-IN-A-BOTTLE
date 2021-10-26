@@ -74,9 +74,7 @@ const StoryCard = ({ id, title, distance }) => {
               GET DIRECTIONS
             </button>
             <button
-              // href="#text-buttons"
-              // variant="outlined"
-              // type="click"
+              className="view-story-btn"
               onClick={() => handleStoryClick()}
             >
               VIEW STORY
