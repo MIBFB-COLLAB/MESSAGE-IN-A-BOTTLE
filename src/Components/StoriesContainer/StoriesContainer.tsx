@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid');
 
 
 interface story {
-    attributes: { title: string; distance_in_miles: number; };
+    attributes: { title: string; distance_in_miles: number; created_at: string; };
     id:number,
 }
 
@@ -20,7 +20,7 @@ const StoriesContainer = ({ longitude, latitude }) => {
 
   const getStories = () => {
     getData(latitude, longitude)
-      // .then((data) => console.log(data.data.stories))
+      // .then((data) => console.log(data))
       .then((data) => setCurrentStories(data.data.stories))
       .catch((error) => setError(error));
   };
@@ -31,13 +31,14 @@ const StoriesContainer = ({ longitude, latitude }) => {
   }, []);
 
   const storyCards = currentStories.map((story:story) => {
-    const { title, distance_in_miles } = story.attributes;
+    const { title, distance_in_miles, created_at } = story.attributes;
     return (
       <StoryCard
         key={uuidv4()}
         id={story.id}
         title={title}
         distance={distance_in_miles}
+        timeStamp={created_at}
       />
     );
   });
