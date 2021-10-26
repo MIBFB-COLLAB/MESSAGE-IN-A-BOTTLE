@@ -34,16 +34,20 @@ describe('StoriesPage', () => {
       .get('#storiesPageReturn').should('be.visible')
   });
 
-  // it('Should be able to click button to view a story', () => {
-  //   cy.get('.stories-container');
-  //   cy.get('.MuiPaper-root')
-  //     .eq(0)
-  //     .get('h6')
-  //     .eq(0)
-  //     .get('.view-story-btn')
-  //     .eq(0)
-  //     .click()
-  //     .wait(5000)
-  //   cy.get('.MuiCardContent-root').should('be.visible')
-  // });
+  it('Should be able to click button to view a story', () => {
+    cy.get('.stories-container');
+    cy.get('.MuiPaper-root')
+      .eq(0)
+      .get('h6')
+      .eq(0)
+      .get('.view-story-btn')
+      .eq(0)
+      .click()
+      .wait(3000)
+    cy.get('.MuiCardContent-root').should('be.visible')
+      .get('h3').should('be.visible')
+      .get('.MuiTypography-body1').should('be.visible')
+      .get('#homeBtn').should('be.visible')
+      .get('#storiesPageReturn').should('be.visible')
+  });
 });
