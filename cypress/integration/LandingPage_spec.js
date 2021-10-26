@@ -68,8 +68,8 @@ describe('Create new story', () => {
       )
       .get('button')
       .contains('Submit Story')
-      .click();
-    cy.PostStory('POST');
+      // .click();
+    // cy.PostStory('POST');
   });
 
   it('Should be able to see button and text to get stories near by', () => {
@@ -78,7 +78,7 @@ describe('Create new story', () => {
   });
 });
 
-describe('EditStory component', () => {
+// describe('EditStory component', () => {
   // beforeEach('Edit story card form modal', () => {
   //   cy.visit('http://localhost:3000/')
   //   cy.get('.MuiButton-root').click()
@@ -107,32 +107,32 @@ describe('EditStory component', () => {
   //   .get('#miles').contains('Miles')
   // })
 
-  it('Should be able to delete story by clicking button and modal has to close', () => {
-    cy.visit('http://localhost:3000/');
-    cy.get('.MuiButton-root').eq(0).click();
-    cy.get('article')
-      .get('h3')
-      .contains('Create Your Message')
-      .get('div')
-      .get('.title')
-      .type('Delete test')
-      .get('[id="message"]')
-      .type('faras delete test')
-      .get('button')
-      .contains('Submit Story')
-      .click();
-    cy.PostStory('POST');
-    cy.get('#newStoryModal');
-    cy.get('#editInstructions')
-      .contains('Bottle')
-      .get('#text')
-      .contains('Once')
-      .get('#deleteBtn')
-      .click();
-    cy.DeleteStory('DELETE');
-    cy.visit('http://localhost:3000/');
-    cy.get('.MuiLoadingButton-root').click();
-    cy.get('.instructions').contains('location');
-    cy.expect('#storyTitle').to.not.equal('Delete test');
-  });
-});
+  // it('Should be able to delete story by clicking button and modal has to close', () => {
+  //   cy.visit('http://localhost:3000/');
+  //   cy.get('.MuiButton-root').eq(0).click();
+  //   cy.get('article')
+  //     .get('h3')
+  //     .contains('Create Your Message')
+  //     .get('div')
+  //     .get('.title')
+  //     .type('Delete test')
+  //     .get('[id="message"]')
+  //     .type('faras delete test')
+  //     .get('button')
+  //     .contains('Submit Story')
+  //     .click();
+  //   cy.PostStory('POST');
+  //   cy.get('#newStoryModal');
+  //   cy.get('#editInstructions')
+  //     .contains('Bottle')
+  //     .get('#text')
+  //     .contains('Once')
+  //     .get('#deleteBtn')
+  //     .click();
+  //   cy.DeleteStory('DELETE');
+  //   cy.visit('http://localhost:3000/');
+  //   cy.get('.MuiLoadingButton-root').click();
+  //   cy.get('.instructions').contains('location');
+  //   cy.expect('#storyTitle').to.not.equal('Delete test');
+  // });
+// });
