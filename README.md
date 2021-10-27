@@ -71,6 +71,9 @@ Websites
 [![Cypress Shield][cypress-shield]][cypress-url]
 [![Visual Studio Code][visual-studio-code-shield]][visual-studio-code-url]
 [![Circle CI][circle-ci-shield]][circle-ci-url]
+[![Heroku][heroku-shield]][heroku-url]
+[![GitHub][github-shield]][github-url]
+
 
 
 <!-- GETTING STARTED -->
@@ -158,10 +161,18 @@ Contributions are what make the open source community such an amazing place to b
 [cypress-url]: https://docs.cypress.io/guides/overview/why-cypress
 [visual-studio-code-shield]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
 [visual-studio-code-url]: https://code.visualstudio.com/
-[circle-ci-shield]: 
-[circle-ci-url]:
+[circle-ci-shield]: https://img.shields.io/badge/CIRCLECI-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white
+[circle-ci-url]: https://circleci.com/
 [material-components-shield]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=material-ui&logoColor=white
 [material-components-url]: https://mui.com/
 [typescript-shield]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
 [typescript-url]: https://www.typescriptlang.org/
+[heroku-url]: https://id.heroku.com/login
+[heroku-shield]: https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white
+[github-url]: https://github.com/
+[github-shield]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
+ 
 
+  
+  
+  ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
