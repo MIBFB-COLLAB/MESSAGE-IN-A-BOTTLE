@@ -55,18 +55,21 @@ export const NewStoryForm = () => {
     /***********************************/
           /* SUBMIT NEW MESSAGE */
     /**********************************/
-  const submitMessage = (e) => {
-    e.preventDefault();
-    const newStory = {
-      title,
-      message,
-      longitude,
-      latitude,
+    const submitMessage = (e) => {
+      if ( !title || !message ) {
+        return 
+      } else {
+        e.preventDefault();
+        const newStory = {
+          title,
+          message,
+          longitude,
+          latitude,
+        };
+        sendNewStory(newStory).then((data) => setNewStory(data))
+        .catch(error => setError(error));
+      }
     };
-    sendNewStory(newStory).then((data) => setNewStory(data))
-    .catch(error => setError(error));
-  };
-
 
     /***********************************/
       /* CHARACTER LIMIT FOR MESSAGE */
