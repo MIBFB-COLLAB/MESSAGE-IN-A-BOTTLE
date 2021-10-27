@@ -160,7 +160,8 @@ Contributions are what make the open source community such an amazing place to b
 [visual-studio-code-url]: https://code.visualstudio.com/
 [circle-ci-shield]: 
 [circle-ci-url]:
-[material-components-shield]:
-[material-components-url]:
+[material-components-shield]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=material-ui&logoColor=white
+[material-components-url]: https://mui.com/
 [typescript-shield]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
 [typescript-url]: https://www.typescriptlang.org/
+
