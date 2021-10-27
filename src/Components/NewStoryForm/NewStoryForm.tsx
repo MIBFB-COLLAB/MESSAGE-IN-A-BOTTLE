@@ -4,15 +4,15 @@ import { sendNewStory } from '../../apiCalls';
 import MicroModal from 'react-micro-modal';
 import StoryEdit from '../StoryEdit/StoryEdit';
 
-//**************************** */ MUI Components
-
+/****************************/
+        /*MUI Components*/
+/****************************/
 import { TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
-
 
 
 export const NewStoryForm = () => {
@@ -25,22 +25,36 @@ export const NewStoryForm = () => {
   const [left, setLeft] = useState(1000);
   const [disabled, setDisabled] = useState(true);
 
+    /***********************************/
+      /* GET USERS CURRENT LOCATION */
+    /**********************************/
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
 
+    /********************************************/
+    /* ERROR FOR LOCATION FAIL/REJECTION */
+    /********************************************/
   const catchError = () => {
     setError('Sorry, no position available.');
   };
-
+  
+    /***********************************/
+      /* INPUT CHANGES/BUTTON DISABLE*/
+    /**********************************/
   const handleChange = (e) => {
     setTitle(e.target.value)
     if ( title && message ) {
       setDisabled(false);
+    }else {
+      setDisabled(true)
     }
   }
-
+  
+    /***********************************/
+          /* SUBMIT NEW MESSAGE */
+    /**********************************/
   const submitMessage = (e) => {
     e.preventDefault();
     const newStory = {
@@ -53,6 +67,10 @@ export const NewStoryForm = () => {
     .catch(error => setError(error));
   };
 
+
+    /***********************************/
+      /* CHARACTER LIMIT FOR MESSAGE */
+    /**********************************/
   const setCharacterLimit = (e) => {
     let input = e.target.value;
     setMessage(e.target.value);
