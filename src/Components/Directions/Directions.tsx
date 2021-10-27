@@ -19,7 +19,6 @@ const Directions = ({ id, latitude, longitude }) => {
 
   const getStoryDirections = () => {
     getDirections(id, latitude, longitude)
-      // .then((data) => console.log(data.data))
       .then((data) => setDirections(data.data))
       .catch((error) => setError(error));
   };
