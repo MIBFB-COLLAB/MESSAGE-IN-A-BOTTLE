@@ -3,7 +3,7 @@ describe('Landing Page', () => {
     cy.visit('http://localhost:3000/');
   });
 
-  it('Should be able to access to application by URL and see Home Page', () => {
+  it('Should be able to access the application by URL and see Home Page', () => {
     cy.url().should('include', '/');
     cy.url().should('eq', 'http://localhost:3000/');
   });
@@ -39,7 +39,8 @@ describe('Landing Page', () => {
   });
 
   it('Should be able to get stories near by clicking the button', () => {
-    cy.get('.location-selection').get('.MuiLoadingButton-root').click();
+    cy.get('.location-selection').get('.MuiLoadingButton-root').click().wait(5000)
+      .get('.stories-container > :nth-child(1)').should('be.visible')
   });
 });
 
@@ -48,13 +49,12 @@ describe('Create new story', () => {
     cy.visit('http://localhost:3000/');
   });
 
-  it('Should be able click submit story button, in order to submit new story', () => {
+  it('Should be able to view a modal to submit a story', () => {
     cy.get('Header').get('div');
     cy.get('.MuiButton-root').eq(0).click();
     cy.on('window:confirm', (txt) => {
       expect(txt).to.contains('Allow', 'Block');
     });
-
     cy.get('article')
       .get('h3')
       .contains('Create Your Message')
@@ -72,9 +72,9 @@ describe('Create new story', () => {
     // cy.PostStory('POST');
   });
 
-  it('Should be able to see button and text to get stories near by', () => {
+  it('Should be able to see button and text to get stories nearby', () => {
     cy.get('.location-selection').get('.MuiLoadingButton-root').click();
-    cy.GetStory('GET');
+    cy.get('.stories-container > :nth-child(1)').should('be.visible')
   });
 });
 
@@ -107,7 +107,7 @@ describe('EditStory component', () => {
   //   .get('#miles').contains('Miles')
   // })
 
-  it('Should be able to delete story by clicking button and modal has to close', () => {
+  it('Should be able to post and delete story', () => {
     cy.visit('http://localhost:3000/');
     cy.get('.MuiButton-root').eq(0).click();
     cy.get('article')
@@ -121,14 +121,6 @@ describe('EditStory component', () => {
       .get('button')
       .contains('Submit Story')
       .click().wait(5000)
-    // cy.PostStory('POST');
-    // cy.get('#newStoryModal')
-    //   .get('#title')
-    //   .type(' - EDIT')
-      // .get('[id="message"]')
-      // .type(' - EDIT')
-    // cy.get('#editStoryBtn')
-    //   .click().wait(2000)
     cy.get('#deleteBtn')
       .click().wait(5000)
     cy.visit('http://localhost:3000/');
