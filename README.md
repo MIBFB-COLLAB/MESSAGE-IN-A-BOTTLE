@@ -1,21 +1,5 @@
 ## Message in a Bottle
 
-<!-- Frequently Used Links
-https://shields.io/
-
-My GitHub Profile
-* [My GitHub Profile](github.com/justincanthony)
-
-Websites
-* [Javascript](https://www.javascript.com/)
-* [HTML](https://html.com/)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [eslint](https://eslint.org/)
-* [node](https://nodejs.org/en/)
-* [WebPack](https://webpack.js.org/)
-* [Express](https://expressjs.com/)
--->
-
 <!-- PROJECT Details -->
 
   <h1 align="center">Message In a Bottle</h1>
@@ -171,8 +155,3 @@ Contributions are what make the open source community such an amazing place to b
 [heroku-shield]: https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white
 [github-url]: https://github.com/
 [github-shield]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
- 
-
-  
-  
-  ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
