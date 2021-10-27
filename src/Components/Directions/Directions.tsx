@@ -15,7 +15,7 @@ export interface direction {
 const Directions = ({ id, latitude, longitude }) => {
   const [directions, setDirections] = useState([]);
   const [error, setError] = useState('');
-  // console.log(directions);
+  let directionsCards;
 
   const getStoryDirections = () => {
     getDirections(id, latitude, longitude)
@@ -28,7 +28,7 @@ const Directions = ({ id, latitude, longitude }) => {
     getStoryDirections();
   }, []);
 
-  let directionsCards;
+  
   if (directions.length > 0) {
     directionsCards = directions.map((direction:direction) => {
       return <DirectionsCard  key={uuidv4()} direction={direction.attributes} />;
