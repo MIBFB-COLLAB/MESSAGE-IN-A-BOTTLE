@@ -53,6 +53,4 @@ export const deleteStory = async (id) => {
     `https://message-in-a-bottle-api.herokuapp.com/api/v1/stories/${id}`,
     { method: 'DELETE' }
   );
-
-  // return await response.json();
 };

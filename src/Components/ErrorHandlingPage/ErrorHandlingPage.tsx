@@ -1,8 +1,6 @@
 import './ErrorHandlingPage.css';
-import React from "react"
 import { Link } from 'react-router-dom'
 import {Button} from '@mui/material'
-
 
 const ErrorHandlingPage = () => {
   return (

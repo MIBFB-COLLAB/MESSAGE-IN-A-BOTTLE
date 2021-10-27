@@ -4,9 +4,7 @@ import StoryCard from '../StoryCard/StoryCard';
 import { getData } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
-
 const { v4: uuidv4 } = require('uuid');
-
 
 interface story {
     attributes: { title: string; distance_in_miles: number; created_at: string; };
@@ -18,9 +16,11 @@ const StoriesContainer = ({ longitude, latitude }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+    /***********************************/
+        /* GET STORIES NEAR BY*/
+    /**********************************/
   const getStories = () => {
     getData(latitude, longitude)
-      // .then((data) => console.log(data))
       .then((data) => setCurrentStories(data.data.stories))
       .catch((error) => setError(error));
   };
@@ -29,7 +29,10 @@ const StoriesContainer = ({ longitude, latitude }) => {
     getStories();
     setIsLoading(true);
   }, []);
-
+    
+    /***********************************/
+          /* CURRENT STORIES CARD */
+    /**********************************/
   const storyCards = currentStories.map((story:story) => {
     const { title, distance_in_miles, created_at } = story.attributes;
     return (

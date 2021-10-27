@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
 import MicroModal from 'react-micro-modal';
 import { Link } from 'react-router-dom';
 import { NewStoryForm } from '../NewStoryForm/NewStoryForm';

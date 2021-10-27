@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
-import { Button } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
-
-// declare module '@mui/material' {
-//   export interface MyProps {
-
-//     exact?: boolean;
-//     to?: string;
-//   }
-//   export const Button extends StyledComponent<ButtonProps & MyProps> {
-//   }
-
-// }
-
 import './LocationSelection.css';
 
 export const LocationSelection = () => {
@@ -23,16 +9,25 @@ export const LocationSelection = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+    /***********************************/
+      /* GET USERS CURRENT LOCATION*/
+    /**********************************/
   const getLocation = (position:any) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
 
+  /***********************************/
+      /* ERROR FOR NO LOCATION */
+  /**********************************/
   const catchError = () => {
     setError('Sorry, no position available.');
     console.log(error);
   };
 
+  /***********************************/
+      /* INVOKE GEOLOCATION FETCH*/
+  /**********************************/
   const handleClick = (e) => {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
@@ -57,7 +52,6 @@ export const LocationSelection = () => {
           </LoadingButton>
         </div>
       )}
-      {/* {isLoading && <LoadingComponent />} */}
       {latitude && longitude && (
         <Redirect to={`/storiesPage/${latitude}/${longitude}`} />
       )}

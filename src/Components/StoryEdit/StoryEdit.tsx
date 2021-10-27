@@ -8,23 +8,27 @@ import { FormControl } from '@mui/material';
 import { Stack } from '@mui/material';
 import { TextField } from '@mui/material';
 import { FormHelperText } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 const StoryEdit = ({ newStory }) => {
   const { data } = newStory;
   const { attributes } = data;
-
   const [title, setTitle] = useState(attributes.title);
   const [message, setMessage] = useState(attributes.message);
   const id = data.id;
   const [left, setLeft] = useState(1000);
 
+    /********************************************/
+        /* SET LIMIT FOR STORY MESAAGE */
+    /********************************************/
   const setCharacterLimit = (e) => {
     let input = e.target.value;
     setMessage(e.target.value);
     setLeft(1000 - input.length);
   };
 
+    /********************************************/
+        /* SUBMIT NEW STORY MESAAGE AND POST */
+    /********************************************/
   const submitMessage = (e) => {
     e.preventDefault();
     const newStory = {
@@ -35,6 +39,9 @@ const StoryEdit = ({ newStory }) => {
     editNewStory(newStory, id).then((data) => console.log(data));
   };
 
+    /********************************************/
+                /* DELETE NEW STORY */
+    /********************************************/
   const deleteNewStory = (e) => {
     e.preventDefault();
     deleteStory(id);

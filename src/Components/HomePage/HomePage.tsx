@@ -1,6 +1,4 @@
 import './HomePage.css';
-import React from 'react';
-import Header from '../Header/Header';
 import UserInstructions from '../UserInstructions/UserInstructions';
 import { LocationSelection } from '../LocationSelection/LocationSelection';
 
