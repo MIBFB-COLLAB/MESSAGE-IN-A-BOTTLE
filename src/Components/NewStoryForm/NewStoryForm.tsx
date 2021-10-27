@@ -23,6 +23,7 @@ export const NewStoryForm = () => {
   const [error, setError] = useState('');
   const [newStory, setNewStory] = useState(null);
   const [left, setLeft] = useState(1000);
+  const [disabled, setDisabled] = useState(true);
 
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
@@ -32,6 +33,13 @@ export const NewStoryForm = () => {
   const catchError = () => {
     setError('Sorry, no position available.');
   };
+
+  const handleChange = (e) => {
+    setTitle(e.target.value)
+    if ( title && message ) {
+      setDisabled(false);
+    }
+  }
 
   const submitMessage = (e) => {
     e.preventDefault();
@@ -49,6 +57,10 @@ export const NewStoryForm = () => {
     let input = e.target.value;
     setMessage(e.target.value);
     setLeft(1000 - input.length);
+
+    if ( message && title ) {
+      setDisabled(false)
+    }
   };
 
   useEffect(() => {
@@ -79,7 +91,7 @@ export const NewStoryForm = () => {
               className="title"
               value={title}
               required
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => handleChange(e)}
             />
           </FormControl>
           <Stack direction="column" spacing={4}>
@@ -95,7 +107,6 @@ export const NewStoryForm = () => {
                   maxLength: 1000,
                   id: "message"
                 }}
-
                 onChange={(e) => setCharacterLimit(e)}
                 multiline
               />
@@ -104,6 +115,7 @@ export const NewStoryForm = () => {
               </FormHelperText>
             </FormControl>
             <Button
+              disabled={disabled}
               variant="outlined"
               type="submit"
               className="story-submit-button"

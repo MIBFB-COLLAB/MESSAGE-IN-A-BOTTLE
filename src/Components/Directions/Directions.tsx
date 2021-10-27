@@ -17,6 +17,9 @@ const Directions = ({ id, latitude, longitude }) => {
   const [error, setError] = useState('');
   let directionsCards;
 
+  /****************************************/
+      /* DIRECTIONS BY LAT AND LONG */
+  /****************************************/
   const getStoryDirections = () => {
     getDirections(id, latitude, longitude)
       .then((data) => setDirections(data.data))
