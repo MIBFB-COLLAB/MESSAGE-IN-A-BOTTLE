@@ -59,7 +59,7 @@ const StoryEdit = ({ newStory }) => {
     >
       <Typography
         id="editInstructions">
-        Your story successfully been added to Message in a Bottle.
+        Your story has successfully been added to Message in a Bottle.
         <br />
         Please take a moment to review, edit or remove your story.
         <br />
