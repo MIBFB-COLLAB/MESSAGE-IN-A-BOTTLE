@@ -101,9 +101,9 @@ To get a local copy up and running follow these simple steps.
 ## USAGE
 <!--DESCRIBE WHAT THE USAGE EXPERIENCE IS LIKE/BUILT ON -->
 
-Mobile Spec              |  Desktop Spec
+Mobile Story View Spec              |  Mobile Create Story Spec
 :----------------------------:|:-------------------------:
-![MIB_mobile_gif](gist-gif)|![MIB_desktop_gif](gist-gif)
+![MIB_mobile_gif](https://user-images.githubusercontent.com/82064981/139134685-18a69cc7-7872-4442-9a60-72532071ad06.gif)|![MIB_desktop_gif](https://user-images.githubusercontent.com/82064981/139134697-3ab7221b-5ecc-4ada-bf82-d1f09b6801ca.gif)
 
 
 
@@ -162,3 +162,5 @@ Contributions are what make the open source community such an amazing place to b
 [circle-ci-url]:
 [material-components-shield]:
 [material-components-url]:
+![recording (7)](https://user-images.githubusercontent.com/82064981/139134685-18a69cc7-7872-4442-9a60-72532071ad06.gif)
+![recording (8)](https://user-images.githubusercontent.com/82064981/139134697-3ab7221b-5ecc-4ada-bf82-d1f09b6801ca.gif)
