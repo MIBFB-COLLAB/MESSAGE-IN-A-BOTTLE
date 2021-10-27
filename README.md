@@ -1,4 +1,4 @@
-## Message in a Bottle
+
 
 <!-- PROJECT Details -->
 
@@ -14,6 +14,8 @@
     <a href="https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues">Report Bug</a>
     ·
     <a href="https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues">Request Feature</a>
+    ·
+    <a href="https://mod4.turing.edu/projects/capstone/">Project Spec</a>
 </p>
 
 
