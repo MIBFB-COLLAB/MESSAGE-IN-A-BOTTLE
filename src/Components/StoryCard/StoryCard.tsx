@@ -18,22 +18,34 @@ const StoryCard = ({ id, title, distance, timeStamp }) => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+    /***********************************/
+        /* GET USERS CURRENT LOCATION*/
+    /**********************************/
   const getLocation = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   };
 
+    /***********************************/
+      /* GET ERROR IF NO CORDINATES */
+    /**********************************/
   const catchError = () => {
     setError('Sorry, no position available.');
     console.log(error);
   };
 
+    /********************************************/
+        /* SET LOADING AND FETCH GEOLOCATION*/
+    /********************************************/
   const handleStoryClick = () => {
     setIsLoading(true);
     setIsStory(true);
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   };
 
+    /********************************************/
+        /* SET LOADING AND FETCH GEOLOCATION*/
+    /********************************************/
   const handleDirectionsClick = () => {
     setIsLoading(true);
     setIsDirections(true);
