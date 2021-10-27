@@ -1,8 +1,7 @@
 import './Directions.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { DirectionsCard } from '../DirectionsCard/DirectionsCard';
 import { getDirections } from '../../apiCalls';
-import ErrorHandlingCard from '../ErrorHandlingCard/ErrorHandlingCard';
 import { LoadingComponent } from '../LoadingComponent/LoadingComponent';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
