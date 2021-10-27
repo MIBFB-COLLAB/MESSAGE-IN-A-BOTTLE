@@ -3,7 +3,7 @@ describe('Landing Page', () => {
     cy.visit('http://localhost:3000/');
   });
 
-  it('Should be able to access to application by URL and see Home Page', () => {
+  it('Should be able to access the application by URL and see Home Page', () => {
     cy.url().should('include', '/');
     cy.url().should('eq', 'http://localhost:3000/');
   });
@@ -39,7 +39,8 @@ describe('Landing Page', () => {
   });
 
   it('Should be able to get stories near by clicking the button', () => {
-    cy.get('.location-selection').get('.MuiLoadingButton-root').click();
+    cy.get('.location-selection').get('.MuiLoadingButton-root').click().wait(5000)
+      .get('.stories-container > :nth-child(1)').should('be.visible')
   });
 });
 
@@ -48,13 +49,12 @@ describe('Create new story', () => {
     cy.visit('http://localhost:3000/');
   });
 
-  it('Should be able click submit story button, in order to submit new story', () => {
+  it('Should be able to view a modal to submit a story', () => {
     cy.get('Header').get('div');
     cy.get('.MuiButton-root').eq(0).click();
     cy.on('window:confirm', (txt) => {
       expect(txt).to.contains('Allow', 'Block');
     });
-
     cy.get('article')
       .get('h3')
       .contains('Create Your Message')
@@ -72,13 +72,13 @@ describe('Create new story', () => {
     // cy.PostStory('POST');
   });
 
-  it('Should be able to see button and text to get stories near by', () => {
+  it('Should be able to see button and text to get stories nearby', () => {
     cy.get('.location-selection').get('.MuiLoadingButton-root').click();
-    cy.GetStory('GET');
+    cy.get('.stories-container > :nth-child(1)').should('be.visible')
   });
 });
 
-// describe('EditStory component', () => {
+describe('EditStory component', () => {
   // beforeEach('Edit story card form modal', () => {
   //   cy.visit('http://localhost:3000/')
   //   cy.get('.MuiButton-root').click()
@@ -107,32 +107,25 @@ describe('Create new story', () => {
   //   .get('#miles').contains('Miles')
   // })
 
-  // it('Should be able to delete story by clicking button and modal has to close', () => {
-  //   cy.visit('http://localhost:3000/');
-  //   cy.get('.MuiButton-root').eq(0).click();
-  //   cy.get('article')
-  //     .get('h3')
-  //     .contains('Create Your Message')
-  //     .get('div')
-  //     .get('.title')
-  //     .type('Delete test')
-  //     .get('[id="message"]')
-  //     .type('faras delete test')
-  //     .get('button')
-  //     .contains('Submit Story')
-  //     .click();
-  //   cy.PostStory('POST');
-  //   cy.get('#newStoryModal');
-  //   cy.get('#editInstructions')
-  //     .contains('Bottle')
-  //     .get('#text')
-  //     .contains('Once')
-  //     .get('#deleteBtn')
-  //     .click();
-  //   cy.DeleteStory('DELETE');
-  //   cy.visit('http://localhost:3000/');
-  //   cy.get('.MuiLoadingButton-root').click();
-  //   cy.get('.instructions').contains('location');
-  //   cy.expect('#storyTitle').to.not.equal('Delete test');
-  // });
-// });
+  it('Should be able to post and delete story', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.MuiButton-root').eq(0).click();
+    cy.get('article')
+      .get('h3')
+      .contains('Create Your Message')
+      .get('div')
+      .get('.title')
+      .type('CYPRESS TESTING')
+      .get('[id="message"]')
+      .type('testing testing testing')
+      .get('button')
+      .contains('Submit Story')
+      .click().wait(5000)
+    cy.get('#deleteBtn')
+      .click().wait(5000)
+    cy.visit('http://localhost:3000/');
+    cy.get('.MuiLoadingButton-root').click().wait(3000)
+    cy.get('.instructions').contains('location');
+    cy.expect('#storyTitle').to.not.equal('CYPRESS TEST');
+  });
+});
