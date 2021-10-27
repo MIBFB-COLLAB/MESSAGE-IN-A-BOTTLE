@@ -16,9 +16,11 @@ export const FullStoryPage = ({ id, latitude, longitude }) => {
     distance_in_miles:0,
     attributes:{distance_in_miles:0} 
   });
-
   const [error, setError] = useState('');
-
+  
+    /***********************************/
+            /* GET SINGLE STORY*/
+    /**********************************/
   const getSingleStory = () => {
     getStory(id, latitude, longitude)
       .then((data) => setStory(data.data.attributes))
