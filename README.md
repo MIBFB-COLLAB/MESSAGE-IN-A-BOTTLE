@@ -66,10 +66,12 @@ Websites
 [![Typescript][typescript-shield]][typescript-url]
 [![React Hooks][react-hooks-shield]][react-hooks-url]
 [![React Router][react-router-shield]][react-router-url]
-[![React Micromodal][react-micromodal-shield]][react-micromodal-url]
+[![MUI][material-components-shield]][material-components-url]
 [![NPM][npm-shield]][npm-url]
 [![Cypress Shield][cypress-shield]][cypress-url]
 [![Visual Studio Code][visual-studio-code-shield]][visual-studio-code-url]
+[![Circle CI][circle-ci-shield]][circle-ci-url]
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -156,3 +158,7 @@ Contributions are what make the open source community such an amazing place to b
 [cypress-url]: https://docs.cypress.io/guides/overview/why-cypress
 [visual-studio-code-shield]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
 [visual-studio-code-url]: https://code.visualstudio.com/
+[circle-ci-shield]: 
+[circle-ci-url]:
+[material-components-shield]:
+[material-components-url]:
