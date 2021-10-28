@@ -135,7 +135,7 @@ Contributions are what make the open source community such an amazing place to b
 <a class="u-email Link--primary " href="mailto:faraakhatova@gmail.com">faraakhatova@gmail.com</a>
 <br/>
 <br/>
-<p>Mae Duphorn</p>
+<p>Mae Duphorne</p>
 <a href="https://github.com/maeduphorne">GitHub</a>
 <br/>
 <a class="u-email Link--primary " href="mailto:maelduphorne@gmail.com">maelduphorne@gmail.com</a>
