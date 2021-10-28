@@ -27,17 +27,17 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#tools-used">Tools Used</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#road-map">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -46,6 +46,9 @@
 
 ### About the Project
 <!-- Describe what the over all scope and learning goal of the project is, and what set-up the challenge was framed in-->
+Message in a Bottle is an interactive application where users can discover stories about the communities around them. This app was designed as a way to interact with cities, neighborhoods, and the people that inhabit them. The Message in a Bottle Front-end is built with a React framework and designed with a mobile first view so that users can easily navigate the application when out in their community or travelling to a new place.
+
+This application was created in just 2 weeks by a team of 3 front-end and 3 back-end students for our capstone project at Turing School of Software & Design. Creating the Front-End of this full-stack application gave us an opportunity to utilize an Agile workflow to interact and collaborate with a Back-End team.
 
 
 ### Built With
@@ -53,28 +56,30 @@
 [![React Hooks][react-hooks-shield]][react-hooks-url]
 [![React Router][react-router-shield]][react-router-url]
 [![MUI][material-components-shield]][material-components-url]
-[![NPM][npm-shield]][npm-url]
 [![Cypress Shield][cypress-shield]][cypress-url]
+* React Micromodal
+* Dayjs
+* Normalize
+
+
+### Tools Used
+[![NPM][npm-shield]][npm-url]
 [![Visual Studio Code][visual-studio-code-shield]][visual-studio-code-url]
 [![Circle CI][circle-ci-shield]][circle-ci-url]
 [![Heroku][heroku-shield]][heroku-url]
 [![GitHub][github-shield]][github-url]
-
+* Zoom
+* GitHub Organizations
+* GitHub Projects
+* Miro
+* Slack
+* Figma for [Wireframes](https://www.figma.com/file/VkINSXHYuZ5YtkKTDMKq6Y/Message-in-A-Bottle-Wireframe?node-id=0%3A1)
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-* Text Editor
-* NPM
-* React Router
-* React Micromodal
-* Dayjs
-* Normalize
-* Typescript
 
 ### Installation
 
@@ -89,6 +94,15 @@ To get a local copy up and running follow these simple steps.
 
 ## USAGE
 <!--DESCRIBE WHAT THE USAGE EXPERIENCE IS LIKE/BUILT ON -->
+
+- A user is able to view the application's home page with a welcome message and press the "Get Stories" button
+- The "Get Stories" button navigates the user to a page that display all Message Cards within 50 miles.
+- This page's display allows a user to see all of these story's  Titles, the time they were created, and the distance the user currently is from the story.
+  - On each card, the user is able to click the "Get Directions" button to get up to date directions to find the story's location.
+  - On each card, the user is able to click the "View Story" button to View the message's full details if they are within 1/4 mile of the message's location.
+    - If the user is out of range of the Message Card, an error will show up telling the user they are not in range       and allowing them to navigate back home or to the previous page of cards.
+- A user is able to navigate back to the home page from any view in the Application
+
 
 Mobile Story View Spec              |  Mobile Create Story Spec
 :----------------------------:|:-------------------------:
