@@ -129,16 +129,40 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 <h3>Frontend Team<h3>
+<p>Fara Akhatova</p>
+  <a href="https://github.com/Fakhatova">GitHub</a>
+<br/>
 <a class="u-email Link--primary " href="mailto:faraakhatova@gmail.com">faraakhatova@gmail.com</a>
+<br/>
+<br/>
+<p>Mae Duphorn</p>
+<a href="https://github.com/maeduphorne">GitHub</a>
 <br/>
 <a class="u-email Link--primary " href="mailto:maelduphorne@gmail.com">maelduphorne@gmail.com</a>
 <br/>
+<br/>
+<p>Justin Anthony</p>
+<a href="https://github.com/justincanthony">GitHub</a>
+<br/>
 <a class="u-email Link--primary " href="mailto:justincanthony@gmail.com">justincanthony@gmail.com</a>
-
+<br/>
+<br/>
+  
 <h3>Backend Team<h3>
+<p>Marla Schultz</p>
+<a href="https://github.com/marlitas">GitHub</a>
+<br/>
 <a class="u-email Link--primary " href="mailto:marlaa.schulz@gmail.com">marlaa.schulz@gmail.com</a>
 <br/>
+<br/> 
+<p>Matt Kragen</p>
+<a href="https://github.com/matt-kragen">GitHub</a>
+<br/>
 <a class="u-email Link--primary " href="mattdkragen@gmail.com">mattdkragen@gmail.com</a>
+<br/>
+<br/>
+<p>Taylor Varoglu</p>
+<a href="https://github.com/tvaroglu">GitHub</a>
 <br/>
 <a class="u-email Link--primary " href="mailto:taylor.varoglu@colorado.edu
 ">taylor.varoglu@colorado.edu</a>
