@@ -53,7 +53,7 @@ export const LocationSelection = () => {
         </div>
       )}
       {latitude && longitude && (
-        <Redirect to={`/storiesPage/${latitude}/${longitude}`} />
+        <Redirect push to={`/storiesPage/${latitude}/${longitude}`} />
       )}
     </React.Fragment>
   );
