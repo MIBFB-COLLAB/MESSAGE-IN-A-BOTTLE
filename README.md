@@ -9,7 +9,7 @@
     <a href=https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://message-in-a-bottle-fe-app.herokuapp.com/">Deploy Link</a>
+    <a href="https://mib-reactapp.herokuapp.com/">Deploy Link</a>
     ·
     <a href="https://github.com/MIBFB-COLLAB/MESSAGE-IN-A-BOTTLE/issues">Report Bug</a>
     ·
