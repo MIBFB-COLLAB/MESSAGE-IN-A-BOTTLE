@@ -46,6 +46,12 @@ const StoryEdit = ({ newStory }) => {
     e.preventDefault();
     deleteStory(id);
   };
+    /********************************************/
+                /* Handle Modal Close */
+    /********************************************/
+  const handleClose = (e) => {
+    console.log(e, 'EVENT')
+  }
 
   return (
     <Box
@@ -104,7 +110,10 @@ const StoryEdit = ({ newStory }) => {
         id="editStoryBtn"
           variant="outlined"
           type="submit"
-          onClick={(e) => submitMessage(e)}
+          onClick={(e) => {
+            submitMessage(e)
+            handleClose(e)
+          }}
         >
           All Done
         </Button>
@@ -112,7 +121,10 @@ const StoryEdit = ({ newStory }) => {
           id="deleteBtn"
           variant="outlined"
           type="submit"
-          onClick={(e) => deleteNewStory(e)}
+          onClick={(e) => {
+            deleteNewStory(e)
+            handleClose(e)
+          }}
         >
           Delete Story
         </Button>
