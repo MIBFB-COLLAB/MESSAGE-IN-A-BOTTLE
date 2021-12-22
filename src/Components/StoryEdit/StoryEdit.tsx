@@ -9,7 +9,11 @@ import { Stack } from '@mui/material';
 import { TextField } from '@mui/material';
 import { FormHelperText } from '@mui/material';
 
-const StoryEdit = ({ newStory }) => {
+type Props = {
+  setter: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const StoryEdit = ({ newStory, setter }) => {
   const { data } = newStory;
   const { attributes } = data;
   const [title, setTitle] = useState(attributes.title);
@@ -49,8 +53,14 @@ const StoryEdit = ({ newStory }) => {
     /********************************************/
                 /* Handle Modal Close */
     /********************************************/
-  const handleClose = (e) => {
-    console.log(e, 'EVENT')
+  const handleDelete = (e) => {
+    deleteNewStory(e)
+    setter(false)
+  }
+
+  const handleEdit = (e) => {
+    submitMessage(e)
+    setter(false)
   }
 
   return (
@@ -110,10 +120,7 @@ const StoryEdit = ({ newStory }) => {
         id="editStoryBtn"
           variant="outlined"
           type="submit"
-          onClick={(e) => {
-            submitMessage(e)
-            handleClose(e)
-          }}
+          onClick={(e) => handleEdit(e)}
         >
           All Done
         </Button>
@@ -121,10 +128,7 @@ const StoryEdit = ({ newStory }) => {
           id="deleteBtn"
           variant="outlined"
           type="submit"
-          onClick={(e) => {
-            deleteNewStory(e)
-            handleClose(e)
-          }}
+          onClick={(e) => handleDelete(e)}
         >
           Delete Story
         </Button>

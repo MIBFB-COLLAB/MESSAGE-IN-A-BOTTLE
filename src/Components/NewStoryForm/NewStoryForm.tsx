@@ -147,14 +147,6 @@ export const NewStoryForm = () => {
           </Stack>
         </Box>
       )}
-      {newStory && (
-        <MicroModal trigger={(open) => <StoryEdit newStory={newStory} />}
-        >
-          {(close) => {
-            return <StoryEdit newStory={newStory} />;
-          }}
-        </MicroModal>
-      )}
     </React.Fragment>
   );
 };

@@ -11,6 +11,8 @@ import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
+import StoryEdit from '../StoryEdit/StoryEdit';
+import Modal from '../Modal/Modal'
 
 
 export const PracticeForm = () => {
@@ -22,6 +24,8 @@ export const PracticeForm = () => {
   const [newStory, setNewStory] = useState(null);
   const [left, setLeft] = useState(1000);
   const [disabled, setDisabled] = useState(true);
+  const [show, setShow] = useState(true);
+  const [nestedShow, setNestedShow] = useState(false);
 
     /***********************************/
       /* GET USERS CURRENT LOCATION */
@@ -82,65 +86,79 @@ export const PracticeForm = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    await submitMessage(e);
+    setNestedShow(true);
+  }
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(getLocation, catchError);
   }, []);
 
   return (
-    <Box
-      id="newStoryModal"
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <FormControl variant="standard">
-        <TextField
-          inputProps={{
-            id: "title",
-          }}
-          placeholder="Title"
-          label="Title"
-          size="small"
-          type="text"
-          className="title"
-          value={title}
-          required
-          onChange={(e) => handleChange(e)}
-        />
-      </FormControl>
-      <Stack direction="column" spacing={4}>
+    <React.Fragment>
+      { !newStory && (
+      <Box
+        id="newStoryModal"
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
         <FormControl variant="standard">
           <TextField
-            label={`${left} characters left`}
-            type="text"
-            className="message"
-            placeholder="Type your story here"
-            value={message}
-            required
             inputProps={{
-              maxLength: 1000,
-              id: "message"
+              id: "title",
             }}
-            onChange={(e) => setCharacterLimit(e)}
-            multiline
+            placeholder="Title"
+            label="Title"
+            size="small"
+            type="text"
+            className="title"
+            value={title}
+            required
+            onChange={(e) => handleChange(e)}
           />
-          <FormHelperText id="component-helper-text">
-            Your Story
-          </FormHelperText>
         </FormControl>
-        <Button
-          disabled={disabled}
-          variant="outlined"
-          type="submit"
-          className="story-submit-button"
-          onClick={(e) => submitMessage(e)}
-        >
-          Submit Story
-        </Button>
-      </Stack>
-    </Box>
+        <Stack direction="column" spacing={4}>
+          <FormControl variant="standard">
+            <TextField
+              label={`${left} characters left`}
+              type="text"
+              className="message"
+              placeholder="Type your story here"
+              value={message}
+              required
+              inputProps={{
+                maxLength: 1000,
+                id: "message"
+              }}
+              onChange={(e) => setCharacterLimit(e)}
+              multiline
+            />
+            <FormHelperText id="component-helper-text">
+              Your Story
+            </FormHelperText>
+          </FormControl>
+          <Button
+            disabled={disabled}
+            variant="outlined"
+            type="submit"
+            className="story-submit-button"
+            onClick={(e) => handleSubmit(e)}
+          >
+            Submit Story
+          </Button>
+        </Stack>
+      </Box>
+    )}
+    {newStory && (
+      <Modal show={nestedShow} setter={setNestedShow}>
+        <StoryEdit newStory={newStory} setter={setNestedShow}/>
+      </Modal>
+    )}          
+    </React.Fragment>
   );
 };
