@@ -1,4 +1,4 @@
-.why {
+.wrapper {
   width: 100%;
   position: fixed;
   top: 0;
@@ -8,4 +8,9 @@
   inset: 0px;
   justify-content: center;
   align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 1%;
 }

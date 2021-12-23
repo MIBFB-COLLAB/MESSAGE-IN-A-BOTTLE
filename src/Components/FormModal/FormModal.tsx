@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ReactDom from 'react-dom';
 import React from 'react';
 import './FormModal.css';
-import { PracticeForm } from '../NewStoryForm/PracticeForm';
+import { NewStoryForm } from '../NewStoryForm/NewStoryForm';
 import StoryEdit from '../StoryEdit/StoryEdit';
 
 type Props = {
@@ -17,9 +17,9 @@ const Modal: React.FC<Props> = ({show, setter}) => {
   return ReactDom.createPortal(
     <>
       {show && (
-        <div className='why' onClick={() => setter(!show)}>
+        <div className='wrapper' onClick={() => setter(!show)}>
           <div className='modal' onClick={(e) => e.stopPropagation()}>
-            {!newStory && <PracticeForm newStory={newStory} setNewStory={setNewStory}/>}
+            {!newStory && <NewStoryForm newStory={newStory} setNewStory={setNewStory}/>}
             {newStory && <StoryEdit newStory={newStory} show={show} showSetter={setter} storySetter={setNewStory}   />}
             <button onClick={() => setter(!show)}>Close Modal</button>
           </div>

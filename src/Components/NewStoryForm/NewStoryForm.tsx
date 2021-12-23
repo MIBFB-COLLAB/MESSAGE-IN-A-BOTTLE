@@ -1,8 +1,6 @@
 import './NewStoryForm.css';
 import React, { useState, useEffect } from 'react';
 import { sendNewStory } from '../../apiCalls';
-import MicroModal from 'react-micro-modal';
-import StoryEdit from '../StoryEdit/StoryEdit';
 
 /****************************/
         /*MUI Components*/
@@ -13,15 +11,15 @@ import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
+import CommunicationStayPrimaryLandscape from 'material-ui/svg-icons/communication/stay-primary-landscape';
 
 
-export const NewStoryForm = () => {
+export const NewStoryForm = ({newStory, setNewStory}) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [error, setError] = useState('');
-  const [newStory, setNewStory] = useState(null);
   const [left, setLeft] = useState(1000);
   const [disabled, setDisabled] = useState(true);
 
@@ -89,64 +87,76 @@ export const NewStoryForm = () => {
   }, []);
 
   return (
-    <React.Fragment>
-      {!newStory && (
-        <Box
-          id="newStoryModal"
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch' },
+    <Box
+      id="newStoryModal"
+      component="form"
+      sx={{
+        // '& .MuiFormControl-root': { m: 1, width: .8 },
+        backgroundColor: 'white',
+        padding: '2%',
+
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <FormControl variant="standard"
+        sx={{
+          width: .9,
+        }}
+      >
+        <TextField
+        sx={{
+          m: 1,
+          width: '100%',
+        }}
+          inputProps={{
+            id: "title",
           }}
-          noValidate
-          autoComplete="off"
+          placeholder="Title"
+          label="Title"
+          size="small"
+          type="text"
+          className="title"
+          value={title}
+          required
+          onChange={(e) => handleChange(e)}
+        />
+      </FormControl>
+      <Stack direction="column" spacing={4} justifyContent='center' m='auto'>
+        <FormControl variant="standard">
+          <TextField
+            label={`${left} characters left`}
+            sx={{
+              m: 1,
+            }}
+            type="text"
+            maxRows={4}
+            className="message"
+            placeholder="Type your story here"
+            value={message}
+            required
+            inputProps={{
+              maxLength: 1000,
+              id: "message"
+            }}
+            onChange={(e) => setCharacterLimit(e)}
+            multiline
+          />
+        </FormControl>
+        <Button
+          sx = {{
+            width: .9,
+            m: 'auto',
+          }}
+          disabled={disabled}
+          variant="outlined"
+          type="submit"
+          className="story-submit-button"
+          onClick={(e) => submitMessage(e)}
         >
-          <FormControl variant="standard">
-            <TextField
-              inputProps={{
-                id: "title",
-              }}
-              placeholder="Title"
-              label="Title"
-              size="small"
-              type="text"
-              className="title"
-              value={title}
-              required
-              onChange={(e) => handleChange(e)}
-            />
-          </FormControl>
-          <Stack direction="column" spacing={4}>
-            <FormControl variant="standard">
-              <TextField
-                label={`${left} characters left`}
-                type="text"
-                className="message"
-                placeholder="Type your story here"
-                value={message}
-                required
-                inputProps={{
-                  maxLength: 1000,
-                  id: "message"
-                }}
-                onChange={(e) => setCharacterLimit(e)}
-                multiline
-              />
-              <FormHelperText id="component-helper-text">
-                Your Story
-              </FormHelperText>
-            </FormControl>
-            <Button
-              disabled={disabled}
-              variant="outlined"
-              type="submit"
-              className="story-submit-button"
-              onClick={(e) => submitMessage(e)}
-            >
-              Submit Story
-            </Button>
-          </Stack>
-        </Box>
-      )}
-    </React.Fragment>
-  );
+          Submit Story
+        </Button>
+      </Stack>
+    </Box>
+  )
 };
