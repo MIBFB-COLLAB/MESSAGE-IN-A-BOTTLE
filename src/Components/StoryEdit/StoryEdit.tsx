@@ -13,7 +13,7 @@ type Props = {
   setter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const StoryEdit = ({ newStory, setter }) => {
+const StoryEdit = ({ newStory, show, showSetter, storySetter }) => {
   const { data } = newStory;
   const { attributes } = data;
   const [title, setTitle] = useState(attributes.title);
@@ -55,12 +55,14 @@ const StoryEdit = ({ newStory, setter }) => {
     /********************************************/
   const handleDelete = (e) => {
     deleteNewStory(e)
-    setter(false)
+    storySetter(null)
+    showSetter(false)
   }
 
   const handleEdit = (e) => {
     submitMessage(e)
-    setter(false)
+    storySetter(null)
+    showSetter(false)
   }
 
   return (

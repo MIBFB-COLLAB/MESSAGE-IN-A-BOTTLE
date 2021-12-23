@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './Header.css';
-import Modal from '../Modal/Modal'
+import Modal from '../FormModal/FormModal'
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -29,7 +29,6 @@ const Header = () => {
             </Typography>
             <Button color='inherit' onClick={() => setShow(!show)}>Practice Modal</Button>
             <Modal show={show} setter={setShow}>
-              <PracticeForm />
             </Modal>
             <MicroModal
               trigger={(open) => (
